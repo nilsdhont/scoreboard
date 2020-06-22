@@ -17,16 +17,16 @@ import static java.nio.charset.Charset.defaultCharset;
 
 public class SportEasyResource {
 
-    private Client client = ClientBuilder.newClient();
-    private WebTarget matchTarget;
-    private String xCsrfToken;
-    private String cookie;
+    private final WebTarget matchTarget;
+    private final String xCsrfToken;
+    private final String cookie;
 
     @Inject
     public SportEasyResource(int teamId, int matchId) {
         SportEasyConfig sportEasyConfig = new SportEasyConfig();
         xCsrfToken = sportEasyConfig.getValue("x-csrftoken");
         cookie = sportEasyConfig.getValue("cookie");
+        Client client = ClientBuilder.newClient();
         matchTarget = client.target("https://api.sporteasy.net/v2.1/teams/" + teamId + "/events/" + matchId + "/");
     }
 
@@ -38,9 +38,8 @@ public class SportEasyResource {
         if (response.getStatus() != Response.Status.ACCEPTED.getStatusCode()) {
             try {
                 String data = IOUtils.toString((InputStream) response.getEntity(), defaultCharset());
-                MatchData matchData = JsonbBuilder.create().fromJson(data, MatchData.class);
 
-                return matchData;
+                return JsonbBuilder.create().fromJson(data, MatchData.class);
 
             } catch (IOException e) {
                 e.printStackTrace();

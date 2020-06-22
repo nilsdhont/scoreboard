@@ -25,21 +25,20 @@ public class ScoreBoardController {
 
         if (match != null) {
             match.updateScore();
+            printScore(match);
         }
 
-        printScore(match);
     }
 
     private void printScore(Match match) {
-        StringBuilder s = new StringBuilder()
-                .append(match.getNameBrigandZe())
-                .append(": ")
-                .append(match.getScoreBrigandZe())
-                .append(" - ")
-                .append(match.getNameVisitors())
-                .append(": ")
-                .append(match.getScoreVisitors());
-        System.out.println(s.toString());
+        String s = match.getNameBrigandZe() +
+                ": " +
+                match.getScoreBrigandZe() +
+                " - " +
+                match.getNameVisitors() +
+                ": " +
+                match.getScoreVisitors();
+        System.out.println(s);
     }
 
 

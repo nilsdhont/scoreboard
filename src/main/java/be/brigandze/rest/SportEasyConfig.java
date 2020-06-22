@@ -21,10 +21,9 @@ public class SportEasyConfig implements ConfigSource {
             Properties properties = new Properties();
             properties.load(in);
 
-            Map<String, String> collect = properties.stringPropertyNames()
+            return properties.stringPropertyNames()
                     .stream()
                     .collect(Collectors.toMap(Function.identity(), properties::getProperty));
-            return collect;
 
         } catch (IOException e) {
             System.out.println(e.getMessage());

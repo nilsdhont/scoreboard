@@ -7,15 +7,12 @@ import lombok.Getter;
 @Getter
 public class Match {
 
-    private SportEasyResource sportEasyResource;
-
+    boolean namesSet;
+    private final SportEasyResource sportEasyResource;
     private int scoreBrigandZe = 0;
     private String nameBrigandZe;
-
     private int scoreVisitors = 0;
     private String nameVisitors;
-
-    boolean namesSet;
 
     public Match(int teamId, int id) {
         this.sportEasyResource = new SportEasyResource(teamId, id);
