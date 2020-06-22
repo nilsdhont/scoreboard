@@ -39,6 +39,7 @@ public class ScoreBoardController {
                 ": " +
                 match.getScoreVisitors();
         System.out.println(s);
+
     }
 
 

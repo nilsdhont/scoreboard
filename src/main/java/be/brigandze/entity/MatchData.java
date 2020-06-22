@@ -22,5 +22,7 @@ public class MatchData {
     private Opponent opponent_left;
     private Opponent opponent_right;
 
+    private Links _links;
+
 
 }

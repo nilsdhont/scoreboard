@@ -30,7 +30,13 @@ public class Match {
                 nameBrigandZe = matchData.getOpponent_left().getFull_name();
                 nameVisitors = matchData.getOpponent_right().getFull_name();
             }
+            printLiveStats(matchData);
         }
 
+    }
+
+    public void printLiveStats(MatchData matchData) {
+        String liveStats = sportEasyResource.getLiveStats(matchData);
+        System.out.println(liveStats);
     }
 }
