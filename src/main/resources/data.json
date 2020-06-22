@@ -1,0 +1,2754 @@
+{
+  "id": 7718818,
+  "category": {
+    "id": 761206,
+    "slug_name": "vlaanderen-1",
+    "type": "championship_match",
+    "championship_day": 14,
+    "localized_name": "Vlaanderen 1"
+  },
+  "is_sportive": true,
+  "season": {
+    "start_date": "2019-07-01",
+    "end_date": "2020-05-31",
+    "name": "2019-2020",
+    "current": false,
+    "archived": true,
+    "id": 409039,
+    "slug_name": "2019-2020",
+    "_links": {}
+  },
+  "start_at": "2020-03-08T15:00:00+01:00",
+  "end_at": "2020-03-08T17:00:00+01:00",
+  "is_date_unknown": false,
+  "is_cancelled": false,
+  "is_past": true,
+  "step": "event_begun",
+  "registration_open_at": "2020-02-29T16:01:08+01:00",
+  "opponent_left": {
+    "jersey_color": null,
+    "tactic": {
+      "slug_name": "rugby_15_default",
+      "localized_name": "Standaard"
+    },
+    "short_name": "BrigandZe",
+    "has_lineup": true,
+    "is_home": true,
+    "full_name": "BrigandZe",
+    "score": "65",
+    "is_current_team": true,
+    "is_lineup_public": true,
+    "match_outcome": "victory",
+    "stats": [],
+    "id": 594671
+  },
+  "opponent_right": {
+    "jersey_color": null,
+    "tactic": null,
+    "short_name": null,
+    "has_lineup": null,
+    "is_home": false,
+    "full_name": "Waereghem RC",
+    "score": "10",
+    "is_current_team": false,
+    "is_lineup_public": null,
+    "match_outcome": "defeat",
+    "stats": [],
+    "id": 595513
+  },
+  "location": null,
+  "attendance_groups": [
+    {
+      "count": 28,
+      "localized_name": "Participants",
+      "attendance_status": "present",
+      "slug_name": "played",
+      "importance_level": 1
+    },
+    {
+      "count": 8,
+      "localized_name": "Non participants",
+      "attendance_status": "absent",
+      "slug_name": "not_played",
+      "importance_level": 1
+    }
+  ],
+  "available_threshold_reached": true,
+  "me": {
+    "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2093695/",
+    "group": {
+      "slug_name": "played",
+      "localized_name": "Participants",
+      "attendance_status": "present",
+      "importance_level": 1,
+      "target_groups": [
+        "not_played"
+      ]
+    },
+    "opponent": "opponent_left",
+    "profile": {
+      "id": 2093695,
+      "first_name": "Nils",
+      "last_name": "D'hont",
+      "full_name": "Nils D'Hont",
+      "avatar": {
+        "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/1ae6d43378e66868f3f797e8aea46503/55583390f79d11e8bcb8e5c80f98d918.jpg",
+        "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/1ae6d43378e66868f3f797e8aea46503/55583390f79d11e8bcb8e5c80f98d918.jpg",
+        "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/1ae6d43378e66868f3f797e8aea46503/55583390f79d11e8bcb8e5c80f98d918.jpg",
+        "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/1ae6d43378e66868f3f797e8aea46503/55583390f79d11e8bcb8e5c80f98d918.jpg"
+      },
+      "email": "nilsdhont@gmail.com",
+      "phone_number": "+32 499 60 46 20",
+      "activated_at": "2018-12-04T09:16:13+01:00",
+      "date_of_birth": "1993-03-05",
+      "weight": null,
+      "height": null,
+      "default_language": "nl",
+      "is_active": true,
+      "nickname": null,
+      "invited_at": "2018-12-03T19:23:02+01:00"
+    },
+    "role": {
+      "slug_name": "role_player",
+      "localized_name": "Speler"
+    },
+    "usual_tactic_position": {
+      "slug_name": "rugby_three_quarters",
+      "localized_name": "Three-quarters",
+      "localized_name_short": "3Q"
+    },
+    "presence": {
+      "slug_name": "on_time",
+      "localized_name": "Op tijd",
+      "target_groups": [
+        "late",
+        "excused",
+        "not_excused",
+        "injured",
+        "not_selected"
+      ]
+    },
+    "registration_sent_at": "2020-03-03T17:27:58+01:00",
+    "has_replied_at": "2020-03-03T17:28:08+01:00",
+    "was_late": false,
+    "led": "green",
+    "stats": null,
+    "rating": null,
+    "form_player_stats": null,
+    "jersey_number": null,
+    "_links": {}
+  },
+  "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/",
+  "thread_id": 5002833,
+  "attendees": [
+    {
+      "results": [
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2915019/",
+          "group": {
+            "slug_name": "played",
+            "localized_name": "Participants",
+            "attendance_status": "present",
+            "importance_level": 1,
+            "target_groups": [
+              "not_played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2915019,
+            "first_name": "Bram",
+            "last_name": "De Coster",
+            "full_name": "Bram De Coster",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/2efed62668c95f3cbbffedffb038da67/c74e4ad48470485a804f0d2c3b272f11.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/2efed62668c95f3cbbffedffb038da67/c74e4ad48470485a804f0d2c3b272f11.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/2efed62668c95f3cbbffedffb038da67/c74e4ad48470485a804f0d2c3b272f11.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/2efed62668c95f3cbbffedffb038da67/c74e4ad48470485a804f0d2c3b272f11.jpg"
+            },
+            "email": "bramdecoster@outlook.com",
+            "phone_number": "+32 486 37 19 29",
+            "activated_at": "2019-11-19T23:16:49+01:00",
+            "date_of_birth": "2001-03-13",
+            "weight": null,
+            "height": null,
+            "default_language": "nl",
+            "is_active": true,
+            "nickname": "",
+            "invited_at": "2019-11-19T23:13:52+01:00"
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": null,
+          "presence": {
+            "slug_name": "on_time",
+            "localized_name": "Op tijd",
+            "target_groups": [
+              "late",
+              "excused",
+              "not_excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-02-29T16:01:08+01:00",
+          "has_replied_at": "2020-02-29T16:01:19+01:00",
+          "was_late": false,
+          "led": "green",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": "",
+          "_links": {}
+        },
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2136119/",
+          "group": {
+            "slug_name": "played",
+            "localized_name": "Participants",
+            "attendance_status": "present",
+            "importance_level": 1,
+            "target_groups": [
+              "not_played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2136119,
+            "first_name": "Dajo",
+            "last_name": "Criel",
+            "full_name": "Dajo Criel",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/85d55909c3ae7c18d840bf2f0cdb4f2c/3f8e5080150211e9b58b91e9a750de85.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/85d55909c3ae7c18d840bf2f0cdb4f2c/3f8e5080150211e9b58b91e9a750de85.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/85d55909c3ae7c18d840bf2f0cdb4f2c/3f8e5080150211e9b58b91e9a750de85.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/85d55909c3ae7c18d840bf2f0cdb4f2c/3f8e5080150211e9b58b91e9a750de85.jpg"
+            },
+            "email": "dajocriel@gmail.com",
+            "phone_number": "+32 470 83 44 60",
+            "activated_at": "2019-01-10T19:05:00+01:00",
+            "date_of_birth": "2002-05-08",
+            "weight": "66",
+            "height": "182",
+            "default_language": "en",
+            "is_active": true,
+            "nickname": "",
+            "invited_at": "2019-01-10T18:54:41+01:00"
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": {
+            "slug_name": "rugby_wing",
+            "localized_name": "Wing",
+            "localized_name_short": "W"
+          },
+          "presence": {
+            "slug_name": "on_time",
+            "localized_name": "Op tijd",
+            "target_groups": [
+              "late",
+              "excused",
+              "not_excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-02-29T16:01:08+01:00",
+          "has_replied_at": "2020-02-29T16:01:44+01:00",
+          "was_late": false,
+          "led": "green",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": "",
+          "_links": {}
+        },
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2109661/",
+          "group": {
+            "slug_name": "played",
+            "localized_name": "Participants",
+            "attendance_status": "present",
+            "importance_level": 1,
+            "target_groups": [
+              "not_played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2109661,
+            "first_name": "Sam",
+            "last_name": "De Cuyper",
+            "full_name": "Sam De Cuyper",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/140546015c171960b83c8bdf3f878468/20ea7d86837c46c5bf8cef9a935ced4c.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/140546015c171960b83c8bdf3f878468/20ea7d86837c46c5bf8cef9a935ced4c.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/140546015c171960b83c8bdf3f878468/20ea7d86837c46c5bf8cef9a935ced4c.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/140546015c171960b83c8bdf3f878468/20ea7d86837c46c5bf8cef9a935ced4c.jpg"
+            },
+            "email": "samdc3@hotmail.com",
+            "phone_number": null,
+            "activated_at": "2018-12-14T23:36:34+01:00",
+            "date_of_birth": null,
+            "weight": null,
+            "height": null,
+            "default_language": "nl",
+            "is_active": true,
+            "nickname": null,
+            "invited_at": "2018-12-03T19:23:02+01:00"
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": {
+            "slug_name": "rugby_half_backs",
+            "localized_name": "Halfback",
+            "localized_name_short": "HB"
+          },
+          "presence": {
+            "slug_name": "on_time",
+            "localized_name": "Op tijd",
+            "target_groups": [
+              "late",
+              "excused",
+              "not_excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-02-29T16:01:08+01:00",
+          "has_replied_at": "2020-02-29T16:02:51+01:00",
+          "was_late": false,
+          "led": "green",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": null,
+          "_links": {}
+        },
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2093353/",
+          "group": {
+            "slug_name": "played",
+            "localized_name": "Participants",
+            "attendance_status": "present",
+            "importance_level": 1,
+            "target_groups": [
+              "not_played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2093353,
+            "first_name": "Jeroen",
+            "last_name": "Huygens",
+            "full_name": "Jeroen Huygens",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/223948a382a7a7a76dab5b8a317c1a72/288f2430f73f11e8bcb8e5c80f98d918.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/223948a382a7a7a76dab5b8a317c1a72/288f2430f73f11e8bcb8e5c80f98d918.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/223948a382a7a7a76dab5b8a317c1a72/288f2430f73f11e8bcb8e5c80f98d918.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/223948a382a7a7a76dab5b8a317c1a72/288f2430f73f11e8bcb8e5c80f98d918.jpg"
+            },
+            "email": "jeroenhuygens@hotmail.com",
+            "phone_number": null,
+            "activated_at": "2018-12-03T22:05:26+01:00",
+            "date_of_birth": null,
+            "weight": null,
+            "height": null,
+            "default_language": "nl",
+            "is_active": true,
+            "nickname": null,
+            "invited_at": "2018-12-03T19:23:02+01:00"
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": {
+            "slug_name": "rugby_scrum_half",
+            "localized_name": "Scrumhalf",
+            "localized_name_short": "SH"
+          },
+          "presence": {
+            "slug_name": "on_time",
+            "localized_name": "Op tijd",
+            "target_groups": [
+              "late",
+              "excused",
+              "not_excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-02-29T16:01:08+01:00",
+          "has_replied_at": "2020-02-29T16:05:33+01:00",
+          "was_late": false,
+          "led": "green",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": null,
+          "_links": {}
+        },
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2093090/",
+          "group": {
+            "slug_name": "played",
+            "localized_name": "Participants",
+            "attendance_status": "present",
+            "importance_level": 1,
+            "target_groups": [
+              "not_played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2093090,
+            "first_name": "Hans",
+            "last_name": "De Bie",
+            "full_name": "Hans De Bie",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/223948a382a7a7a76dab5b8a317c1a72/d2951f10f72c11e8b2d6590d26160e4a.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/223948a382a7a7a76dab5b8a317c1a72/d2951f10f72c11e8b2d6590d26160e4a.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/223948a382a7a7a76dab5b8a317c1a72/d2951f10f72c11e8b2d6590d26160e4a.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/223948a382a7a7a76dab5b8a317c1a72/d2951f10f72c11e8b2d6590d26160e4a.jpg"
+            },
+            "email": "hansdebie84@gmail.com",
+            "phone_number": null,
+            "activated_at": "2018-12-03T19:54:11+01:00",
+            "date_of_birth": "1984-08-25",
+            "weight": null,
+            "height": null,
+            "default_language": "nl",
+            "is_active": true,
+            "nickname": null,
+            "invited_at": "2018-12-03T19:23:00+01:00"
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": {
+            "slug_name": "rugby_flanker",
+            "localized_name": "Flanker",
+            "localized_name_short": "F"
+          },
+          "presence": {
+            "slug_name": "on_time",
+            "localized_name": "Op tijd",
+            "target_groups": [
+              "late",
+              "excused",
+              "not_excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-02-29T16:01:08+01:00",
+          "has_replied_at": "2020-02-29T16:05:48+01:00",
+          "was_late": false,
+          "led": "green",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": null,
+          "_links": {}
+        },
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2093280/",
+          "group": {
+            "slug_name": "played",
+            "localized_name": "Participants",
+            "attendance_status": "present",
+            "importance_level": 1,
+            "target_groups": [
+              "not_played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2093280,
+            "first_name": "Wouter",
+            "last_name": "Withofs",
+            "full_name": "Wouter Withofs",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/5c11490ca5e60d5df2eb72ce5db32168/a3d511e0fc8511e8aff5c3452d7bcb95.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/5c11490ca5e60d5df2eb72ce5db32168/a3d511e0fc8511e8aff5c3452d7bcb95.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/5c11490ca5e60d5df2eb72ce5db32168/a3d511e0fc8511e8aff5c3452d7bcb95.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/5c11490ca5e60d5df2eb72ce5db32168/a3d511e0fc8511e8aff5c3452d7bcb95.jpg"
+            },
+            "email": "wwithofs@gmail.com",
+            "phone_number": "+32 496 36 48 68",
+            "activated_at": "2018-12-03T21:27:17+01:00",
+            "date_of_birth": "1983-07-01",
+            "weight": null,
+            "height": null,
+            "default_language": "nl",
+            "is_active": true,
+            "nickname": null,
+            "invited_at": "2018-12-03T19:23:00+01:00"
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": {
+            "slug_name": "rugby_wing",
+            "localized_name": "Wing",
+            "localized_name_short": "W"
+          },
+          "presence": {
+            "slug_name": "on_time",
+            "localized_name": "Op tijd",
+            "target_groups": [
+              "late",
+              "excused",
+              "not_excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-02-29T16:01:08+01:00",
+          "has_replied_at": "2020-02-29T16:19:47+01:00",
+          "was_late": false,
+          "led": "green",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": null,
+          "_links": {}
+        },
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2093056/",
+          "group": {
+            "slug_name": "played",
+            "localized_name": "Participants",
+            "attendance_status": "present",
+            "importance_level": 1,
+            "target_groups": [
+              "not_played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2093056,
+            "first_name": "Timothy",
+            "last_name": "De Groot",
+            "full_name": "Timothy De Groot",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/223948a382a7a7a76dab5b8a317c1a72/e9674860f72911e88d35d514a6539bb8.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/223948a382a7a7a76dab5b8a317c1a72/e9674860f72911e88d35d514a6539bb8.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/223948a382a7a7a76dab5b8a317c1a72/e9674860f72911e88d35d514a6539bb8.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/223948a382a7a7a76dab5b8a317c1a72/e9674860f72911e88d35d514a6539bb8.jpg"
+            },
+            "email": "timo-t4ever@hotmail.com",
+            "phone_number": null,
+            "activated_at": "2018-12-03T19:33:20+01:00",
+            "date_of_birth": null,
+            "weight": null,
+            "height": null,
+            "default_language": "nl",
+            "is_active": true,
+            "nickname": null,
+            "invited_at": "2018-12-03T19:23:00+01:00"
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": {
+            "slug_name": "rugby_fly_half",
+            "localized_name": "Flyhalf",
+            "localized_name_short": "FH"
+          },
+          "presence": {
+            "slug_name": "on_time",
+            "localized_name": "Op tijd",
+            "target_groups": [
+              "late",
+              "excused",
+              "not_excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-02-29T16:01:08+01:00",
+          "has_replied_at": "2020-02-29T16:20:26+01:00",
+          "was_late": false,
+          "led": "green",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": null,
+          "_links": {}
+        },
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2093166/",
+          "group": {
+            "slug_name": "played",
+            "localized_name": "Participants",
+            "attendance_status": "present",
+            "importance_level": 1,
+            "target_groups": [
+              "not_played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2093166,
+            "first_name": "Sam",
+            "last_name": "Rottiers",
+            "full_name": "Sam Rottiers",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/small.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/field.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/medium.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/120x120.jpg"
+            },
+            "email": "sam.rottiers@telenet.be",
+            "phone_number": "+32 475 57 43 97",
+            "activated_at": "2018-12-03T20:26:32+01:00",
+            "date_of_birth": "1995-11-26",
+            "weight": null,
+            "height": null,
+            "default_language": "nl",
+            "is_active": true,
+            "nickname": "Juif",
+            "invited_at": "2018-12-03T19:23:02+01:00"
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": {
+            "slug_name": "rugby_wing",
+            "localized_name": "Wing",
+            "localized_name_short": "W"
+          },
+          "presence": {
+            "slug_name": "on_time",
+            "localized_name": "Op tijd",
+            "target_groups": [
+              "late",
+              "excused",
+              "not_excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-02-29T16:01:08+01:00",
+          "has_replied_at": "2020-02-29T16:22:15+01:00",
+          "was_late": false,
+          "led": "green",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": null,
+          "_links": {}
+        },
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2452447/",
+          "group": {
+            "slug_name": "played",
+            "localized_name": "Participants",
+            "attendance_status": "present",
+            "importance_level": 1,
+            "target_groups": [
+              "not_played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2452447,
+            "first_name": "Ebbe",
+            "last_name": "Rijckbosch",
+            "full_name": "Ebbe Rijckbosch",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/45a14c5c54feefb1640da5f11b7dd882/530cc63631a0495b857071eea7baedda.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/45a14c5c54feefb1640da5f11b7dd882/530cc63631a0495b857071eea7baedda.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/45a14c5c54feefb1640da5f11b7dd882/530cc63631a0495b857071eea7baedda.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/45a14c5c54feefb1640da5f11b7dd882/530cc63631a0495b857071eea7baedda.jpg"
+            },
+            "email": "ebbe.rijckbosch@gmail.com",
+            "phone_number": null,
+            "activated_at": "2019-08-17T10:01:15+02:00",
+            "date_of_birth": null,
+            "weight": null,
+            "height": null,
+            "default_language": "nl",
+            "is_active": true,
+            "nickname": "",
+            "invited_at": "2019-08-15T21:51:18+02:00"
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": null,
+          "presence": {
+            "slug_name": "on_time",
+            "localized_name": "Op tijd",
+            "target_groups": [
+              "late",
+              "excused",
+              "not_excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-02-29T16:01:08+01:00",
+          "has_replied_at": "2020-02-29T16:22:30+01:00",
+          "was_late": false,
+          "led": "green",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": "",
+          "_links": {}
+        },
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2093165/",
+          "group": {
+            "slug_name": "played",
+            "localized_name": "Participants",
+            "attendance_status": "present",
+            "importance_level": 1,
+            "target_groups": [
+              "not_played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2093165,
+            "first_name": "Filip",
+            "last_name": "Van de Voorde",
+            "full_name": "Filip Van De Voorde",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/5c11490ca5e60d5df2eb72ce5db32168/e7d39a20fc3911e8a42b2b13a43b7b18.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/5c11490ca5e60d5df2eb72ce5db32168/e7d39a20fc3911e8a42b2b13a43b7b18.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/5c11490ca5e60d5df2eb72ce5db32168/e7d39a20fc3911e8a42b2b13a43b7b18.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/5c11490ca5e60d5df2eb72ce5db32168/e7d39a20fc3911e8a42b2b13a43b7b18.jpg"
+            },
+            "email": "vandevoordeflip@gmail.com",
+            "phone_number": "+32 494 10 57 55",
+            "activated_at": "2018-12-03T20:23:29+01:00",
+            "date_of_birth": "1985-08-04",
+            "weight": "108",
+            "height": "180",
+            "default_language": "nl",
+            "is_active": true,
+            "nickname": "Fille",
+            "invited_at": "2018-12-03T19:22:59+01:00"
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": {
+            "slug_name": "rugby_front_row",
+            "localized_name": "Eerste rij",
+            "localized_name_short": "ER"
+          },
+          "presence": {
+            "slug_name": "on_time",
+            "localized_name": "Op tijd",
+            "target_groups": [
+              "late",
+              "excused",
+              "not_excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-02-29T16:01:08+01:00",
+          "has_replied_at": "2020-02-29T18:05:39+01:00",
+          "was_late": false,
+          "led": "green",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": "",
+          "_links": {}
+        },
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2450230/",
+          "group": {
+            "slug_name": "played",
+            "localized_name": "Participants",
+            "attendance_status": "present",
+            "importance_level": 1,
+            "target_groups": [
+              "not_played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2450230,
+            "first_name": "Emile",
+            "last_name": "Van Kerckhove",
+            "full_name": "Emile Van Kerckhove",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/small.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/field.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/medium.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/120x120.jpg"
+            },
+            "email": "emilevk@live.be",
+            "phone_number": null,
+            "activated_at": "2019-08-16T11:19:42+02:00",
+            "date_of_birth": "1998-06-05",
+            "weight": "76",
+            "height": "188",
+            "default_language": "nl",
+            "is_active": true,
+            "nickname": "",
+            "invited_at": "2019-08-15T21:51:46+02:00"
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": {
+            "slug_name": "rugby_flanker",
+            "localized_name": "Flanker",
+            "localized_name_short": "F"
+          },
+          "presence": {
+            "slug_name": "on_time",
+            "localized_name": "Op tijd",
+            "target_groups": [
+              "late",
+              "excused",
+              "not_excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-02-29T16:01:08+01:00",
+          "has_replied_at": "2020-02-29T18:20:50+01:00",
+          "was_late": false,
+          "led": "green",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": "",
+          "_links": {}
+        },
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2093127/",
+          "group": {
+            "slug_name": "played",
+            "localized_name": "Participants",
+            "attendance_status": "present",
+            "importance_level": 1,
+            "target_groups": [
+              "not_played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2093127,
+            "first_name": "Alexander",
+            "last_name": "Zaman",
+            "full_name": "Alexander Zaman",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/6f757cbe41e7eaf6c9188be98061f412/8c8d331f579846c2a080ed43fb883573.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/6f757cbe41e7eaf6c9188be98061f412/8c8d331f579846c2a080ed43fb883573.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/6f757cbe41e7eaf6c9188be98061f412/8c8d331f579846c2a080ed43fb883573.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/6f757cbe41e7eaf6c9188be98061f412/8c8d331f579846c2a080ed43fb883573.jpg"
+            },
+            "email": "cypress_d12@hotmail.com",
+            "phone_number": "+32 473 39 01 80",
+            "activated_at": "2018-12-03T20:10:03+01:00",
+            "date_of_birth": "1990-10-18",
+            "weight": "90",
+            "height": "186",
+            "default_language": "nl",
+            "is_active": true,
+            "nickname": "Alex",
+            "invited_at": "2018-12-03T19:23:02+01:00"
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": {
+            "slug_name": "rugby_flanker",
+            "localized_name": "Flanker",
+            "localized_name_short": "F"
+          },
+          "presence": {
+            "slug_name": "on_time",
+            "localized_name": "Op tijd",
+            "target_groups": [
+              "late",
+              "excused",
+              "not_excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-02-29T16:01:08+01:00",
+          "has_replied_at": "2020-03-01T14:24:35+01:00",
+          "was_late": false,
+          "led": "green",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": "6 / 7",
+          "_links": {}
+        },
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2148606/",
+          "group": {
+            "slug_name": "played",
+            "localized_name": "Participants",
+            "attendance_status": "present",
+            "importance_level": 1,
+            "target_groups": [
+              "not_played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2148606,
+            "first_name": "Yenthel",
+            "last_name": "De Graeve",
+            "full_name": "Yenthel De Graeve",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/small.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/field.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/medium.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/120x120.jpg"
+            },
+            "email": "yentheldegraeve@hotmail.be",
+            "phone_number": null,
+            "activated_at": "2019-01-18T10:47:03+01:00",
+            "date_of_birth": null,
+            "weight": null,
+            "height": null,
+            "default_language": "nl",
+            "is_active": true,
+            "nickname": null,
+            "invited_at": "2019-01-15T22:19:13+01:00"
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": null,
+          "presence": {
+            "slug_name": "on_time",
+            "localized_name": "Op tijd",
+            "target_groups": [
+              "late",
+              "excused",
+              "not_excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-02-29T16:01:08+01:00",
+          "has_replied_at": "2020-03-01T16:19:56+01:00",
+          "was_late": false,
+          "led": "green",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": null,
+          "_links": {}
+        },
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2093077/",
+          "group": {
+            "slug_name": "played",
+            "localized_name": "Participants",
+            "attendance_status": "present",
+            "importance_level": 1,
+            "target_groups": [
+              "not_played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2093077,
+            "first_name": "juul",
+            "last_name": "Spriet",
+            "full_name": "Juul Spriet",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/223948a382a7a7a76dab5b8a317c1a72/ca3610d0f72d11e8b6fb853f77e67334.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/223948a382a7a7a76dab5b8a317c1a72/ca3610d0f72d11e8b6fb853f77e67334.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/223948a382a7a7a76dab5b8a317c1a72/ca3610d0f72d11e8b6fb853f77e67334.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/223948a382a7a7a76dab5b8a317c1a72/ca3610d0f72d11e8b6fb853f77e67334.jpg"
+            },
+            "email": "juul.spriet@gmail.com",
+            "phone_number": "+32 470 56 50 82",
+            "activated_at": "2018-12-03T19:42:22+01:00",
+            "date_of_birth": "1995-05-20",
+            "weight": "105",
+            "height": "183",
+            "default_language": "nl",
+            "is_active": true,
+            "nickname": null,
+            "invited_at": "2018-12-03T19:23:01+01:00"
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": {
+            "slug_name": "rugby_front_row",
+            "localized_name": "Eerste rij",
+            "localized_name_short": "ER"
+          },
+          "presence": {
+            "slug_name": "on_time",
+            "localized_name": "Op tijd",
+            "target_groups": [
+              "late",
+              "excused",
+              "not_excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-02-29T16:01:08+01:00",
+          "has_replied_at": "2020-03-02T13:24:48+01:00",
+          "was_late": false,
+          "led": "green",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": null,
+          "_links": {}
+        },
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2093053/",
+          "group": {
+            "slug_name": "played",
+            "localized_name": "Participants",
+            "attendance_status": "present",
+            "importance_level": 1,
+            "target_groups": [
+              "not_played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2093053,
+            "first_name": "Frederik",
+            "last_name": "Everaert",
+            "full_name": "Frederik Everaert",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/bec29ec5aadcb7a60a306bfb0411017d/d08ed51ee32f40fa85e2d8eab6bffcac.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/bec29ec5aadcb7a60a306bfb0411017d/d08ed51ee32f40fa85e2d8eab6bffcac.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/bec29ec5aadcb7a60a306bfb0411017d/d08ed51ee32f40fa85e2d8eab6bffcac.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/bec29ec5aadcb7a60a306bfb0411017d/d08ed51ee32f40fa85e2d8eab6bffcac.jpg"
+            },
+            "email": "fred.ever@hotmail.com",
+            "phone_number": "+32 499 25 24 84",
+            "activated_at": "2018-12-03T19:32:04+01:00",
+            "date_of_birth": "1996-02-15",
+            "weight": null,
+            "height": null,
+            "default_language": "nl",
+            "is_active": true,
+            "nickname": "Fluf",
+            "invited_at": "2018-12-03T19:23:01+01:00"
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": {
+            "slug_name": "rugby_lock",
+            "localized_name": "Tweede rijer",
+            "localized_name_short": "L"
+          },
+          "presence": {
+            "slug_name": "on_time",
+            "localized_name": "Op tijd",
+            "target_groups": [
+              "late",
+              "excused",
+              "not_excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-02-29T16:01:08+01:00",
+          "has_replied_at": "2020-03-02T13:58:08+01:00",
+          "was_late": false,
+          "led": "green",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": null,
+          "_links": {}
+        },
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2493926/",
+          "group": {
+            "slug_name": "played",
+            "localized_name": "Participants",
+            "attendance_status": "present",
+            "importance_level": 1,
+            "target_groups": [
+              "not_played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2493926,
+            "first_name": "Ferre",
+            "last_name": "Schatteman",
+            "full_name": "Ferre Schatteman",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/2d0ee79541c6e1b8ffdc3880bca33c47/af1d14b8de2e4d52ba800f93a3b30c7a.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/2d0ee79541c6e1b8ffdc3880bca33c47/af1d14b8de2e4d52ba800f93a3b30c7a.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/2d0ee79541c6e1b8ffdc3880bca33c47/af1d14b8de2e4d52ba800f93a3b30c7a.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/2d0ee79541c6e1b8ffdc3880bca33c47/af1d14b8de2e4d52ba800f93a3b30c7a.jpg"
+            },
+            "email": "schatteman123@hotmail.com",
+            "phone_number": null,
+            "activated_at": "2019-08-28T11:09:20+02:00",
+            "date_of_birth": null,
+            "weight": null,
+            "height": null,
+            "default_language": "en",
+            "is_active": true,
+            "nickname": "",
+            "invited_at": null
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": null,
+          "presence": {
+            "slug_name": "on_time",
+            "localized_name": "Op tijd",
+            "target_groups": [
+              "late",
+              "excused",
+              "not_excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-02-29T16:01:08+01:00",
+          "has_replied_at": "2020-03-02T14:33:55+01:00",
+          "was_late": false,
+          "led": "green",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": "",
+          "_links": {}
+        },
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2096047/",
+          "group": {
+            "slug_name": "played",
+            "localized_name": "Participants",
+            "attendance_status": "present",
+            "importance_level": 1,
+            "target_groups": [
+              "not_played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2096047,
+            "first_name": "Kristof",
+            "last_name": "Heirman",
+            "full_name": "Kristof Heirman",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/7597ea0f561576083152c4c2cb74ec82/0cb158b0fd6a11e88b752ff43a057dc2.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/7597ea0f561576083152c4c2cb74ec82/0cb158b0fd6a11e88b752ff43a057dc2.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/7597ea0f561576083152c4c2cb74ec82/0cb158b0fd6a11e88b752ff43a057dc2.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/7597ea0f561576083152c4c2cb74ec82/0cb158b0fd6a11e88b752ff43a057dc2.jpg"
+            },
+            "email": "kristofheirman@hotmail.com",
+            "phone_number": null,
+            "activated_at": "2018-12-05T11:46:35+01:00",
+            "date_of_birth": null,
+            "weight": null,
+            "height": null,
+            "default_language": "nl",
+            "is_active": true,
+            "nickname": null,
+            "invited_at": "2018-12-03T19:23:00+01:00"
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": {
+            "slug_name": "rugby_center",
+            "localized_name": "Center",
+            "localized_name_short": "C"
+          },
+          "presence": {
+            "slug_name": "on_time",
+            "localized_name": "Op tijd",
+            "target_groups": [
+              "late",
+              "excused",
+              "not_excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-02-29T16:01:08+01:00",
+          "has_replied_at": "2020-03-02T16:03:20+01:00",
+          "was_late": false,
+          "led": "green",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": null,
+          "_links": {}
+        },
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2093074/",
+          "group": {
+            "slug_name": "played",
+            "localized_name": "Participants",
+            "attendance_status": "present",
+            "importance_level": 1,
+            "target_groups": [
+              "not_played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2093074,
+            "first_name": "Tom",
+            "last_name": "Lanckbeen",
+            "full_name": "Tom Lanckbeen",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/4a7bde5ced1311e3a091701671c87b37/17401348bff740e3818eb6f65e1d56fd.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/4a7bde5ced1311e3a091701671c87b37/17401348bff740e3818eb6f65e1d56fd.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/4a7bde5ced1311e3a091701671c87b37/17401348bff740e3818eb6f65e1d56fd.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/4a7bde5ced1311e3a091701671c87b37/17401348bff740e3818eb6f65e1d56fd.jpg"
+            },
+            "email": "tom.lanckbeen@hotmail.com",
+            "phone_number": null,
+            "activated_at": "2018-12-03T19:41:51+01:00",
+            "date_of_birth": null,
+            "weight": null,
+            "height": null,
+            "default_language": "nl",
+            "is_active": true,
+            "nickname": null,
+            "invited_at": "2018-12-03T19:23:00+01:00"
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": {
+            "slug_name": "rugby_fullback",
+            "localized_name": "Fullback",
+            "localized_name_short": "FB"
+          },
+          "presence": {
+            "slug_name": "on_time",
+            "localized_name": "Op tijd",
+            "target_groups": [
+              "late",
+              "excused",
+              "not_excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-02-29T16:01:08+01:00",
+          "has_replied_at": "2020-03-03T07:02:34+01:00",
+          "was_late": false,
+          "led": "green",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": null,
+          "_links": {}
+        },
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2900109/",
+          "group": {
+            "slug_name": "played",
+            "localized_name": "Participants",
+            "attendance_status": "present",
+            "importance_level": 1,
+            "target_groups": [
+              "not_played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2900109,
+            "first_name": "Davy",
+            "last_name": "Thibau",
+            "full_name": "Davy Thibau",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/ae9513a94b08054b5257585a7ac8c738/c12b5d9ca4cd4a278800d48abe59b7eb.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/ae9513a94b08054b5257585a7ac8c738/c12b5d9ca4cd4a278800d48abe59b7eb.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/ae9513a94b08054b5257585a7ac8c738/c12b5d9ca4cd4a278800d48abe59b7eb.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/ae9513a94b08054b5257585a7ac8c738/c12b5d9ca4cd4a278800d48abe59b7eb.jpg"
+            },
+            "email": "davy.thibau@telenet.be",
+            "phone_number": null,
+            "activated_at": "2019-11-14T09:18:11+01:00",
+            "date_of_birth": null,
+            "weight": null,
+            "height": null,
+            "default_language": "en",
+            "is_active": true,
+            "nickname": "",
+            "invited_at": "2019-11-17T16:42:34+01:00"
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": null,
+          "presence": {
+            "slug_name": "on_time",
+            "localized_name": "Op tijd",
+            "target_groups": [
+              "late",
+              "excused",
+              "not_excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-02-29T16:01:08+01:00",
+          "has_replied_at": "2020-03-03T14:55:08+01:00",
+          "was_late": false,
+          "led": "green",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": "",
+          "_links": {}
+        },
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2095869/",
+          "group": {
+            "slug_name": "played",
+            "localized_name": "Participants",
+            "attendance_status": "present",
+            "importance_level": 1,
+            "target_groups": [
+              "not_played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2095869,
+            "first_name": "Aaron",
+            "last_name": "Vermeir",
+            "full_name": "Aaron Vermeir",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/958d81b135dd5f9f1fb81d0ce937c901/d41eb52001c811e988c83922ff153d4b.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/958d81b135dd5f9f1fb81d0ce937c901/d41eb52001c811e988c83922ff153d4b.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/958d81b135dd5f9f1fb81d0ce937c901/d41eb52001c811e988c83922ff153d4b.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/958d81b135dd5f9f1fb81d0ce937c901/d41eb52001c811e988c83922ff153d4b.jpg"
+            },
+            "email": "aaronvermeir13@gmail.com",
+            "phone_number": null,
+            "activated_at": "2018-12-05T10:33:56+01:00",
+            "date_of_birth": null,
+            "weight": null,
+            "height": null,
+            "default_language": "nl",
+            "is_active": true,
+            "nickname": "Fresh prinsj of beirleir",
+            "invited_at": "2018-12-03T19:23:03+01:00"
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": {
+            "slug_name": "rugby_scrum_half",
+            "localized_name": "Scrumhalf",
+            "localized_name_short": "SH"
+          },
+          "presence": {
+            "slug_name": "on_time",
+            "localized_name": "Op tijd",
+            "target_groups": [
+              "late",
+              "excused",
+              "not_excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-02-29T16:01:08+01:00",
+          "has_replied_at": "2020-03-03T16:19:24+01:00",
+          "was_late": false,
+          "led": "green",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": null,
+          "_links": {}
+        },
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2093695/",
+          "group": {
+            "slug_name": "played",
+            "localized_name": "Participants",
+            "attendance_status": "present",
+            "importance_level": 1,
+            "target_groups": [
+              "not_played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2093695,
+            "first_name": "Nils",
+            "last_name": "D'hont",
+            "full_name": "Nils D'Hont",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/1ae6d43378e66868f3f797e8aea46503/55583390f79d11e8bcb8e5c80f98d918.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/1ae6d43378e66868f3f797e8aea46503/55583390f79d11e8bcb8e5c80f98d918.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/1ae6d43378e66868f3f797e8aea46503/55583390f79d11e8bcb8e5c80f98d918.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/1ae6d43378e66868f3f797e8aea46503/55583390f79d11e8bcb8e5c80f98d918.jpg"
+            },
+            "email": "nilsdhont@gmail.com",
+            "phone_number": "+32 499 60 46 20",
+            "activated_at": "2018-12-04T09:16:13+01:00",
+            "date_of_birth": "1993-03-05",
+            "weight": null,
+            "height": null,
+            "default_language": "nl",
+            "is_active": true,
+            "nickname": null,
+            "invited_at": "2018-12-03T19:23:02+01:00"
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": {
+            "slug_name": "rugby_three_quarters",
+            "localized_name": "Three-quarters",
+            "localized_name_short": "3Q"
+          },
+          "presence": {
+            "slug_name": "on_time",
+            "localized_name": "Op tijd",
+            "target_groups": [
+              "late",
+              "excused",
+              "not_excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-03-03T17:27:58+01:00",
+          "has_replied_at": "2020-03-03T17:28:08+01:00",
+          "was_late": false,
+          "led": "green",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": null,
+          "_links": {}
+        },
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2093126/",
+          "group": {
+            "slug_name": "played",
+            "localized_name": "Participants",
+            "attendance_status": "present",
+            "importance_level": 1,
+            "target_groups": [
+              "not_played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2093126,
+            "first_name": "Joni",
+            "last_name": "Klein",
+            "full_name": "Joni Klein",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/991ebc08dfc98324428112d45a51bd12/f38308dec9eb48c69d8a172aaa5f462d.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/991ebc08dfc98324428112d45a51bd12/f38308dec9eb48c69d8a172aaa5f462d.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/991ebc08dfc98324428112d45a51bd12/f38308dec9eb48c69d8a172aaa5f462d.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/991ebc08dfc98324428112d45a51bd12/f38308dec9eb48c69d8a172aaa5f462d.jpg"
+            },
+            "email": "joni_klein@hotmail.be",
+            "phone_number": "+32 493 67 41 67",
+            "activated_at": "2018-12-03T20:09:51+01:00",
+            "date_of_birth": null,
+            "weight": "100",
+            "height": "180",
+            "default_language": "en",
+            "is_active": true,
+            "nickname": null,
+            "invited_at": "2018-12-03T19:23:01+01:00"
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": {
+            "slug_name": "rugby_hooker",
+            "localized_name": "Hooker",
+            "localized_name_short": "H"
+          },
+          "presence": {
+            "slug_name": "on_time",
+            "localized_name": "Op tijd",
+            "target_groups": [
+              "late",
+              "excused",
+              "not_excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-02-29T16:01:08+01:00",
+          "has_replied_at": "2020-03-03T17:29:55+01:00",
+          "was_late": false,
+          "led": "green",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": "2",
+          "_links": {}
+        },
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2446869/",
+          "group": {
+            "slug_name": "played",
+            "localized_name": "Participants",
+            "attendance_status": "present",
+            "importance_level": 1,
+            "target_groups": [
+              "not_played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2446869,
+            "first_name": "Ben",
+            "last_name": "Van Puyvelde",
+            "full_name": "Ben Van Puyvelde",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/small.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/field.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/medium.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/120x120.jpg"
+            },
+            "email": "vanpuyveldeben@gmail.com",
+            "phone_number": null,
+            "activated_at": "2019-08-14T20:09:11+02:00",
+            "date_of_birth": null,
+            "weight": null,
+            "height": null,
+            "default_language": "nl",
+            "is_active": true,
+            "nickname": "",
+            "invited_at": "2019-08-15T21:52:32+02:00"
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": null,
+          "presence": {
+            "slug_name": "on_time",
+            "localized_name": "Op tijd",
+            "target_groups": [
+              "late",
+              "excused",
+              "not_excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-02-29T16:01:08+01:00",
+          "has_replied_at": "2020-03-03T18:30:40+01:00",
+          "was_late": false,
+          "led": "green",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": "",
+          "_links": {}
+        },
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2095651/",
+          "group": {
+            "slug_name": "played",
+            "localized_name": "Participants",
+            "attendance_status": "present",
+            "importance_level": 1,
+            "target_groups": [
+              "not_played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2095651,
+            "first_name": "Jason",
+            "last_name": "Scrivens",
+            "full_name": "Jason Scrivens",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/140546015c171960b83c8bdf3f878468/00aea39ff5e440d5a74da2847e6208d7.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/140546015c171960b83c8bdf3f878468/00aea39ff5e440d5a74da2847e6208d7.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/140546015c171960b83c8bdf3f878468/00aea39ff5e440d5a74da2847e6208d7.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/140546015c171960b83c8bdf3f878468/00aea39ff5e440d5a74da2847e6208d7.jpg"
+            },
+            "email": "j.scrivens@telenet.be",
+            "phone_number": null,
+            "activated_at": "2018-12-05T09:04:19+01:00",
+            "date_of_birth": null,
+            "weight": null,
+            "height": null,
+            "default_language": "nl",
+            "is_active": true,
+            "nickname": null,
+            "invited_at": "2018-12-03T19:22:59+01:00"
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": {
+            "slug_name": "rugby_lock",
+            "localized_name": "Tweede rijer",
+            "localized_name_short": "L"
+          },
+          "presence": {
+            "slug_name": "on_time",
+            "localized_name": "Op tijd",
+            "target_groups": [
+              "late",
+              "excused",
+              "not_excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-02-29T16:01:08+01:00",
+          "has_replied_at": "2020-03-04T09:43:46+01:00",
+          "was_late": false,
+          "led": "green",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": null,
+          "_links": {}
+        },
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2094047/",
+          "group": {
+            "slug_name": "played",
+            "localized_name": "Participants",
+            "attendance_status": "present",
+            "importance_level": 1,
+            "target_groups": [
+              "not_played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2094047,
+            "first_name": "Wout",
+            "last_name": "Christiaens",
+            "full_name": "Wout Christiaens",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/1ae6d43378e66868f3f797e8aea46503/cce61760f7b611e88d35d514a6539bb8.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/1ae6d43378e66868f3f797e8aea46503/cce61760f7b611e88d35d514a6539bb8.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/1ae6d43378e66868f3f797e8aea46503/cce61760f7b611e88d35d514a6539bb8.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/1ae6d43378e66868f3f797e8aea46503/cce61760f7b611e88d35d514a6539bb8.jpg"
+            },
+            "email": "woutchr@hotmail.be",
+            "phone_number": null,
+            "activated_at": "2018-12-04T12:21:52+01:00",
+            "date_of_birth": null,
+            "weight": null,
+            "height": null,
+            "default_language": "nl",
+            "is_active": true,
+            "nickname": null,
+            "invited_at": "2018-12-03T19:23:02+01:00"
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": {
+            "slug_name": "rugby_lock",
+            "localized_name": "Tweede rijer",
+            "localized_name_short": "L"
+          },
+          "presence": {
+            "slug_name": "on_time",
+            "localized_name": "Op tijd",
+            "target_groups": [
+              "late",
+              "excused",
+              "not_excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-02-29T16:01:08+01:00",
+          "has_replied_at": "2020-03-04T11:27:45+01:00",
+          "was_late": false,
+          "led": "green",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": null,
+          "_links": {}
+        },
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2093680/",
+          "group": {
+            "slug_name": "played",
+            "localized_name": "Participants",
+            "attendance_status": "present",
+            "importance_level": 1,
+            "target_groups": [
+              "not_played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2093680,
+            "first_name": "Cmon",
+            "last_name": "De S.",
+            "full_name": "Cmon De S.",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/1ae6d43378e66868f3f797e8aea46503/954cccb0f79b11e880e923f572d52b5f.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/1ae6d43378e66868f3f797e8aea46503/954cccb0f79b11e880e923f572d52b5f.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/1ae6d43378e66868f3f797e8aea46503/954cccb0f79b11e880e923f572d52b5f.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/1ae6d43378e66868f3f797e8aea46503/954cccb0f79b11e880e923f572d52b5f.jpg"
+            },
+            "email": "Simon.DeSaedelaere@somatisystems.be",
+            "phone_number": "+32 474 85 19 72",
+            "activated_at": "2018-12-04T09:02:19+01:00",
+            "date_of_birth": "1988-06-02",
+            "weight": "100",
+            "height": "180",
+            "default_language": "nl",
+            "is_active": true,
+            "nickname": null,
+            "invited_at": "2018-12-03T19:23:02+01:00"
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": {
+            "slug_name": "rugby_number_8",
+            "localized_name": "Nummer 8",
+            "localized_name_short": "N8"
+          },
+          "presence": {
+            "slug_name": "on_time",
+            "localized_name": "Op tijd",
+            "target_groups": [
+              "late",
+              "excused",
+              "not_excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-02-29T16:01:08+01:00",
+          "has_replied_at": "2020-03-04T20:38:28+01:00",
+          "was_late": false,
+          "led": "green",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": "8",
+          "_links": {}
+        },
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2526820/",
+          "group": {
+            "slug_name": "played",
+            "localized_name": "Participants",
+            "attendance_status": "present",
+            "importance_level": 1,
+            "target_groups": [
+              "not_played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2526820,
+            "first_name": "Stef",
+            "last_name": "Van Puyvelde",
+            "full_name": "Stef Van Puyvelde",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/small.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/field.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/medium.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/120x120.jpg"
+            },
+            "email": "stef.van.puyvelde@gmail.com",
+            "phone_number": null,
+            "activated_at": "2019-09-03T09:12:53+02:00",
+            "date_of_birth": null,
+            "weight": null,
+            "height": null,
+            "default_language": "nl",
+            "is_active": true,
+            "nickname": "",
+            "invited_at": null
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": null,
+          "presence": {
+            "slug_name": "on_time",
+            "localized_name": "Op tijd",
+            "target_groups": [
+              "late",
+              "excused",
+              "not_excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-02-29T16:01:08+01:00",
+          "has_replied_at": "2020-03-05T09:46:13+01:00",
+          "was_late": false,
+          "led": "green",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": "",
+          "_links": {}
+        },
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2093498/",
+          "group": {
+            "slug_name": "played",
+            "localized_name": "Participants",
+            "attendance_status": "present",
+            "importance_level": 1,
+            "target_groups": [
+              "not_played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2093498,
+            "first_name": "Robert",
+            "last_name": "Van der Biest",
+            "full_name": "Robert Van Der Biest",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/2b0d57f6eea21cbed6899568b0a648a9/c2ee750184fd4539b61bada4eb02abbb.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/2b0d57f6eea21cbed6899568b0a648a9/c2ee750184fd4539b61bada4eb02abbb.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/2b0d57f6eea21cbed6899568b0a648a9/c2ee750184fd4539b61bada4eb02abbb.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/2b0d57f6eea21cbed6899568b0a648a9/c2ee750184fd4539b61bada4eb02abbb.jpg"
+            },
+            "email": "robertvanderbiest87@hotmail.com",
+            "phone_number": null,
+            "activated_at": "2018-12-03T23:59:52+01:00",
+            "date_of_birth": "1987-11-23",
+            "weight": null,
+            "height": null,
+            "default_language": "nl",
+            "is_active": true,
+            "nickname": "Roberto",
+            "invited_at": "2018-12-03T19:22:59+01:00"
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": {
+            "slug_name": "rugby_front_row",
+            "localized_name": "Eerste rij",
+            "localized_name_short": "ER"
+          },
+          "presence": {
+            "slug_name": "on_time",
+            "localized_name": "Op tijd",
+            "target_groups": [
+              "late",
+              "excused",
+              "not_excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-02-29T16:01:08+01:00",
+          "has_replied_at": "2020-03-05T22:25:52+01:00",
+          "was_late": false,
+          "led": "green",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": null,
+          "_links": {}
+        }
+      ],
+      "slug_name": "played",
+      "localized_name": "Participants",
+      "attendance_status": "present",
+      "importance_level": 1,
+      "count": 28
+    },
+    {
+      "results": [
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2998242/",
+          "group": {
+            "slug_name": "not_played",
+            "localized_name": "Non participants",
+            "attendance_status": "absent",
+            "importance_level": 1,
+            "target_groups": [
+              "played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2998242,
+            "first_name": "Kjell",
+            "last_name": "D'Hont",
+            "full_name": "Kjell D'Hont",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/small.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/field.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/medium.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/120x120.jpg"
+            },
+            "email": "kjell_dhont@hotmail.com",
+            "phone_number": null,
+            "activated_at": "2020-01-14T23:25:39+01:00",
+            "date_of_birth": null,
+            "weight": null,
+            "height": null,
+            "default_language": "nl",
+            "is_active": true,
+            "nickname": "",
+            "invited_at": "2020-01-14T22:14:19+01:00"
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": null,
+          "presence": {
+            "slug_name": "excused",
+            "localized_name": "Excused",
+            "target_groups": [
+              "on_time",
+              "late",
+              "not_excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-02-29T16:01:08+01:00",
+          "has_replied_at": "2020-02-29T16:27:55+01:00",
+          "was_late": false,
+          "led": "red",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": "",
+          "_links": {}
+        },
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2094471/",
+          "group": {
+            "slug_name": "not_played",
+            "localized_name": "Non participants",
+            "attendance_status": "absent",
+            "importance_level": 1,
+            "target_groups": [
+              "played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2094471,
+            "first_name": "Timber",
+            "last_name": "Buyens",
+            "full_name": "Timber Buyens",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/1ae6d43378e66868f3f797e8aea46503/ba252300f7d911e8a671f94fc7dcb11e.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/1ae6d43378e66868f3f797e8aea46503/ba252300f7d911e8a671f94fc7dcb11e.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/1ae6d43378e66868f3f797e8aea46503/ba252300f7d911e8a671f94fc7dcb11e.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/1ae6d43378e66868f3f797e8aea46503/ba252300f7d911e8a671f94fc7dcb11e.jpg"
+            },
+            "email": "buyenstim@gmail.com",
+            "phone_number": null,
+            "activated_at": "2018-12-04T16:31:53+01:00",
+            "date_of_birth": "1999-08-05",
+            "weight": null,
+            "height": null,
+            "default_language": "nl",
+            "is_active": true,
+            "nickname": null,
+            "invited_at": "2018-12-03T19:23:00+01:00"
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": {
+            "slug_name": "rugby_wing",
+            "localized_name": "Wing",
+            "localized_name_short": "W"
+          },
+          "presence": {
+            "slug_name": "not_excused",
+            "localized_name": "Not excused",
+            "target_groups": [
+              "on_time",
+              "late",
+              "excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-02-29T16:01:08+01:00",
+          "has_replied_at": null,
+          "was_late": false,
+          "led": "red",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": "17",
+          "_links": {}
+        },
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2484449/",
+          "group": {
+            "slug_name": "not_played",
+            "localized_name": "Non participants",
+            "attendance_status": "absent",
+            "importance_level": 1,
+            "target_groups": [
+              "played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2484449,
+            "first_name": "Jonathan",
+            "last_name": "Pieters",
+            "full_name": "Jonathan Pieters",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/7458f071a0903a0ebd445a097e919968/b2c3ab07130942718603f1c654e629ad.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/7458f071a0903a0ebd445a097e919968/b2c3ab07130942718603f1c654e629ad.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/7458f071a0903a0ebd445a097e919968/b2c3ab07130942718603f1c654e629ad.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/7458f071a0903a0ebd445a097e919968/b2c3ab07130942718603f1c654e629ad.jpg"
+            },
+            "email": "jonathan.pieters@outlook.com",
+            "phone_number": "+32 497 29 66 96",
+            "activated_at": "2019-08-26T15:16:37+02:00",
+            "date_of_birth": "1994-05-14",
+            "weight": null,
+            "height": null,
+            "default_language": "nl",
+            "is_active": true,
+            "nickname": "",
+            "invited_at": null
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": null,
+          "presence": {
+            "slug_name": "excused",
+            "localized_name": "Excused",
+            "target_groups": [
+              "on_time",
+              "late",
+              "not_excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-02-29T16:01:08+01:00",
+          "has_replied_at": "2020-03-03T16:06:23+01:00",
+          "was_late": false,
+          "led": "red",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": "",
+          "_links": {}
+        },
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2093140/",
+          "group": {
+            "slug_name": "not_played",
+            "localized_name": "Non participants",
+            "attendance_status": "absent",
+            "importance_level": 1,
+            "target_groups": [
+              "played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2093140,
+            "first_name": "Arno",
+            "last_name": "Govaert",
+            "full_name": "Arno Govaert",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/302f523059504fac6b10601405ff62a1/f5533cf0cb2c4e5ebf8f1c1c72173086.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/302f523059504fac6b10601405ff62a1/f5533cf0cb2c4e5ebf8f1c1c72173086.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/302f523059504fac6b10601405ff62a1/f5533cf0cb2c4e5ebf8f1c1c72173086.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/302f523059504fac6b10601405ff62a1/f5533cf0cb2c4e5ebf8f1c1c72173086.jpg"
+            },
+            "email": "arnogovaert87@hotmail.be",
+            "phone_number": null,
+            "activated_at": "2018-12-03T20:20:20+01:00",
+            "date_of_birth": null,
+            "weight": null,
+            "height": null,
+            "default_language": "nl",
+            "is_active": true,
+            "nickname": null,
+            "invited_at": "2018-12-03T19:23:02+01:00"
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": {
+            "slug_name": "rugby_flanker",
+            "localized_name": "Flanker",
+            "localized_name_short": "F"
+          },
+          "presence": {
+            "slug_name": "excused",
+            "localized_name": "Excused",
+            "target_groups": [
+              "on_time",
+              "late",
+              "not_excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-02-29T16:01:08+01:00",
+          "has_replied_at": "2020-03-05T09:14:32+01:00",
+          "was_late": false,
+          "led": "red",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": null,
+          "_links": {}
+        },
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2097848/",
+          "group": {
+            "slug_name": "not_played",
+            "localized_name": "Non participants",
+            "attendance_status": "absent",
+            "importance_level": 1,
+            "target_groups": [
+              "played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2097848,
+            "first_name": "Mats",
+            "last_name": "Devits",
+            "full_name": "Mats Devits",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/small.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/field.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/medium.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/120x120.jpg"
+            },
+            "email": "mats_devits@hotmail.com",
+            "phone_number": null,
+            "activated_at": "2018-12-06T13:15:38+01:00",
+            "date_of_birth": null,
+            "weight": null,
+            "height": null,
+            "default_language": "nl",
+            "is_active": true,
+            "nickname": null,
+            "invited_at": "2018-12-03T19:23:00+01:00"
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": {
+            "slug_name": "rugby_flanker",
+            "localized_name": "Flanker",
+            "localized_name_short": "F"
+          },
+          "presence": {
+            "slug_name": "excused",
+            "localized_name": "Excused",
+            "target_groups": [
+              "on_time",
+              "late",
+              "not_excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-02-29T16:01:08+01:00",
+          "has_replied_at": "2020-03-05T12:45:11+01:00",
+          "was_late": false,
+          "led": "red",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": null,
+          "_links": {}
+        },
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2877291/",
+          "group": {
+            "slug_name": "not_played",
+            "localized_name": "Non participants",
+            "attendance_status": "absent",
+            "importance_level": 1,
+            "target_groups": [
+              "played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2877291,
+            "first_name": "Willem",
+            "last_name": "Derveaux",
+            "full_name": "Willem Derveaux",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/small.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/field.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/medium.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/120x120.jpg"
+            },
+            "email": "willemderveaux@hotmail.com",
+            "phone_number": null,
+            "activated_at": "2019-11-06T08:33:11+01:00",
+            "date_of_birth": null,
+            "weight": null,
+            "height": null,
+            "default_language": "nl",
+            "is_active": true,
+            "nickname": "",
+            "invited_at": "2019-10-30T09:01:13+01:00"
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": null,
+          "presence": {
+            "slug_name": "excused",
+            "localized_name": "Excused",
+            "target_groups": [
+              "on_time",
+              "late",
+              "not_excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-02-29T16:01:08+01:00",
+          "has_replied_at": "2020-03-05T15:15:19+01:00",
+          "was_late": false,
+          "led": "red",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": "",
+          "_links": {}
+        },
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2533193/",
+          "group": {
+            "slug_name": "not_played",
+            "localized_name": "Non participants",
+            "attendance_status": "absent",
+            "importance_level": 1,
+            "target_groups": [
+              "played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2533193,
+            "first_name": "Bram",
+            "last_name": "Gysens",
+            "full_name": "Bram Gysens",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/a8d0f7182ba6f97d5c4b15690289492b/c88a7d025531413d929570526043e87e.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/a8d0f7182ba6f97d5c4b15690289492b/c88a7d025531413d929570526043e87e.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/a8d0f7182ba6f97d5c4b15690289492b/c88a7d025531413d929570526043e87e.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/a8d0f7182ba6f97d5c4b15690289492b/c88a7d025531413d929570526043e87e.jpg"
+            },
+            "email": "bramgysens@hotmail.com",
+            "phone_number": null,
+            "activated_at": "2019-09-03T22:30:59+02:00",
+            "date_of_birth": null,
+            "weight": null,
+            "height": null,
+            "default_language": "en",
+            "is_active": true,
+            "nickname": "",
+            "invited_at": "2019-09-03T22:14:38+02:00"
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": null,
+          "presence": {
+            "slug_name": "excused",
+            "localized_name": "Excused",
+            "target_groups": [
+              "on_time",
+              "late",
+              "not_excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-02-29T16:01:08+01:00",
+          "has_replied_at": "2020-03-05T17:17:52+01:00",
+          "was_late": false,
+          "led": "red",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": "",
+          "_links": {}
+        },
+        {
+          "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/profiles/2093587/",
+          "group": {
+            "slug_name": "not_played",
+            "localized_name": "Non participants",
+            "attendance_status": "absent",
+            "importance_level": 1,
+            "target_groups": [
+              "played"
+            ]
+          },
+          "opponent": "opponent_left",
+          "profile": {
+            "id": 2093587,
+            "first_name": "Frederik",
+            "last_name": "Ivens",
+            "full_name": "Frederik Ivens",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/small.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/field.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/medium.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/120x120.jpg"
+            },
+            "email": "frederik07@hotmail.com",
+            "phone_number": null,
+            "activated_at": "2018-12-04T05:56:00+01:00",
+            "date_of_birth": null,
+            "weight": null,
+            "height": null,
+            "default_language": "nl",
+            "is_active": true,
+            "nickname": null,
+            "invited_at": "2018-12-03T19:23:01+01:00"
+          },
+          "role": {
+            "slug_name": "role_player",
+            "localized_name": "Speler"
+          },
+          "usual_tactic_position": {
+            "slug_name": "rugby_front_row",
+            "localized_name": "Eerste rij",
+            "localized_name_short": "ER"
+          },
+          "presence": {
+            "slug_name": "excused",
+            "localized_name": "Excused",
+            "target_groups": [
+              "on_time",
+              "late",
+              "not_excused",
+              "injured",
+              "not_selected"
+            ]
+          },
+          "registration_sent_at": "2020-02-29T16:01:08+01:00",
+          "has_replied_at": "2020-03-06T12:21:35+01:00",
+          "was_late": false,
+          "led": "red",
+          "stats": null,
+          "rating": null,
+          "form_player_stats": null,
+          "jersey_number": null,
+          "_links": {}
+        }
+      ],
+      "slug_name": "not_played",
+      "localized_name": "Non participants",
+      "attendance_status": "absent",
+      "importance_level": 1,
+      "count": 8
+    }
+  ],
+  "stats": {
+    "mvp": {
+      "total_votes": 8,
+      "votes": [
+        {
+          "profile": {
+            "id": 2096047,
+            "first_name": "Kristof",
+            "last_name": "Heirman",
+            "full_name": "Kristof Heirman",
+            "avatar": {
+              "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/7597ea0f561576083152c4c2cb74ec82/0cb158b0fd6a11e88b752ff43a057dc2.jpg",
+              "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/7597ea0f561576083152c4c2cb74ec82/0cb158b0fd6a11e88b752ff43a057dc2.jpg",
+              "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/7597ea0f561576083152c4c2cb74ec82/0cb158b0fd6a11e88b752ff43a057dc2.jpg",
+              "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/7597ea0f561576083152c4c2cb74ec82/0cb158b0fd6a11e88b752ff43a057dc2.jpg"
+            },
+            "email": "kristofheirman@hotmail.com",
+            "phone_number": null,
+            "activated_at": "2018-12-05T11:46:35+01:00",
+            "nickname": null
+          },
+          "votes": 3
+        }
+      ]
+    },
+    "event_rating": null
+  },
+  "format": {
+    "nb_players": 15,
+    "sport_slug_name": "rugby",
+    "localized_name": "15 tegen 15"
+  },
+  "chores": [],
+  "instructions": [],
+  "coach_description": null,
+  "stats_highlight": {
+    "players": [
+      {
+        "profile": {
+          "id": 2093695,
+          "first_name": "Nils",
+          "last_name": "D'hont",
+          "full_name": "Nils D'Hont",
+          "avatar": {
+            "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/1ae6d43378e66868f3f797e8aea46503/55583390f79d11e8bcb8e5c80f98d918.jpg",
+            "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/1ae6d43378e66868f3f797e8aea46503/55583390f79d11e8bcb8e5c80f98d918.jpg",
+            "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/1ae6d43378e66868f3f797e8aea46503/55583390f79d11e8bcb8e5c80f98d918.jpg",
+            "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/1ae6d43378e66868f3f797e8aea46503/55583390f79d11e8bcb8e5c80f98d918.jpg"
+          },
+          "email": "nilsdhont@gmail.com",
+          "phone_number": "+32 499 60 46 20",
+          "activated_at": "2018-12-04T09:16:13+01:00"
+        },
+        "stats": [
+          {
+            "localized_name": "Pogingen",
+            "localized_name_short": "Pogingen",
+            "slug_name": "player_tries_strict_sum",
+            "importance_level": 1,
+            "value": 2,
+            "category_slug_name": "general"
+          }
+        ]
+      },
+      {
+        "profile": {
+          "id": 2093127,
+          "first_name": "Alexander",
+          "last_name": "Zaman",
+          "full_name": "Alexander Zaman",
+          "avatar": {
+            "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/6f757cbe41e7eaf6c9188be98061f412/8c8d331f579846c2a080ed43fb883573.jpg",
+            "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/6f757cbe41e7eaf6c9188be98061f412/8c8d331f579846c2a080ed43fb883573.jpg",
+            "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/6f757cbe41e7eaf6c9188be98061f412/8c8d331f579846c2a080ed43fb883573.jpg",
+            "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/6f757cbe41e7eaf6c9188be98061f412/8c8d331f579846c2a080ed43fb883573.jpg"
+          },
+          "email": "cypress_d12@hotmail.com",
+          "phone_number": "+32 473 39 01 80",
+          "activated_at": "2018-12-03T20:10:03+01:00"
+        },
+        "stats": [
+          {
+            "localized_name": "Pogingen",
+            "localized_name_short": "Pogingen",
+            "slug_name": "player_tries_strict_sum",
+            "importance_level": 1,
+            "value": 1,
+            "category_slug_name": "general"
+          }
+        ]
+      },
+      {
+        "profile": {
+          "id": 2093077,
+          "first_name": "juul",
+          "last_name": "Spriet",
+          "full_name": "Juul Spriet",
+          "avatar": {
+            "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/223948a382a7a7a76dab5b8a317c1a72/ca3610d0f72d11e8b6fb853f77e67334.jpg",
+            "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/223948a382a7a7a76dab5b8a317c1a72/ca3610d0f72d11e8b6fb853f77e67334.jpg",
+            "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/223948a382a7a7a76dab5b8a317c1a72/ca3610d0f72d11e8b6fb853f77e67334.jpg",
+            "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/223948a382a7a7a76dab5b8a317c1a72/ca3610d0f72d11e8b6fb853f77e67334.jpg"
+          },
+          "email": "juul.spriet@gmail.com",
+          "phone_number": "+32 470 56 50 82",
+          "activated_at": "2018-12-03T19:42:22+01:00"
+        },
+        "stats": [
+          {
+            "localized_name": "Pogingen",
+            "localized_name_short": "Pogingen",
+            "slug_name": "player_tries_strict_sum",
+            "importance_level": 1,
+            "value": 1,
+            "category_slug_name": "general"
+          }
+        ]
+      },
+      {
+        "profile": {
+          "id": 2109661,
+          "first_name": "Sam",
+          "last_name": "De Cuyper",
+          "full_name": "Sam De Cuyper",
+          "avatar": {
+            "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/140546015c171960b83c8bdf3f878468/20ea7d86837c46c5bf8cef9a935ced4c.jpg",
+            "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/140546015c171960b83c8bdf3f878468/20ea7d86837c46c5bf8cef9a935ced4c.jpg",
+            "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/140546015c171960b83c8bdf3f878468/20ea7d86837c46c5bf8cef9a935ced4c.jpg",
+            "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/140546015c171960b83c8bdf3f878468/20ea7d86837c46c5bf8cef9a935ced4c.jpg"
+          },
+          "email": "samdc3@hotmail.com",
+          "phone_number": null,
+          "activated_at": "2018-12-14T23:36:34+01:00"
+        },
+        "stats": [
+          {
+            "localized_name": "Pogingen",
+            "localized_name_short": "Pogingen",
+            "slug_name": "player_tries_strict_sum",
+            "importance_level": 1,
+            "value": 1,
+            "category_slug_name": "general"
+          }
+        ]
+      },
+      {
+        "profile": {
+          "id": 2093166,
+          "first_name": "Sam",
+          "last_name": "Rottiers",
+          "full_name": "Sam Rottiers",
+          "avatar": {
+            "small": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/small.jpg",
+            "field": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/field.jpg",
+            "medium": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/medium.jpg",
+            "120x120": "https://d3949ah8cpww7d.cloudfront.net/static/2.257.000/themes/v1/images/common/default/avatar/120x120.jpg"
+          },
+          "email": "sam.rottiers@telenet.be",
+          "phone_number": "+32 475 57 43 97",
+          "activated_at": "2018-12-03T20:26:32+01:00"
+        },
+        "stats": [
+          {
+            "localized_name": "Pogingen",
+            "localized_name_short": "Pogingen",
+            "slug_name": "player_tries_strict_sum",
+            "importance_level": 1,
+            "value": 1,
+            "category_slug_name": "general"
+          }
+        ]
+      },
+      {
+        "profile": {
+          "id": 2093056,
+          "first_name": "Timothy",
+          "last_name": "De Groot",
+          "full_name": "Timothy De Groot",
+          "avatar": {
+            "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/223948a382a7a7a76dab5b8a317c1a72/e9674860f72911e88d35d514a6539bb8.jpg",
+            "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/223948a382a7a7a76dab5b8a317c1a72/e9674860f72911e88d35d514a6539bb8.jpg",
+            "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/223948a382a7a7a76dab5b8a317c1a72/e9674860f72911e88d35d514a6539bb8.jpg",
+            "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/223948a382a7a7a76dab5b8a317c1a72/e9674860f72911e88d35d514a6539bb8.jpg"
+          },
+          "email": "timo-t4ever@hotmail.com",
+          "phone_number": null,
+          "activated_at": "2018-12-03T19:33:20+01:00"
+        },
+        "stats": [
+          {
+            "localized_name": "Pogingen",
+            "localized_name_short": "Pogingen",
+            "slug_name": "player_tries_strict_sum",
+            "importance_level": 1,
+            "value": 1,
+            "category_slug_name": "general"
+          }
+        ]
+      },
+      {
+        "profile": {
+          "id": 2093074,
+          "first_name": "Tom",
+          "last_name": "Lanckbeen",
+          "full_name": "Tom Lanckbeen",
+          "avatar": {
+            "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/4a7bde5ced1311e3a091701671c87b37/17401348bff740e3818eb6f65e1d56fd.jpg",
+            "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/4a7bde5ced1311e3a091701671c87b37/17401348bff740e3818eb6f65e1d56fd.jpg",
+            "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/4a7bde5ced1311e3a091701671c87b37/17401348bff740e3818eb6f65e1d56fd.jpg",
+            "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/4a7bde5ced1311e3a091701671c87b37/17401348bff740e3818eb6f65e1d56fd.jpg"
+          },
+          "email": "tom.lanckbeen@hotmail.com",
+          "phone_number": null,
+          "activated_at": "2018-12-03T19:41:51+01:00"
+        },
+        "stats": [
+          {
+            "localized_name": "Pogingen",
+            "localized_name_short": "Pogingen",
+            "slug_name": "player_tries_strict_sum",
+            "importance_level": 1,
+            "value": 1,
+            "category_slug_name": "general"
+          }
+        ]
+      }
+    ],
+    "periods": [
+      {
+        "localized_name": "Ruststand",
+        "localized_name_short": "HT",
+        "slug_name": "half_time_score",
+        "importance_level": 1,
+        "category_slug_name": "period",
+        "value_left": null,
+        "value_right": null
+      }
+    ]
+  },
+  "live_stats": {
+    "is_featured": true,
+    "start_at": "2020-03-08T15:02:34+01:00",
+    "end_at": "2020-03-08T16:39:42+01:00",
+    "profile": {
+      "id": 2096182,
+      "first_name": "Simon",
+      "last_name": "Pilaert",
+      "full_name": "Simon Pilaert",
+      "avatar": {
+        "small": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/small/d5971f9b1fd6135d316ef10ff4c808e3/04236be0f88111e8bcb8e5c80f98d918.jpg",
+        "field": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/field/d5971f9b1fd6135d316ef10ff4c808e3/04236be0f88111e8bcb8e5c80f98d918.jpg",
+        "medium": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/medium/d5971f9b1fd6135d316ef10ff4c808e3/04236be0f88111e8bcb8e5c80f98d918.jpg",
+        "120x120": "https://d3949ah8cpww7d.cloudfront.net/media/image/avatar/120x120/d5971f9b1fd6135d316ef10ff4c808e3/04236be0f88111e8bcb8e5c80f98d918.jpg"
+      },
+      "email": "spilaert@hotmail.com",
+      "phone_number": null,
+      "activated_at": "2018-12-05T12:24:06+01:00",
+      "nickname": null
+    }
+  },
+  "presence_groups": [
+    {
+      "slug_name": "on_time",
+      "localized_name": "Op tijd"
+    },
+    {
+      "slug_name": "late",
+      "localized_name": "Laat"
+    },
+    {
+      "slug_name": "excused",
+      "localized_name": "Excused"
+    },
+    {
+      "slug_name": "not_excused",
+      "localized_name": "Not excused"
+    },
+    {
+      "slug_name": "injured",
+      "localized_name": "Geblesseerd"
+    },
+    {
+      "slug_name": "not_selected",
+      "localized_name": "Niet geselecteerd"
+    }
+  ],
+  "recommended_actions": {
+    "update_event_rating": {
+      "name": "update_event_rating",
+      "title": "Rating of the game",
+      "subtitle": null,
+      "description": "To see the result you have to vote first",
+      "action_label": "Rate",
+      "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/ratings/",
+      "method": "POST"
+    }
+  },
+  "post_event_actions": [],
+  "registration_parameters": {
+    "auto_register_hours_before_start": 192,
+    "selection_limit": null,
+    "auto_reminder": true
+  },
+  "has_lineup": true,
+  "is_lineup_public": true,
+  "name": "BrigandZe - Waereghem RC",
+  "_links": {
+    "thread": {
+      "url": "https://api.sporteasy.net/v2.1/teams/594671/threads/5002833/",
+      "method": "GET"
+    },
+    "show_event_stats_players_ranking": {
+      "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/stats/players/ranking/",
+      "method": "GET"
+    },
+    "read_live_stats": {
+      "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/live-stats/events/",
+      "method": "GET",
+      "is_premium_required": true
+    },
+    "update_event_rating": {
+      "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/ratings/",
+      "method": "POST"
+    },
+    "list_event_lineups": {
+      "url": "https://api.sporteasy.net/v2.1/teams/594671/events/7718818/lineups/",
+      "method": "GET"
+    }
+  },
+  "meeting_location": null,
+  "meeting_at": "2020-03-08T15:00:00+01:00"
+}
