@@ -5,7 +5,6 @@ import lombok.Setter;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.eclipse.microprofile.config.spi.ConfigSource;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
@@ -25,7 +24,7 @@ public class SportEasyConfig  implements ConfigSource {
 
     @Override
     public Map<String, String> getProperties() {
-        try (InputStream in = getClass().getResourceAsStream("/nils.env")) {
+        try (InputStream in = getClass().getResourceAsStream("/sporteasy.properties")) {
             Properties properties = new Properties();
             properties.load(in);
 

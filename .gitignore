@@ -35,5 +35,5 @@ pom.xml.releaseBackup
 pom.xml.versionsBackup
 release.properties
 
-# env files for passwords ect
-*.env
+# sporteasy login credentials
+sporteasy.properties

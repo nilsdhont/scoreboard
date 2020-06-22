@@ -1,5 +1,16 @@
 # scoreboard project
 
+The scoreboard app for rugbyclub BrigandZe.
+It consumes the api from an app called sporteasy to update our scoreboard
+
+
+# Login to Sporteasy
+Add a file 'sporteasy.properties' in the resources folder with 2 properties:
+x-csrftoken=
+cookie=
+
+# Framework
+
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
