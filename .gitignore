@@ -36,4 +36,4 @@ pom.xml.versionsBackup
 release.properties
 
 # sporteasy login credentials
-sporteasy.properties
+sporteasy.env
