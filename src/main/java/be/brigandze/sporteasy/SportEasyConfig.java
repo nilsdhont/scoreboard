@@ -1,4 +1,4 @@
-package be.brigandze.rest;
+package be.brigandze.sporteasy;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -39,5 +39,13 @@ public class SportEasyConfig implements ConfigSource {
     @Override
     public String getName() {
         return "env file";
+    }
+
+    public String getUsername() {
+        return getValue("username");
+    }
+
+    public String getPassword() {
+        return getValue("password");
     }
 }

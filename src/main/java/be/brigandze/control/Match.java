@@ -1,7 +1,7 @@
 package be.brigandze.control;
 
 import be.brigandze.entity.MatchData;
-import be.brigandze.rest.SportEasyResource;
+import be.brigandze.sporteasy.SportEasyResource;
 import lombok.Getter;
 
 @Getter

@@ -1,6 +1,7 @@
-package be.brigandze.rest;
+package be.brigandze.sporteasy;
 
 import be.brigandze.entity.MatchData;
+import be.brigandze.sporteasy.LoginWithSelenium;
 import org.apache.commons.io.IOUtils;
 
 import javax.inject.Inject;
@@ -26,14 +27,16 @@ public class SportEasyResource {
 
     @Inject
     public SportEasyResource(int teamId, int matchId) {
-        SportEasyConfig sportEasyConfig = new SportEasyConfig();
-        xCsrfToken = sportEasyConfig.getValue("x-csrftoken");
-        cookie = sportEasyConfig.getValue("cookie");
+        LoginWithSelenium loginWithSelenium = new LoginWithSelenium();
+        xCsrfToken = loginWithSelenium.getXCsrfToken();
+        cookie = loginWithSelenium.getCookie();
         matchTarget = client.target("https://api.sporteasy.net/v2.1/teams/" + teamId + "/events/" + matchId + "/");
     }
 
 
     public MatchData getMatchData() {
+
+
         Invocation.Builder request = matchTarget.request(APPLICATION_JSON_TYPE);
         addLoginToHeader(request);
         Response response = request.get();
