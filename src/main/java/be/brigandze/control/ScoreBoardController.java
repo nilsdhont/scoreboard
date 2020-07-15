@@ -1,10 +1,12 @@
 package be.brigandze.control;
 
 import io.quarkus.scheduler.Scheduled;
+import lombok.Getter;
 
 import javax.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
+@Getter
 public class ScoreBoardController {
 
     private Match match;
