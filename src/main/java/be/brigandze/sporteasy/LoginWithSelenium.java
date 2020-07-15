@@ -5,6 +5,7 @@ import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxDriverLogLevel;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.io.File;
@@ -31,6 +32,7 @@ public class LoginWithSelenium {
 
             FirefoxOptions firefoxOptions = new FirefoxOptions();
             firefoxOptions.setHeadless(true);
+            firefoxOptions.setLogLevel(FirefoxDriverLogLevel.ERROR);
             WebDriver driver = new FirefoxDriver(firefoxOptions);
             driver.get("https://www.sporteasy.net/nl/login/?next=https://www.sporteasy.net/nl/profile/");
 
@@ -70,7 +72,7 @@ public class LoginWithSelenium {
     }
 
     private String getGeckoDriver() {
-        if (getProperty("os.name").contains("Windows")) {
+        if (getProperty("os.name").toLowerCase().contains("windows")) {
             return "geckodriver-64-windows.exe";
         } else {
             return "geckodriver-64-linux.exe";
