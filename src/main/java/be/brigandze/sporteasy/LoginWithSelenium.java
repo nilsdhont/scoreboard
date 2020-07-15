@@ -8,14 +8,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxDriverLogLevel;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
-import java.io.File;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.nio.file.Paths;
 import java.util.Set;
 
 import static java.lang.System.getProperty;
-import static java.util.Objects.requireNonNull;
 
 public class LoginWithSelenium {
 
@@ -25,35 +20,27 @@ public class LoginWithSelenium {
 
 
     public LoginWithSelenium() {
-        try {
+        System.setProperty("webdriver.gecko.driver", getGeckoDriver());
 
-            URL firefoxURL = getClass().getClassLoader().getResource("driver" + File.separator + getGeckoDriver());
-            System.setProperty("webdriver.gecko.driver", Paths.get(requireNonNull(firefoxURL).toURI()).toFile().getAbsolutePath());
-
-            FirefoxOptions firefoxOptions = new FirefoxOptions();
-            firefoxOptions.setHeadless(true);
-            firefoxOptions.setLogLevel(FirefoxDriverLogLevel.ERROR);
-            WebDriver driver = new FirefoxDriver(firefoxOptions);
-            driver.get("https://www.sporteasy.net/nl/login/?next=https://www.sporteasy.net/nl/profile/");
+        FirefoxOptions firefoxOptions = new FirefoxOptions();
+        firefoxOptions.setHeadless(true);
+        firefoxOptions.setLogLevel(FirefoxDriverLogLevel.ERROR);
+        WebDriver driver = new FirefoxDriver(firefoxOptions);
+        driver.get("https://www.sporteasy.net/nl/login/?next=https://www.sporteasy.net/nl/profile/");
 
 
-            SportEasyConfig sportEasyConfig = new SportEasyConfig();
-            driver.findElement(By.id("id_username")).sendKeys(sportEasyConfig.getUsername());
-            driver.findElement(By.id("id_password")).sendKeys(sportEasyConfig.getPassword());
+        SportEasyConfig sportEasyConfig = new SportEasyConfig();
+        driver.findElement(By.id("id_username")).sendKeys(sportEasyConfig.getUsername());
+        driver.findElement(By.id("id_password")).sendKeys(sportEasyConfig.getPassword());
 
-            WebElement confirmBtn = driver.findElement(By.className("form__btn-validate"));
-            confirmBtn.click();
+        WebElement confirmBtn = driver.findElement(By.className("form__btn-validate"));
+        confirmBtn.click();
 
-            Set<Cookie> cookies = driver.manage().getCookies();
-            se_csrftoken = cookies.stream().filter(s -> s.getName().equals("se_csrftoken")).findFirst().orElseThrow();
-            sporteasy = cookies.stream().filter(s -> s.getName().equals("sporteasy")).findFirst().orElseThrow();
+        Set<Cookie> cookies = driver.manage().getCookies();
+        se_csrftoken = cookies.stream().filter(s -> s.getName().equals("se_csrftoken")).findFirst().orElseThrow();
+        sporteasy = cookies.stream().filter(s -> s.getName().equals("sporteasy")).findFirst().orElseThrow();
 
-            driver.close();
-
-        } catch (URISyntaxException e1) {
-            e1.printStackTrace();
-            System.out.println("cannot find driver file");
-        }
+        driver.close();
 
     }
 
@@ -73,9 +60,9 @@ public class LoginWithSelenium {
 
     private String getGeckoDriver() {
         if (getProperty("os.name").toLowerCase().contains("windows")) {
-            return "geckodriver-64-windows.exe";
+            return "c:/temp/geckodriver-64-windows.exe";
         } else {
-            return "geckodriver-64-linux.exe";
+            return "/tmp/geckodriver-64-linux.sh";
         }
     }
 }
