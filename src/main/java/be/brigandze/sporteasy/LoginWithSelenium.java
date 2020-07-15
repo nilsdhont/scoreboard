@@ -5,6 +5,7 @@ import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.io.File;
 import java.net.URISyntaxException;
@@ -13,6 +14,7 @@ import java.nio.file.Paths;
 import java.util.Set;
 
 import static java.lang.System.getProperty;
+import static java.util.Objects.requireNonNull;
 
 public class LoginWithSelenium {
 
@@ -23,14 +25,17 @@ public class LoginWithSelenium {
 
     public LoginWithSelenium() {
         try {
-            SportEasyConfig sportEasyConfig = new SportEasyConfig();
 
             URL firefoxURL = getClass().getClassLoader().getResource("driver" + File.separator + getGeckoDriver());
-            System.setProperty("webdriver.gecko.driver", Paths.get(firefoxURL.toURI()).toFile().getAbsolutePath());
+            System.setProperty("webdriver.gecko.driver", Paths.get(requireNonNull(firefoxURL).toURI()).toFile().getAbsolutePath());
 
-            WebDriver driver = new FirefoxDriver();
+            FirefoxOptions firefoxOptions = new FirefoxOptions();
+            firefoxOptions.setHeadless(true);
+            WebDriver driver = new FirefoxDriver(firefoxOptions);
             driver.get("https://www.sporteasy.net/nl/login/?next=https://www.sporteasy.net/nl/profile/");
 
+
+            SportEasyConfig sportEasyConfig = new SportEasyConfig();
             driver.findElement(By.id("id_username")).sendKeys(sportEasyConfig.getUsername());
             driver.findElement(By.id("id_password")).sendKeys(sportEasyConfig.getPassword());
 
