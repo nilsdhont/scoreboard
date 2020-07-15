@@ -1,10 +1,34 @@
+@import url(//db.onlinewebfonts.com/c/12d2fa3dcf227b9538084a6bcfeafcf0?family=Trajan+Pro);
+
 .scoreboard {
   display: flex;
-  margin: auto;
-  padding: 0 16px;
-  max-width: 960px;
-  max-height: 82px;
-  flex-direction: column;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  border: solid black;
+  width: 192px;
+  height: 64px;
+  //border-style: solid;
+  //border-width: thin;
+  color: #00693C; // BrigandZe green
+  //color: #024731; // Darker BrigandZe green
+  //color: green; //Standard green
+  background-color: black;
+  text-align: center;
+  font-family: Trajan Pro;
+  }
+
+.team{
+  width: 96px;
+  height: 24px;
+  font-size: x-small;
+}
+.score{
+  width: 95px;
+  height: 40px;
+  font-size: 36px;
+}
+.score-separator{
+  width: 2px;
+  height: 24px;
 }

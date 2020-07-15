@@ -1,4 +1,9 @@
-# Scoreboard
+# Scoreboard WebApp
+
+# deploy info
+run `ng build --prod` to add this webapp to the quarkus app then build from there
+
+## Creation Info
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.11.
 
