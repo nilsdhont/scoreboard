@@ -1,9 +1,13 @@
 package be.brigandze.sporteasy;
 
+import be.brigandze.control.OperatingSystemDependent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeDriverLogLevel;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxDriverLogLevel;
 import org.openqa.selenium.firefox.FirefoxOptions;
@@ -12,7 +16,7 @@ import java.util.Set;
 
 import static java.lang.System.getProperty;
 
-public class LoginWithSelenium {
+public class LoginWithSelenium implements OperatingSystemDependent {
 
 
     private Cookie se_csrftoken;
@@ -20,12 +24,7 @@ public class LoginWithSelenium {
 
 
     public LoginWithSelenium() {
-        System.setProperty("webdriver.gecko.driver", getGeckoDriver());
-
-        FirefoxOptions firefoxOptions = new FirefoxOptions();
-        firefoxOptions.setHeadless(true);
-        firefoxOptions.setLogLevel(FirefoxDriverLogLevel.ERROR);
-        WebDriver driver = new FirefoxDriver(firefoxOptions);
+        WebDriver driver = isWindows() ? getWindowsDriver() : getLinuxDriver();
         driver.get("https://www.sporteasy.net/nl/login/?next=https://www.sporteasy.net/nl/profile/");
 
 
@@ -44,6 +43,23 @@ public class LoginWithSelenium {
 
     }
 
+    private WebDriver getLinuxDriver() {
+        System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--no-sandbox");
+        chromeOptions.setHeadless(true);
+        chromeOptions.setLogLevel(ChromeDriverLogLevel.SEVERE);
+        return new ChromeDriver(chromeOptions);
+    }
+
+    private WebDriver getWindowsDriver() {
+        System.setProperty("webdriver.gecko.driver", "c:/temp/geckodriver-64-windows.exe");
+        FirefoxOptions firefoxOptions = new FirefoxOptions();
+        firefoxOptions.setHeadless(true);
+        firefoxOptions.setLogLevel(FirefoxDriverLogLevel.ERROR);
+        return new FirefoxDriver(firefoxOptions);
+    }
+
     public String getXCsrfToken() {
         return se_csrftoken.getValue();
     }
@@ -58,11 +74,4 @@ public class LoginWithSelenium {
                 + sporteasy.getValue();
     }
 
-    private String getGeckoDriver() {
-        if (getProperty("os.name").toLowerCase().contains("windows")) {
-            return "c:/temp/geckodriver-64-windows.exe";
-        } else {
-            return "/tmp/geckodriver-64-linux.sh";
-        }
-    }
 }

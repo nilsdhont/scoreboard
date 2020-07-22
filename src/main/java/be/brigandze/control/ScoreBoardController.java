@@ -12,7 +12,7 @@ import java.util.Properties;
 
 @ApplicationScoped
 @Getter
-public class ScoreBoardController {
+public class ScoreBoardController implements OperatingSystemDependent {
 
     private Match match;
 
@@ -21,8 +21,11 @@ public class ScoreBoardController {
     @Setter
     private int matchId;
 
-    @ConfigProperty(name = "scoreboard.config.path")
-    private String scoreboardConfigFilePath;
+    @ConfigProperty(name = "scoreboard.config.path.pi")
+    private String scoreboardConfigFilePathPi;
+
+    @ConfigProperty(name = "scoreboard.config.path.windows")
+    private String scoreboardConfigFilePathWindows;
 
     public void createMatch() {
         readTeamAndMatchIdFromFile();
@@ -61,13 +64,17 @@ public class ScoreBoardController {
     private void readTeamAndMatchIdFromFile() {
         try {
             final Properties props = new Properties();
-            props.load(new FileInputStream(scoreboardConfigFilePath));
+            props.load(new FileInputStream(getScoreboardConfigFilePath()));
 
             teamId = props.getProperty("team").equalsIgnoreCase("Brigandze") ? 594671 : 605596;
             matchId = Integer.valueOf(props.getProperty("match.id"));
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    private String getScoreboardConfigFilePath() {
+        return isWindows() ? scoreboardConfigFilePathWindows : scoreboardConfigFilePathPi;
     }
 
 
