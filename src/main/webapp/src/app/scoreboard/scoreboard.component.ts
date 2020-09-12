@@ -19,23 +19,39 @@ export class ScoreboardComponent implements OnInit {
 
   matchData: MatchData
 
+  fontSize: number;
+
   constructor(private scoreService: ScoreService) {
   }
 
   ngOnInit(): void {
-    this.matchData=new MatchData();
+    this.matchData = new MatchData();
     this.updateScoreBoard();
   }
 
   private updateScoreBoard() {
+    if (this.matchData.scoreBrigandZe >= 100 || this.matchData.scoreVisitors >= 100) {
+      this.fontSize = 73;
+    } else {
+      this.fontSize = 80;
+    }
+
     interval(1000 * 5).subscribe(() => {
       this.scoreService.getCurrentMatchData().subscribe(response => {
           this.matchData.nameBrigandZe = response.nameBrigandZe
           this.matchData.scoreBrigandZe = response.scoreBrigandZe
           this.matchData.nameVisitors = response.nameVisitors;
           this.matchData.scoreVisitors = response.scoreVisitors;
+
+          if (this.matchData.scoreBrigandZe >= 100 || this.matchData.scoreVisitors >= 100) {
+            this.fontSize = 60;
+          } else {
+            this.fontSize = 50;
+          }
         },
         (error: HttpErrorResponse) => console.log(error));
     });
+
+
   }
 }

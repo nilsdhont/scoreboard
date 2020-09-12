@@ -1,34 +1,33 @@
-@import url(//db.onlinewebfonts.com/c/12d2fa3dcf227b9538084a6bcfeafcf0?family=Trajan+Pro);
-
 .scoreboard {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 192px;
-  height: 64px;
-  //border-style: solid;
-  //border-width: thin;
-  color: #00693C; // BrigandZe green
-  //color: #024731; // Darker BrigandZe green
-  //color: green; //Standard green
+  width: 271px;
+  height: 90px;
+  color: lawngreen;
   background-color: black;
-  text-align: center;
-  font-family: Trajan Pro;
-  }
+  font-family: Arial;
+}
 
-.team{
-  width: 96px;
-  height: 24px;
-  font-size: x-small;
+.ploegen {
 }
-.score{
-  width: 95px;
-  height: 40px;
-  font-size: 36px;
+
+.stand {
 }
-.score-separator{
-  width: 2px;
-  height: 24px;
+
+.teamBrigandze, .teamVisitors {
+  font-size: 20px;
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+  // background: lawngreen;
+  // color:black;
+}
+
+.teamBrigandze {
+}
+
+.teamVisitors {
+}
+
+.score {
+  line-height: 0.9em;
+  text-align: center;
 }
