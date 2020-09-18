@@ -30,11 +30,7 @@ export class ScoreboardComponent implements OnInit {
   }
 
   private updateScoreBoard() {
-    if (this.matchData.scoreBrigandZe >= 100 || this.matchData.scoreVisitors >= 100) {
-      this.fontSize = 73;
-    } else {
-      this.fontSize = 80;
-    }
+    this.setFontSize()
 
     interval(1000 * 5).subscribe(() => {
       this.scoreService.getCurrentMatchData().subscribe(response => {
@@ -43,15 +39,19 @@ export class ScoreboardComponent implements OnInit {
           this.matchData.nameVisitors = response.nameVisitors;
           this.matchData.scoreVisitors = response.scoreVisitors;
 
-          if (this.matchData.scoreBrigandZe >= 100 || this.matchData.scoreVisitors >= 100) {
-            this.fontSize = 60;
-          } else {
-            this.fontSize = 50;
-          }
+          this.setFontSize()
         },
         (error: HttpErrorResponse) => console.log(error));
     });
 
 
+  }
+
+  private setFontSize() {
+    if (this.matchData.scoreBrigandZe >= 100 || this.matchData.scoreVisitors >= 100) {
+      this.fontSize = 73;
+    } else {
+      this.fontSize = 80;
+    }
   }
 }
