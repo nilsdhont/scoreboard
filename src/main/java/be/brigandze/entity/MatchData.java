@@ -16,8 +16,8 @@ public class MatchData {
     @JsonbDateFormat("yyyy-MM-dd'T'HH:mm:ss[XXX][X]")
     private LocalDateTime start_at;
 
-    @JsonbDateFormat("yyyy-MM-dd'T'HH:mm:ss[XXX][X]")
-    private LocalDateTime end_at;
+//    @JsonbDateFormat("yyyy-MM-dd'T'HH:mm:ss[XXX][X]")
+//    private LocalDateTime end_at;
 
     private Opponent opponent_left;
     private Opponent opponent_right;
