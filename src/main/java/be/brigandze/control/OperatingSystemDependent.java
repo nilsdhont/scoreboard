@@ -22,7 +22,7 @@ public interface OperatingSystemDependent {
     }
 
     private WebDriver getLinuxDriver() {
-//        System.setProperty("webdriver.chrome.driver", "/home/pi/Documents/scoreboard/geckodriver");
+        System.setProperty("webdriver.chrome.driver", "/usr/lib/chromium-browser/chromedriver");
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--no-sandbox");
         chromeOptions.setHeadless(true);
