@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxDriverLogLevel;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.service.DriverService;
 
 import static java.lang.System.getProperty;
 
@@ -21,7 +22,7 @@ public interface OperatingSystemDependent {
     }
 
     private WebDriver getLinuxDriver() {
-        System.setProperty("webdriver.chrome.driver", "/home/pi/Documents/scoreboard/geckodriver");
+//        System.setProperty("webdriver.chrome.driver", "/home/pi/Documents/scoreboard/geckodriver");
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--no-sandbox");
         chromeOptions.setHeadless(true);
