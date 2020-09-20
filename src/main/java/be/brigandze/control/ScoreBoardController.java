@@ -22,10 +22,10 @@ public class ScoreBoardController implements OperatingSystemDependent {
     private int matchId;
 
     @ConfigProperty(name = "scoreboard.config.path.pi")
-    private String scoreboardConfigFilePathPi;
+    String scoreboardConfigFilePathPi;
 
     @ConfigProperty(name = "scoreboard.config.path.windows")
-    private String scoreboardConfigFilePathWindows;
+    String scoreboardConfigFilePathWindows;
 
     public void createMatch() {
         readTeamAndMatchIdFromFile();
