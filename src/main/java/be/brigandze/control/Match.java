@@ -1,42 +1,49 @@
 package be.brigandze.control;
 
-import be.brigandze.entity.MatchData;
+import be.brigandze.entity.Event;
 import be.brigandze.sporteasy.SportEasyResource;
 import lombok.Getter;
+
+import static be.brigandze.sporteasy.SportEasyResource.getInstance;
 
 @Getter
 public class Match {
 
+    SportEasyResource sportEasyResource = getInstance();
+
+    private final int teamId;
+    private final int id;
+
     boolean namesSet;
-    private final SportEasyResource sportEasyResource;
     private int scoreBrigandZe = 0;
     private String nameBrigandZe;
     private int scoreVisitors = 0;
     private String nameVisitors;
 
     public Match(int teamId, int id) {
-        this.sportEasyResource = new SportEasyResource(teamId, id);
+        this.teamId = teamId;
+        this.id = id;
     }
 
     public void updateScore() {
-        MatchData matchData = sportEasyResource.getMatchData();
+        Event event = sportEasyResource.getMatchData(teamId, id);
 
-        if (matchData != null) {
-            scoreBrigandZe = matchData.getOpponent_left().getScore();
-            scoreVisitors = matchData.getOpponent_right().getScore();
+        if (event != null) {
+            scoreBrigandZe = event.getOpponent_left().getScore();
+            scoreVisitors = event.getOpponent_right().getScore();
 
 
             if (!namesSet) {
-                nameBrigandZe = matchData.getOpponent_left().getFull_name();
-                nameVisitors = matchData.getOpponent_right().getFull_name();
+                nameBrigandZe = event.getOpponent_left().getFull_name();
+                nameVisitors = event.getOpponent_right().getFull_name();
             }
 //            printLiveStats(matchData);
         }
 
     }
 
-    public void printLiveStats(MatchData matchData) {
-        String liveStats = sportEasyResource.getLiveStats(matchData);
+    public void printLiveStats(Event event) {
+        String liveStats = sportEasyResource.getLiveStats(event);
         System.out.println(liveStats);
     }
 }

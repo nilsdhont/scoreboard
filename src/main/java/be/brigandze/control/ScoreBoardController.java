@@ -10,11 +10,11 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+import static be.brigandze.control.EventController.getInstance;
+
 @ApplicationScoped
 @Getter
 public class ScoreBoardController implements OperatingSystemDependent {
-
-    private Match match;
 
     @Setter
     private int teamId;
@@ -27,24 +27,23 @@ public class ScoreBoardController implements OperatingSystemDependent {
     @ConfigProperty(name = "scoreboard.config.path.windows")
     String scoreboardConfigFilePathWindows;
 
-    public void createMatch() {
-        readTeamAndMatchIdFromFile();
-        if (teamId > 0 && matchId > 0) {
-            match = new Match(teamId, matchId);
-        }
+    EventController eventController = getInstance();
 
+    private Match currentMatch;
+
+    @Scheduled(every = "10m")
+    void updateCurrentMatch() {
+        eventController.updateCurrentMatch();
     }
 
-
     @Scheduled(every = "10s")
-    public void updateScoreBoard() {
-        if (match == null) {
-            createMatch();
-        }
-
-        if (match != null) {
-            match.updateScore();
-//            printScore(match);
+    void updateScoreBoard() {
+        this.currentMatch = eventController.getCurrentMatch();
+        if (currentMatch != null) {
+            currentMatch.updateScore();
+            printScore(currentMatch);
+        } else {
+            eventController.updateCurrentMatch();
         }
 
     }

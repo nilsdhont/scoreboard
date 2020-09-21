@@ -1,10 +1,9 @@
 package be.brigandze.sporteasy;
 
-import be.brigandze.entity.MatchData;
-import be.brigandze.sporteasy.LoginWithSelenium;
+import be.brigandze.entity.Event;
+import be.brigandze.entity.TeamEventList;
 import org.apache.commons.io.IOUtils;
 
-import javax.inject.Inject;
 import javax.json.bind.JsonbBuilder;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.Invocation;
@@ -20,23 +19,47 @@ import static javax.ws.rs.core.Response.Status.ACCEPTED;
 
 public class SportEasyResource {
 
-    private final WebTarget matchTarget;
-    private final String xCsrfToken;
-    private final String cookie;
-    private final Client client = newClient();
+    private static SportEasyResource instance;
 
-    @Inject
-    public SportEasyResource(int teamId, int matchId) {
+    final String xCsrfToken;
+    final String cookie;
+    final Client client = newClient();
+
+    public static SportEasyResource getInstance() {
+        if (instance == null) {
+            instance = new SportEasyResource();
+        }
+        return instance;
+    }
+
+    private SportEasyResource() {
         LoginWithSelenium loginWithSelenium = new LoginWithSelenium();
         xCsrfToken = loginWithSelenium.getXCsrfToken();
         cookie = loginWithSelenium.getCookie();
-        matchTarget = client.target("https://api.sporteasy.net/v2.1/teams/" + teamId + "/events/" + matchId + "/");
+    }
+
+    public TeamEventList getEvents(int teamId) {
+        WebTarget eventsTarget = client.target("https://api.sporteasy.net/v2.1/teams/" + teamId + "/events/?around=TODAY");
+        Invocation.Builder request = eventsTarget.request(APPLICATION_JSON_TYPE);
+        addLoginToHeader(request);
+        Response response = request.get();
+        if (response.getStatus() != ACCEPTED.getStatusCode()) {
+            try {
+                String data = IOUtils.toString((InputStream) response.getEntity(), defaultCharset());
+                return JsonbBuilder.create().fromJson(data, TeamEventList.class);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("Error getting event from SportEasy: " + response.getStatusInfo());
+        }
+        return null;
     }
 
 
-    public MatchData getMatchData() {
-
-
+    public Event getMatchData(int teamId, int eventId) {
+        WebTarget matchTarget = client.target("https://api.sporteasy.net/v2.1/teams/" + teamId + "/events/" + eventId + "/");
         Invocation.Builder request = matchTarget.request(APPLICATION_JSON_TYPE);
         addLoginToHeader(request);
         Response response = request.get();
@@ -44,19 +67,19 @@ public class SportEasyResource {
             try {
                 String data = IOUtils.toString((InputStream) response.getEntity(), defaultCharset());
 
-                return JsonbBuilder.create().fromJson(data, MatchData.class);
+                return JsonbBuilder.create().fromJson(data, Event.class);
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
         } else {
-            System.out.println("Error getting info from SportEasy: " + response.getStatusInfo());
+            System.out.println("Error getting event from SportEasy: " + response.getStatusInfo());
         }
         return null;
     }
 
-    public String getLiveStats(MatchData matchData) {
-        Invocation.Builder request = client.target(matchData.get_links().getRead_live_stats().getUrl()).request(APPLICATION_JSON_TYPE);
+    public String getLiveStats(Event event) {
+        Invocation.Builder request = client.target(event.get_links().getRead_live_stats().getUrl()).request(APPLICATION_JSON_TYPE);
         addLoginToHeader(request);
         Response response = request.get();
         if (response.getStatus() != ACCEPTED.getStatusCode()) {

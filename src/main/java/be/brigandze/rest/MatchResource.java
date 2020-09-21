@@ -21,6 +21,6 @@ public class MatchResource {
 
     @GET
     public Match get() {
-        return scoreBoardController.getMatch();
+        return scoreBoardController.getCurrentMatch();
     }
 }
