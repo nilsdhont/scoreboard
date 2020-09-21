@@ -4,10 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import static be.brigandze.util.Utils.isNumeric;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class Opponent {
     private String full_name;
     private int score;
@@ -15,11 +16,9 @@ public class Opponent {
 
 
     public void setScore(Object score) {
-        if(score instanceof Integer){
-            this.score = (int) score;
-        }else {
-            this.score=0;
+        if (score instanceof String) {
+            String scoreString = (String) score;
+            this.score = isNumeric(scoreString) ? Integer.parseInt(scoreString) : 0;
         }
-
     }
 }
