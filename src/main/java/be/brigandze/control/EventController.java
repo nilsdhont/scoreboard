@@ -6,6 +6,7 @@ import be.brigandze.entity.Teams;
 import be.brigandze.sporteasy.SportEasyResource;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 import static java.time.LocalDate.now;
@@ -36,6 +37,7 @@ public class EventController {
         Optional<Event> event = stream(Teams.values())
                 .map(Teams::getId)
                 .map(sportEasyResource::getEvents)
+                .filter(Objects::nonNull)
                 .map(TeamEventList::getResults)
                 .flatMap(List::stream)
                 .filter(e -> e.getOpponent_left() != null && e.getOpponent_right() != null)

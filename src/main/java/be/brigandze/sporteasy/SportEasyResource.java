@@ -21,9 +21,12 @@ public class SportEasyResource {
 
     private static SportEasyResource instance;
 
-    final String xCsrfToken;
-    final String cookie;
+    String xCsrfToken;
+    String cookie;
     final Client client = newClient();
+
+    private boolean loggedIn=false;
+    private boolean loggingIn=false;
 
     public static SportEasyResource getInstance() {
         if (instance == null) {
@@ -33,12 +36,28 @@ public class SportEasyResource {
     }
 
     private SportEasyResource() {
-        LoginWithSelenium loginWithSelenium = new LoginWithSelenium();
-        xCsrfToken = loginWithSelenium.getXCsrfToken();
-        cookie = loginWithSelenium.getCookie();
+    }
+
+    private boolean login() {
+        if(!loggingIn){
+            loggingIn=true;
+            LoginWithSelenium loginWithSelenium = new LoginWithSelenium();
+            xCsrfToken = loginWithSelenium.getXCsrfToken();
+            cookie = loginWithSelenium.getCookie();
+            return true;
+        }
+        return false;
     }
 
     public TeamEventList getEvents(int teamId) {
+        if(!loggedIn){
+            if(login()){
+                loggingIn=false;
+                loggedIn=true;
+            }else{
+                return null;
+            }
+        }
         WebTarget eventsTarget = client.target("https://api.sporteasy.net/v2.1/teams/" + teamId + "/events/?around=TODAY");
         Invocation.Builder request = eventsTarget.request(APPLICATION_JSON_TYPE);
         addLoginToHeader(request);
@@ -58,7 +77,17 @@ public class SportEasyResource {
     }
 
 
+
+
     public Event getMatchData(int teamId, int eventId) {
+        if(!loggedIn){
+            if(login()){
+                loggingIn=false;
+                loggedIn=true;
+            }else{
+                return null;
+            }
+        }
         WebTarget matchTarget = client.target("https://api.sporteasy.net/v2.1/teams/" + teamId + "/events/" + eventId + "/");
         Invocation.Builder request = matchTarget.request(APPLICATION_JSON_TYPE);
         addLoginToHeader(request);
