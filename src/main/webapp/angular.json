@@ -71,6 +71,7 @@
           },
           "configurations": {
             "production": {
+              "outputPath": "../resources/META-INF/resources",
               "browserTarget": "scoreboard:build:production"
             }
           }
