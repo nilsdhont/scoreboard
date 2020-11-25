@@ -1,23 +1,26 @@
 package be.brigandze.sporteasy;
 
+import static java.nio.charset.Charset.defaultCharset;
+import static java.util.logging.Level.SEVERE;
+import static javax.ws.rs.client.ClientBuilder.newClient;
+import static javax.ws.rs.core.MediaType.APPLICATION_JSON_TYPE;
+import static javax.ws.rs.core.Response.Status.ACCEPTED;
+
 import be.brigandze.entity.Event;
 import be.brigandze.entity.TeamEventList;
-import org.apache.commons.io.IOUtils;
-
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.logging.Logger;
 import javax.json.bind.JsonbBuilder;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
-import java.io.IOException;
-import java.io.InputStream;
-
-import static java.nio.charset.Charset.defaultCharset;
-import static javax.ws.rs.client.ClientBuilder.newClient;
-import static javax.ws.rs.core.MediaType.APPLICATION_JSON_TYPE;
-import static javax.ws.rs.core.Response.Status.ACCEPTED;
+import org.apache.commons.io.IOUtils;
 
 public class SportEasyResource {
+
+    private final static Logger LOGGER = Logger.getLogger(SportEasyResource.class.getName());
 
     private static SportEasyResource instance;
 
@@ -25,8 +28,8 @@ public class SportEasyResource {
     String cookie;
     final Client client = newClient();
 
-    private boolean loggedIn=false;
-    private boolean loggingIn=false;
+    private boolean loggedIn = false;
+    private boolean loggingIn = false;
 
     public static SportEasyResource getInstance() {
         if (instance == null) {
@@ -39,8 +42,8 @@ public class SportEasyResource {
     }
 
     private boolean login() {
-        if(!loggingIn){
-            loggingIn=true;
+        if (!loggingIn) {
+            loggingIn = true;
             SportEasyLogin sportEasyLogin = new SportEasyLogin();
             xCsrfToken = sportEasyLogin.getXCsrfToken();
             cookie = sportEasyLogin.getCookie();
@@ -50,70 +53,75 @@ public class SportEasyResource {
     }
 
     public TeamEventList getEvents(int teamId) {
-        if(!loggedIn){
-            if(login()){
-                loggingIn=false;
-                loggedIn=true;
-            }else{
+        if (!loggedIn) {
+            if (login()) {
+                loggingIn = false;
+                loggedIn = true;
+            } else {
                 return null;
             }
         }
-        WebTarget eventsTarget = client.target("https://api.sporteasy.net/v2.1/teams/" + teamId + "/events/?around=TODAY");
+        WebTarget eventsTarget = client
+            .target("https://api.sporteasy.net/v2.1/teams/" + teamId + "/events/?around=TODAY");
         Invocation.Builder request = eventsTarget.request(APPLICATION_JSON_TYPE);
         addLoginToHeader(request);
         Response response = request.get();
         if (response.getStatus() != ACCEPTED.getStatusCode()) {
             try {
-                String data = IOUtils.toString((InputStream) response.getEntity(), defaultCharset());
+                String data = IOUtils
+                    .toString((InputStream) response.getEntity(), defaultCharset());
                 return JsonbBuilder.create().fromJson(data, TeamEventList.class);
 
             } catch (IOException e) {
-                e.printStackTrace();
+                LOGGER.log(SEVERE, "Error getting events from today", e);
             }
         } else {
-            System.out.println("Error getting event from SportEasy: " + response.getStatusInfo());
+            LOGGER.severe("Error getting event from SportEasy: " + response.getStatusInfo());
         }
         return null;
     }
 
 
-
-
     public Event getMatchData(int teamId, int eventId) {
-        if(!loggedIn){
-            if(login()){
-                loggingIn=false;
-                loggedIn=true;
-            }else{
+        if (!loggedIn) {
+            if (login()) {
+                loggingIn = false;
+                loggedIn = true;
+            } else {
                 return null;
             }
         }
-        WebTarget matchTarget = client.target("https://api.sporteasy.net/v2.1/teams/" + teamId + "/events/" + eventId + "/");
+        WebTarget matchTarget = client
+            .target("https://api.sporteasy.net/v2.1/teams/" + teamId + "/events/" + eventId + "/");
         Invocation.Builder request = matchTarget.request(APPLICATION_JSON_TYPE);
         addLoginToHeader(request);
         Response response = request.get();
         if (response.getStatus() != ACCEPTED.getStatusCode()) {
             try {
-                String data = IOUtils.toString((InputStream) response.getEntity(), defaultCharset());
+                String data = IOUtils
+                    .toString((InputStream) response.getEntity(), defaultCharset());
 
                 return JsonbBuilder.create().fromJson(data, Event.class);
 
             } catch (IOException e) {
-                e.printStackTrace();
+                LOGGER.log(SEVERE, "Error get match data. Team: " + teamId + ". Event: " + eventId,
+                    e);
             }
         } else {
-            System.out.println("Error getting event from SportEasy: " + response.getStatusInfo());
+            LOGGER.severe("Error getting event from SportEasy: " + response.getStatusInfo());
         }
         return null;
     }
 
     public String getLiveStats(Event event) {
-        Invocation.Builder request = client.target(event.get_links().getRead_live_stats().getUrl()).request(APPLICATION_JSON_TYPE);
+        Invocation.Builder request = client.target(event.get_links().getRead_live_stats().getUrl())
+            .request(APPLICATION_JSON_TYPE);
         addLoginToHeader(request);
         Response response = request.get();
         if (response.getStatus() != ACCEPTED.getStatusCode()) {
             try {
-                String data = IOUtils.toString((InputStream) response.getEntity(), defaultCharset());
+                String data = IOUtils
+                    .toString((InputStream) response.getEntity(), defaultCharset());
                 //TODO To object
                 return data;
 
@@ -121,7 +129,7 @@ public class SportEasyResource {
                 e.printStackTrace();
             }
         } else {
-            System.out.println("Error getting live info from SportEasy: " + response.getStatusInfo());
+           LOGGER.severe("Error getting live info from SportEasy: " + response.getStatusInfo());
         }
         return "";
     }
