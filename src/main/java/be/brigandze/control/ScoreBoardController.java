@@ -1,31 +1,20 @@
 package be.brigandze.control;
 
+import static be.brigandze.control.EventController.getInstance;
+
 import io.quarkus.scheduler.Scheduled;
+import javax.enterprise.context.ApplicationScoped;
 import lombok.Getter;
 import lombok.Setter;
-import org.eclipse.microprofile.config.inject.ConfigProperty;
-
-import javax.enterprise.context.ApplicationScoped;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Properties;
-
-import static be.brigandze.control.EventController.getInstance;
 
 @ApplicationScoped
 @Getter
-public class ScoreBoardController implements OperatingSystemDependent {
+public class ScoreBoardController {
 
     @Setter
     private int teamId;
     @Setter
     private int matchId;
-
-    @ConfigProperty(name = "scoreboard.config.path.pi")
-    String scoreboardConfigFilePathPi;
-
-    @ConfigProperty(name = "scoreboard.config.path.windows")
-    String scoreboardConfigFilePathWindows;
 
     EventController eventController = getInstance();
 
@@ -50,31 +39,13 @@ public class ScoreBoardController implements OperatingSystemDependent {
 
     private void printScore(Match match) {
         String s = match.getNameBrigandZe() +
-                ": " +
-                match.getScoreBrigandZe() +
-                " - " +
-                match.getNameVisitors() +
-                ": " +
-                match.getScoreVisitors();
+            ": " +
+            match.getScoreBrigandZe() +
+            " - " +
+            match.getNameVisitors() +
+            ": " +
+            match.getScoreVisitors();
         System.out.println(s);
-
     }
-
-    private void readTeamAndMatchIdFromFile() {
-        try {
-            final Properties props = new Properties();
-            props.load(new FileInputStream(getScoreboardConfigFilePath()));
-
-            teamId = props.getProperty("team").equalsIgnoreCase("Brigandze") ? 594671 : 605596;
-            matchId = Integer.valueOf(props.getProperty("match.id"));
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    private String getScoreboardConfigFilePath() {
-        return isWindows() ? scoreboardConfigFilePathWindows : scoreboardConfigFilePathPi;
-    }
-
 
 }

@@ -41,9 +41,9 @@ public class SportEasyResource {
     private boolean login() {
         if(!loggingIn){
             loggingIn=true;
-            LoginWithSelenium loginWithSelenium = new LoginWithSelenium();
-            xCsrfToken = loginWithSelenium.getXCsrfToken();
-            cookie = loginWithSelenium.getCookie();
+            SportEasyLogin sportEasyLogin = new SportEasyLogin();
+            xCsrfToken = sportEasyLogin.getXCsrfToken();
+            cookie = sportEasyLogin.getCookie();
             return true;
         }
         return false;
