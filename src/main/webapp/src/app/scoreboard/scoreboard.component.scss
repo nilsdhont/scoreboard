@@ -1,33 +1,30 @@
 .scoreboard {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
   width: 288px;
   height: 96px;
   color: lawngreen;
   background-color: black;
-  font-family: Arial;
+  font-family: "Lucida Console";
 }
 
-.ploegen {
-}
-
-.stand {
-}
-
-.teamBrigandze, .teamVisitors {
-  font-size: 20px;
-  display: inline-block;
+.teamName{
+  height: 25%;
   width: 50%;
   text-align: center;
-  // background: lawngreen;
-  // color:black;
+  font-size: 20px;
 }
-
-.teamBrigandze {
-}
-
-.teamVisitors {
-}
-
-.score {
-  line-height: 0.9em;
+.stand{
+  height: 75%;
   text-align: center;
+  align-content: center;
 }
+.score{
+  width: 42%;
+}
+.separator{
+  width: 16%;
+}
+

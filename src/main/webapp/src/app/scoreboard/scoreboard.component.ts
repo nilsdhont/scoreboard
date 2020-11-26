@@ -49,9 +49,13 @@ export class ScoreboardComponent implements OnInit {
 
   private setFontSize() {
     if (this.matchData.scoreBrigandZe >= 100 || this.matchData.scoreVisitors >= 100) {
-      this.fontSize = 73;
+      this.fontSize = 68;
     } else {
       this.fontSize = 80;
+    }
+
+    if (this.matchData.nameVisitors.length > 13) {
+      this.matchData.nameVisitors = this.matchData.nameVisitors.substr(0, 13)
     }
   }
 }

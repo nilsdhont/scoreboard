@@ -1,9 +1,7 @@
 <div class="scoreboard">
-  <div class="ploegen">
-    <div class="teamBrigandze">{{matchData.nameBrigandZe}}</div>
-    <div class="teamVisitors">{{matchData.nameVisitors}}</div>
-  </div>
-  <div class="stand" [style.font-size.px]="fontSize">
-    <div class="score">{{matchData.scoreBrigandZe}} - {{matchData.scoreVisitors}}</div>
-  </div>
+    <div class="teamName">{{matchData.nameBrigandZe}}</div>
+    <div class="teamName">{{matchData.nameVisitors}}</div>
+    <div class="score stand" [style.font-size.px]="fontSize">{{matchData.scoreBrigandZe}}</div>
+    <div fittext class="stand separator" [style.font-size.px]="fontSize">-</div>
+    <div fittext class="score stand" [style.font-size.px]="fontSize">{{matchData.scoreVisitors}}</div>
 </div>
