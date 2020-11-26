@@ -11,6 +11,7 @@ import static be.brigandze.util.Utils.isNumeric;
 @AllArgsConstructor
 public class Opponent {
     private String full_name;
+    private String short_name;
     private int score;
     private int id;
 

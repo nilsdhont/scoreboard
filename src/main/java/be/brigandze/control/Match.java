@@ -34,8 +34,8 @@ public class Match {
 
 
             if (!namesSet) {
-                nameBrigandZe = event.getOpponent_left().getFull_name();
-                nameVisitors = event.getOpponent_right().getFull_name();
+                nameBrigandZe = event.getOpponent_left().getShort_name();
+                nameVisitors = event.getOpponent_right().getShort_name();
             }
 //            printLiveStats(matchData);
         }
