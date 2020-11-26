@@ -1,10 +1,10 @@
 package be.brigandze.control;
 
+import static be.brigandze.sporteasy.SportEasyResource.getInstance;
+
 import be.brigandze.entity.Event;
 import be.brigandze.sporteasy.SportEasyResource;
 import lombok.Getter;
-
-import static be.brigandze.sporteasy.SportEasyResource.getInstance;
 
 @Getter
 public class Match {
@@ -14,7 +14,6 @@ public class Match {
     private final int teamId;
     private final int id;
 
-    boolean namesSet;
     private int scoreBrigandZe = 0;
     private String nameBrigandZe;
     private int scoreVisitors = 0;
@@ -32,11 +31,9 @@ public class Match {
             scoreBrigandZe = event.getOpponent_left().getScore();
             scoreVisitors = event.getOpponent_right().getScore();
 
+            nameBrigandZe = event.getOpponent_left().getName();
+            nameVisitors = event.getOpponent_right().getName();
 
-            if (!namesSet) {
-                nameBrigandZe = event.getOpponent_left().getShort_name();
-                nameVisitors = event.getOpponent_right().getShort_name();
-            }
 //            printLiveStats(matchData);
         }
 
