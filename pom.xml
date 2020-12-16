@@ -128,7 +128,7 @@
           https://repo1.maven.org/maven2/com/github/eirslett/frontend-maven-plugin/ -->
         <version>${version.frontend-maven-plugin}</version>
         <configuration>
-          <workingDirectory>src/main/webapp</workingDirectory>
+          <workingDirectory>webapp</workingDirectory>
         </configuration>
       </plugin>
       <!-- Copy the built webapp to the directory used by Quarkus -->
