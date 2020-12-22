@@ -30,22 +30,11 @@ public class ScoreBoardController {
         this.currentMatch = eventController.getCurrentMatch();
         if (currentMatch != null) {
             currentMatch.updateScore();
-            printScore(currentMatch);
         } else {
             eventController.updateCurrentMatch();
         }
 
     }
 
-    private void printScore(Match match) {
-        String s = match.getNameBrigandZe() +
-            ": " +
-            match.getScoreBrigandZe() +
-            " - " +
-            match.getNameVisitors() +
-            ": " +
-            match.getScoreVisitors();
-        System.out.println(s);
-    }
 
 }

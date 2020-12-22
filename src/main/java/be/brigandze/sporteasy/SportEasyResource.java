@@ -26,12 +26,12 @@ public class SportEasyResource {
 
     String xCsrfToken;
     String cookie;
-    final Client client = newClient();
+    final Client client;
 
     private boolean loggedIn = false;
     private boolean loggingIn = false;
 
-    public static SportEasyResource getInstance() {
+    public static SportEasyResource getSportEasyInstance() {
         if (instance == null) {
             instance = new SportEasyResource();
         }
@@ -39,6 +39,7 @@ public class SportEasyResource {
     }
 
     private SportEasyResource() {
+        client = newClient();
     }
 
     private boolean login() {
@@ -129,7 +130,7 @@ public class SportEasyResource {
                 e.printStackTrace();
             }
         } else {
-           LOGGER.severe("Error getting live info from SportEasy: " + response.getStatusInfo());
+            LOGGER.severe("Error getting live info from SportEasy: " + response.getStatusInfo());
         }
         return "";
     }
@@ -139,6 +140,5 @@ public class SportEasyResource {
         request.header("x-csrftoken", xCsrfToken);
         request.header("Cookie", cookie);
     }
-
 
 }
