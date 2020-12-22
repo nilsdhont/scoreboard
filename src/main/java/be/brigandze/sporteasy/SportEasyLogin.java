@@ -21,6 +21,8 @@ public class SportEasyLogin {
         SportEasyConfig sportEasyConfig = new SportEasyConfig();
         getLogger("com.gargoylesoftware").setLevel(Level.SEVERE);
         try (final WebClient webClient = new WebClient()) {
+            webClient.getOptions().setJavaScriptEnabled(false);
+            webClient.getOptions().setThrowExceptionOnScriptError(false);
             final HtmlPage page = webClient.getPage(
                 "https://www.sporteasy.net/nl/login/?next=https://www.sporteasy.net/nl/profile/");
 
