@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>be.brigandze</groupId>
   <artifactId>scoreboard</artifactId>
@@ -8,22 +10,22 @@
   <properties>
     <java.version>15</java.version>
 
-    <compiler-plugin.version>3.8.1</compiler-plugin.version>
     <maven.compiler.parameters>true</maven.compiler.parameters>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-    <quarkus-plugin.version>1.10.2.Final</quarkus-plugin.version>
-    <quarkus.platform.version>1.10.2.Final</quarkus.platform.version>
-    <quarkus.platform.artifact-id>quarkus-universe-bom</quarkus.platform.artifact-id>
+    <quarkus-plugin.version>1.11.3.Final</quarkus-plugin.version>
     <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
+    <quarkus.platform.artifact-id>quarkus-universe-bom</quarkus.platform.artifact-id>
+    <quarkus.platform.version>1.11.3.Final</quarkus.platform.version>
+    <compiler-plugin.version>3.8.1</compiler-plugin.version>
     <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
 
     <!-- Versions for added plugins -->
     <version.frontend-maven-plugin>1.11.0</version.frontend-maven-plugin>
     <version.resources-plugin>3.2.0</version.resources-plugin>
-    <lombok.version>1.18.16</lombok.version>
-    <sourceforge.htmlunit.version>2.45.0</sourceforge.htmlunit.version>
+    <lombok.version>1.18.18</lombok.version>
+    <sourceforge.htmlunit.version>2.47.1</sourceforge.htmlunit.version>
 
     <!-- frontend versions -->
     <node.version>v14.15.2</node.version>
@@ -47,13 +49,16 @@
       <artifactId>quarkus-resteasy</artifactId>
     </dependency>
     <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-junit5</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
       <groupId>io.rest-assured</groupId>
       <artifactId>rest-assured</artifactId>
+      <!--  <scope>test</scope>  -->
+      <!--  If in test scope then in the latest versions of quarkus a required module is only in test scope while it is also needed in sourceforge  -->
+      <!--  The module: org.apache.httpcomponents:httpmime:jar:4.5.13:test -> test should be compile -->
+      <!--  Test this again in later versions of quarkus  -->
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-junit5</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -179,7 +184,9 @@
                 </goals>
                 <configuration>
                   <systemPropertyVariables>
-                    <native.image.path>${project.build.directory}/${project.build.finalName}-runner</native.image.path>
+                    <native.image.path>
+                      ${project.build.directory}/${project.build.finalName}-runner
+                    </native.image.path>
                   </systemPropertyVariables>
                 </configuration>
               </execution>
@@ -303,7 +310,9 @@
                   <goal>yarn</goal>
                 </goals>
                 <configuration>
-                  <arguments>run build --output-hashing=all --prod --aot --configuration=production</arguments>
+                  <arguments>run build --output-hashing=all --prod --aot
+                    --configuration=production
+                  </arguments>
                 </configuration>
               </execution>
             </executions>

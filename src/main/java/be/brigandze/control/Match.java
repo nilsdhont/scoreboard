@@ -1,9 +1,8 @@
 package be.brigandze.control;
 
-import static be.brigandze.sporteasy.SportEasyResource.*;
+import static be.brigandze.sporteasy.SportEasyResource.getSportEasyInstance;
 
 import be.brigandze.entity.Event;
-import be.brigandze.sporteasy.SportEasyResource;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -18,15 +17,10 @@ public class Match {
     private String nameBrigandZe;
     private int scoreVisitors;
     private String nameVisitors;
-//
-//    public Match(int teamId, int id) {
-//        this.teamId = teamId;
-//        this.id = id;
-//    }
+
 
     public void updateScore() {
         Event event = getSportEasyInstance().getMatchData(teamId, id);
-
         if (event != null) {
             boolean scoreChanged = false;
             int newScoreBrigandZe = event.getOpponent_left().getScore();
