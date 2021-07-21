@@ -5,10 +5,13 @@ import static be.brigandze.sporteasy.SportEasyResource.getSportEasyInstance;
 import be.brigandze.entity.Event;
 import lombok.Builder;
 import lombok.Getter;
+import org.jboss.logging.Logger;
 
 @Getter
 @Builder
 public class Match {
+
+    private static final Logger LOG = Logger.getLogger(Match.class);
 
     private final int teamId;
     private final int id;
@@ -42,19 +45,19 @@ public class Match {
     }
 
     void printScore() {
-        String s = nameBrigandZe +
+        String score = nameBrigandZe +
             ": " +
             scoreBrigandZe +
             " - " +
             nameVisitors +
             ": " +
             scoreVisitors;
-        System.out.println(s);
+        LOG.info(score);
     }
 
     public void printLiveStats(Event event) {
         String liveStats = getSportEasyInstance().getLiveStats(event);
-        System.out.println(liveStats);
+        LOG.info(liveStats);
     }
 
     @Override
