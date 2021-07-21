@@ -4,8 +4,10 @@ import static java.util.logging.Level.SEVERE;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Properties;
+import java.util.Set;
 import java.util.function.Function;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -33,6 +35,16 @@ public class SportEasyConfig implements ConfigSource {
             LOGGER.log(SEVERE, "Error getting properties from sporteasy.env file ", e);
         }
         return null;
+    }
+
+    @Override
+    public Set<String> getPropertyNames() {
+        return new HashSet<>();
+    }
+
+    @Override
+    public int getOrdinal() {
+        return ConfigSource.super.getOrdinal();
     }
 
     @Override

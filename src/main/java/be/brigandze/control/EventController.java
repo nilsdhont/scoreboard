@@ -43,8 +43,7 @@ public class EventController {
             .filter(eventHasOpponents)
             .filter(isHomeMatch)
             .filter(eventIsToday)
-            .sorted(comparing(Event::getStart_at))
-            .findFirst();
+            .min(comparing(Event::getStart_at));
         if (event.isPresent()) {
             Match newMatch = Match.builder()
                 .id(event.get().getId())
@@ -56,6 +55,8 @@ public class EventController {
                 this.currentMatch = newMatch;
                 currentMatch.printScore();
             }
+        } else {
+            System.out.println("NO MATCH AVAILABLE");
         }
     }
 

@@ -37,7 +37,6 @@ public class Match {
             if (scoreChanged) {
                 printScore();
             }
-//            printLiveStats(matchData);
         }
 
     }
