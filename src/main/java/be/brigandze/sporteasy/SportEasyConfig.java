@@ -1,7 +1,5 @@
 package be.brigandze.sporteasy;
 
-import static java.util.logging.Level.SEVERE;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashSet;
@@ -9,17 +7,17 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 import java.util.function.Function;
-import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import lombok.Getter;
 import lombok.Setter;
 import org.eclipse.microprofile.config.spi.ConfigSource;
+import org.jboss.logging.Logger;
 
 @Getter
 @Setter
 public class SportEasyConfig implements ConfigSource {
 
-    private final static Logger LOGGER = Logger.getLogger(SportEasyConfig.class.getName());
+    private static final Logger LOG = Logger.getLogger(SportEasyConfig.class);
 
     @Override
     public Map<String, String> getProperties() {
@@ -32,7 +30,7 @@ public class SportEasyConfig implements ConfigSource {
                 .collect(Collectors.toMap(Function.identity(), properties::getProperty));
 
         } catch (IOException e) {
-            LOGGER.log(SEVERE, "Error getting properties from sporteasy.env file ", e);
+            LOG.error("Error getting properties from sporteasy.env file ", e);
         }
         return null;
     }

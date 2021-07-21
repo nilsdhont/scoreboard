@@ -1,7 +1,6 @@
 package be.brigandze.sporteasy;
 
 import static java.nio.charset.Charset.defaultCharset;
-import static java.util.logging.Level.SEVERE;
 import static javax.ws.rs.client.ClientBuilder.newClient;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON_TYPE;
 import static javax.ws.rs.core.Response.Status.ACCEPTED;
@@ -10,17 +9,17 @@ import be.brigandze.entity.Event;
 import be.brigandze.entity.TeamEventList;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.logging.Logger;
 import javax.json.bind.JsonbBuilder;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
 import org.apache.commons.io.IOUtils;
+import org.jboss.logging.Logger;
 
 public class SportEasyResource {
 
-    private final static Logger LOGGER = Logger.getLogger(SportEasyResource.class.getName());
+    private static final Logger LOG = Logger.getLogger(SportEasyResource.class);
 
     private static SportEasyResource instance;
 
@@ -74,10 +73,10 @@ public class SportEasyResource {
                 return JsonbBuilder.create().fromJson(data, TeamEventList.class);
 
             } catch (IOException e) {
-                LOGGER.log(SEVERE, "Error getting events from today", e);
+                LOG.error("Error getting events from today", e);
             }
         } else {
-            LOGGER.severe("Error getting event from SportEasy: " + response.getStatusInfo());
+            LOG.error("Error getting event from SportEasy: " + response.getStatusInfo());
         }
         return null;
     }
@@ -105,11 +104,10 @@ public class SportEasyResource {
                 return JsonbBuilder.create().fromJson(data, Event.class);
 
             } catch (IOException e) {
-                LOGGER.log(SEVERE, "Error get match data. Team: " + teamId + ". Event: " + eventId,
-                    e);
+                LOG.error("Error get match data. Team: " + teamId + ". Event: " + eventId, e);
             }
         } else {
-            LOGGER.severe("Error getting event from SportEasy: " + response.getStatusInfo());
+            LOG.error("Error getting event from SportEasy: " + response.getStatusInfo());
         }
         return null;
     }
@@ -130,7 +128,7 @@ public class SportEasyResource {
                 e.printStackTrace();
             }
         } else {
-            LOGGER.severe("Error getting live info from SportEasy: " + response.getStatusInfo());
+            LOG.error("Error getting live info from SportEasy: " + response.getStatusInfo());
         }
         return "";
     }

@@ -13,8 +13,11 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import org.jboss.logging.Logger;
 
 public class EventController {
+
+    private static final Logger LOG = Logger.getLogger(EventController.class);
 
     private static EventController instance;
 
@@ -56,7 +59,7 @@ public class EventController {
                 currentMatch.printScore();
             }
         } else {
-            System.out.println("NO MATCH AVAILABLE");
+            LOG.info("NO MATCH AVAILABLE");
         }
     }
 
