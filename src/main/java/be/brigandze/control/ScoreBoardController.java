@@ -16,7 +16,7 @@ public class ScoreBoardController {
     @Setter
     private int matchId;
 
-    EventController eventController = getInstance();
+    private EventController eventController = getInstance();
 
     private Match currentMatch;
 
@@ -33,7 +33,6 @@ public class ScoreBoardController {
         } else {
             eventController.updateCurrentMatch();
         }
-
     }
 
 

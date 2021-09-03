@@ -1,19 +1,19 @@
 package be.brigandze.entity;
 
+import static be.brigandze.util.Utils.isNotNullString;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import javax.json.bind.annotation.JsonbDateFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.json.bind.annotation.JsonbDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
-import static be.brigandze.util.Utils.isNotNullString;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Event {
+
     private int id;
 
     @JsonbDateFormat("yyyy-MM-dd'T'HH:mm:ss[XXX][X]")
@@ -27,9 +27,12 @@ public class Event {
 
     private Links _links;
 
+    private Boolean is_past;
+
     public void setEnd_at(Object end_at) {
         if (end_at != null && isNotNullString(end_at)) {
-            this.end_at = LocalDateTime.parse((String) end_at, DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss[XXX][X]"));
+            this.end_at = LocalDateTime.parse((String) end_at,
+                DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss[XXX][X]"));
 //            this.end_at = (LocalDateTime) end_at;
         }
     }

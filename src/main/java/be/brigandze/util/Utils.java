@@ -4,9 +4,12 @@ import java.util.Objects;
 import java.util.regex.Pattern;
 
 public class Utils {
+
+    private static final Pattern numericPattern = Pattern.compile("-?\\d+(\\.\\d+)?");
+
+
     private Utils() {
     }
-
 
     public static boolean isNotNullString(Object o) {
         if (o instanceof String) {
@@ -14,9 +17,6 @@ public class Utils {
         }
         return true;
     }
-
-
-    private static final Pattern numericPattern = Pattern.compile("-?\\d+(\\.\\d+)?");
 
     public static boolean isNumeric(String strNum) {
         if (strNum == null) {

@@ -3,7 +3,6 @@ package be.brigandze.rest;
 
 import be.brigandze.control.Match;
 import be.brigandze.control.ScoreBoardController;
-
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.GET;

@@ -9,6 +9,8 @@ import be.brigandze.entity.Event;
 import be.brigandze.entity.TeamEventList;
 import java.io.IOException;
 import java.io.InputStream;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import javax.json.bind.JsonbBuilder;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.Invocation;
@@ -22,13 +24,17 @@ public class SportEasyResource {
     private static final Logger LOG = Logger.getLogger(SportEasyResource.class);
 
     private static SportEasyResource instance;
-
-    String xCsrfToken;
-    String cookie;
     final Client client;
-
     private boolean loggedIn = false;
     private boolean loggingIn = false;
+
+    private String xCsrfToken;
+    private String cookie;
+    private LocalDate expirationDate;
+
+    private SportEasyResource() {
+        client = newClient();
+    }
 
     public static SportEasyResource getSportEasyInstance() {
         if (instance == null) {
@@ -37,30 +43,26 @@ public class SportEasyResource {
         return instance;
     }
 
-    private SportEasyResource() {
-        client = newClient();
-    }
-
     private boolean login() {
         if (!loggingIn) {
             loggingIn = true;
             SportEasyLogin sportEasyLogin = new SportEasyLogin();
+            sportEasyLogin.login();
             xCsrfToken = sportEasyLogin.getXCsrfToken();
             cookie = sportEasyLogin.getCookie();
+            expirationDate = LocalDate.ofInstant(
+                sportEasyLogin.getCookieExpirationDate().toInstant(),
+                ZoneId.systemDefault());
             return true;
         }
         return false;
     }
 
     public TeamEventList getEvents(int teamId) {
-        if (!loggedIn) {
-            if (login()) {
-                loggingIn = false;
-                loggedIn = true;
-            } else {
-                return null;
-            }
+        if (notLoggedIn()) {
+            return null;
         }
+
         WebTarget eventsTarget = client
             .target("https://api.sporteasy.net/v2.1/teams/" + teamId + "/events/?around=TODAY");
         Invocation.Builder request = eventsTarget.request(APPLICATION_JSON_TYPE);
@@ -83,14 +85,10 @@ public class SportEasyResource {
 
 
     public Event getMatchData(int teamId, int eventId) {
-        if (!loggedIn) {
-            if (login()) {
-                loggingIn = false;
-                loggedIn = true;
-            } else {
-                return null;
-            }
+        if (notLoggedIn()) {
+            return null;
         }
+
         WebTarget matchTarget = client
             .target("https://api.sporteasy.net/v2.1/teams/" + teamId + "/events/" + eventId + "/");
         Invocation.Builder request = matchTarget.request(APPLICATION_JSON_TYPE);
@@ -113,6 +111,10 @@ public class SportEasyResource {
     }
 
     public String getLiveStats(Event event) {
+        if (notLoggedIn()) {
+            return null;
+        }
+
         Invocation.Builder request = client.target(event.get_links().getRead_live_stats().getUrl())
             .request(APPLICATION_JSON_TYPE);
         addLoginToHeader(request);
@@ -133,6 +135,27 @@ public class SportEasyResource {
         return "";
     }
 
+
+    private boolean notLoggedIn() {
+        if (!loggedIn) {
+            if (login()) {
+                loggingIn = false;
+                loggedIn = true;
+            } else {
+                return true;
+            }
+        }
+
+        if (cookieIsExpired()) {
+            login();
+        }
+
+        return false;
+    }
+
+    public boolean cookieIsExpired() {
+        return !LocalDate.now().atStartOfDay().isBefore(expirationDate.atStartOfDay());
+    }
 
     private void addLoginToHeader(Invocation.Builder request) {
         request.header("x-csrftoken", xCsrfToken);

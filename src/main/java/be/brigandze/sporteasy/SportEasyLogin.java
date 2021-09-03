@@ -7,6 +7,7 @@ import com.gargoylesoftware.htmlunit.html.HtmlButton;
 import com.gargoylesoftware.htmlunit.html.HtmlForm;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.util.Cookie;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -18,8 +19,11 @@ public class SportEasyLogin {
     private Cookie sporteasy;
 
     public SportEasyLogin() {
-        SportEasyConfig sportEasyConfig = new SportEasyConfig();
         getLogger("com.gargoylesoftware").setLevel(Level.SEVERE);
+    }
+
+    void login() {
+        SportEasyConfig sportEasyConfig = new SportEasyConfig();
         try (final WebClient webClient = new WebClient()) {
             webClient.getOptions().setJavaScriptEnabled(false);
             webClient.getOptions().setThrowExceptionOnScriptError(false);
@@ -36,11 +40,9 @@ public class SportEasyLogin {
             se_csrftoken = webClient.getCookieManager().getCookie("se_csrftoken");
             sporteasy = webClient.getCookieManager().getCookie("sporteasy");
 
-
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "Error logging in to sporteasy", e);
         }
-
     }
 
     public String getXCsrfToken() {
@@ -55,6 +57,10 @@ public class SportEasyLogin {
             + sporteasy.getName()
             + "= "
             + sporteasy.getValue();
+    }
+
+    public Date getCookieExpirationDate(){
+        return sporteasy.getExpires();
     }
 
 }
