@@ -45,7 +45,7 @@ public class EventController {
             .filter(eventHasOpponents)
             .filter(isHomeMatch)
             .filter(eventIsToday)
-            .filter(eventNotEnded)
+//            .filter(eventNotEnded)
             .min(comparing(Event::getStart_at));
         if (event.isPresent()) {
             Match newMatch = Match.builder()
