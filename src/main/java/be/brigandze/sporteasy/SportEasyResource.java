@@ -16,6 +16,7 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status.Family;
 import org.apache.commons.io.IOUtils;
 import org.jboss.logging.Logger;
 
@@ -94,15 +95,20 @@ public class SportEasyResource {
         Invocation.Builder request = matchTarget.request(APPLICATION_JSON_TYPE);
         addLoginToHeader(request);
         Response response = request.get();
-        if (response.getStatus() != ACCEPTED.getStatusCode()) {
+        if (response.getStatusInfo().getFamily().equals(Family.SUCCESSFUL)) {
+            String data = null;
             try {
-                String data = IOUtils
+                data = IOUtils
                     .toString((InputStream) response.getEntity(), defaultCharset());
 
                 return JsonbBuilder.create().fromJson(data, Event.class);
 
-            } catch (IOException e) {
-                LOG.error("Error get match data. Team: " + teamId + ". Event: " + eventId, e);
+            } catch (Exception e) {
+                if(data==null){
+                    LOG.error("Error get match data. Team: " + teamId + ". Event: " + eventId, e);
+                }else {
+                    LOG.error("Error parsing DATA: " + data, e);
+                }
             }
         } else {
             LOG.error("Error getting event from SportEasy: " + response.getStatusInfo());
