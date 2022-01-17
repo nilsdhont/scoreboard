@@ -1,24 +1,26 @@
 package be.brigandze.sporteasy;
 
-import static java.nio.charset.Charset.defaultCharset;
-import static javax.ws.rs.client.ClientBuilder.newClient;
-import static javax.ws.rs.core.MediaType.APPLICATION_JSON_TYPE;
-import static javax.ws.rs.core.Response.Status.ACCEPTED;
-
 import be.brigandze.entity.Event;
 import be.brigandze.entity.TeamEventList;
-import java.io.IOException;
-import java.io.InputStream;
-import java.time.LocalDate;
-import java.time.ZoneId;
+import org.apache.commons.io.IOUtils;
+import org.jboss.logging.Logger;
+
 import javax.json.bind.JsonbBuilder;
 import javax.ws.rs.client.Client;
+import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status.Family;
-import org.apache.commons.io.IOUtils;
-import org.jboss.logging.Logger;
+import java.io.IOException;
+import java.io.InputStream;
+import java.time.LocalDate;
+import java.util.List;
+
+import static java.nio.charset.Charset.defaultCharset;
+import static javax.ws.rs.client.ClientBuilder.newClient;
+import static javax.ws.rs.core.MediaType.APPLICATION_JSON_TYPE;
+import static javax.ws.rs.core.Response.Status.ACCEPTED;
 
 public class SportEasyResource {
 
@@ -27,7 +29,6 @@ public class SportEasyResource {
     private static SportEasyResource instance;
     final Client client;
     private boolean loggedIn = false;
-    private boolean loggingIn = false;
 
     private String xCsrfToken;
     private String cookie;
@@ -45,16 +46,23 @@ public class SportEasyResource {
     }
 
     private boolean login() {
-        if (!loggingIn) {
-            loggingIn = true;
-            SportEasyLogin sportEasyLogin = new SportEasyLogin();
-            sportEasyLogin.login();
-            xCsrfToken = sportEasyLogin.getXCsrfToken();
-            cookie = sportEasyLogin.getCookie();
-            expirationDate = LocalDate.ofInstant(
-                sportEasyLogin.getCookieExpirationDate().toInstant(),
-                ZoneId.systemDefault());
+        try {
+            SportEasyConfig sportEasyConfig = new SportEasyConfig();
+            WebTarget loginTarget = client
+                    .target("https://api.sporteasy.net/v2.1/account/authenticate/");
+            Response response = loginTarget
+                    .request(APPLICATION_JSON_TYPE)
+                    .accept(APPLICATION_JSON_TYPE)
+                    .buildPost(Entity.entity(sportEasyConfig.createLoginData(), APPLICATION_JSON_TYPE))
+                    .invoke();
+            List<Object> cookiesMetadata = response.getMetadata().get("Set-Cookie");
+            xCsrfToken = String.valueOf(cookiesMetadata.get(0));
+            cookie = String.valueOf(cookiesMetadata.get(1));
+            expirationDate = LocalDate.now().plusDays(10);
             return true;
+
+        } catch (Exception e) {
+            LOG.error("Error authentication sporteasy", e);
         }
         return false;
     }
@@ -65,14 +73,14 @@ public class SportEasyResource {
         }
 
         WebTarget eventsTarget = client
-            .target("https://api.sporteasy.net/v2.1/teams/" + teamId + "/events/?around=TODAY");
+                .target("https://api.sporteasy.net/v2.1/teams/" + teamId + "/events/?around=TODAY");
         Invocation.Builder request = eventsTarget.request(APPLICATION_JSON_TYPE);
         addLoginToHeader(request);
         Response response = request.get();
         if (response.getStatus() != ACCEPTED.getStatusCode()) {
             try {
                 String data = IOUtils
-                    .toString((InputStream) response.getEntity(), defaultCharset());
+                        .toString((InputStream) response.getEntity(), defaultCharset());
                 return JsonbBuilder.create().fromJson(data, TeamEventList.class);
 
             } catch (IOException e) {
@@ -84,14 +92,13 @@ public class SportEasyResource {
         return null;
     }
 
-
     public Event getMatchData(int teamId, int eventId) {
         if (notLoggedIn()) {
             return null;
         }
 
         WebTarget matchTarget = client
-            .target("https://api.sporteasy.net/v2.1/teams/" + teamId + "/events/" + eventId + "/");
+                .target("https://api.sporteasy.net/v2.1/teams/" + teamId + "/events/" + eventId + "/");
         Invocation.Builder request = matchTarget.request(APPLICATION_JSON_TYPE);
         addLoginToHeader(request);
         Response response = request.get();
@@ -99,14 +106,14 @@ public class SportEasyResource {
             String data = null;
             try {
                 data = IOUtils
-                    .toString((InputStream) response.getEntity(), defaultCharset());
+                        .toString((InputStream) response.getEntity(), defaultCharset());
 
                 return JsonbBuilder.create().fromJson(data, Event.class);
 
             } catch (Exception e) {
-                if(data==null){
+                if (data == null) {
                     LOG.error("Error get match data. Team: " + teamId + ". Event: " + eventId, e);
-                }else {
+                } else {
                     LOG.error("Error parsing DATA: " + data, e);
                 }
             }
@@ -122,13 +129,13 @@ public class SportEasyResource {
         }
 
         Invocation.Builder request = client.target(event.get_links().getRead_live_stats().getUrl())
-            .request(APPLICATION_JSON_TYPE);
+                .request(APPLICATION_JSON_TYPE);
         addLoginToHeader(request);
         Response response = request.get();
         if (response.getStatus() != ACCEPTED.getStatusCode()) {
             try {
                 String data = IOUtils
-                    .toString((InputStream) response.getEntity(), defaultCharset());
+                        .toString((InputStream) response.getEntity(), defaultCharset());
                 //TODO To object
                 return data;
 
@@ -141,11 +148,9 @@ public class SportEasyResource {
         return "";
     }
 
-
     private boolean notLoggedIn() {
         if (!loggedIn) {
             if (login()) {
-                loggingIn = false;
                 loggedIn = true;
             } else {
                 return true;

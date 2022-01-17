@@ -14,18 +14,17 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-    <quarkus-plugin.version>2.0.2.Final</quarkus-plugin.version>
+    <quarkus-plugin.version>2.6.2.Final</quarkus-plugin.version>
     <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
     <quarkus.platform.artifact-id>quarkus-universe-bom</quarkus.platform.artifact-id>
-    <quarkus.platform.version>2.0.2.Final</quarkus.platform.version>
+    <quarkus.platform.version>2.6.2.Final</quarkus.platform.version>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
     <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
 
     <!-- Versions for added plugins -->
     <version.frontend-maven-plugin>1.12.0</version.frontend-maven-plugin>
     <version.resources-plugin>3.2.0</version.resources-plugin>
-    <lombok.version>1.18.20</lombok.version>
-    <sourceforge.htmlunit.version>2.51.0</sourceforge.htmlunit.version>
+    <lombok.version>1.18.22</lombok.version>
 
     <!-- frontend versions -->
     <node.version>v14.15.2</node.version>
@@ -84,13 +83,6 @@
       <artifactId>lombok</artifactId>
       <version>${lombok.version}</version>
       <scope>provided</scope>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/net.sourceforge.htmlunit/htmlunit -->
-    <dependency>
-      <groupId>net.sourceforge.htmlunit</groupId>
-      <artifactId>htmlunit</artifactId>
-      <version>${sourceforge.htmlunit.version}</version>
     </dependency>
 
   </dependencies>

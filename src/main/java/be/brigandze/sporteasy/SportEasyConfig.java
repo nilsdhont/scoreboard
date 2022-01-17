@@ -8,6 +8,8 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+
+import be.brigandze.entity.LoginData;
 import lombok.Getter;
 import lombok.Setter;
 import org.eclipse.microprofile.config.spi.ConfigSource;
@@ -61,5 +63,12 @@ public class SportEasyConfig implements ConfigSource {
 
     public String getPassword() {
         return getValue("password");
+    }
+
+    public LoginData createLoginData() {
+        LoginData loginData = new LoginData();
+        loginData.setUsername(getUsername());
+        loginData.setPassword(getPassword());
+        return loginData;
     }
 }
