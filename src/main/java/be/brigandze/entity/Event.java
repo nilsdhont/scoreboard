@@ -27,7 +27,6 @@ public class Event {
 
     private Links _links;
 
-    private Boolean is_past;
 
     public void setEnd_at(Object end_at) {
         if (end_at != null && isNotNullString(end_at)) {

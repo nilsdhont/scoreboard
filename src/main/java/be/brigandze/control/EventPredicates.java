@@ -4,6 +4,8 @@ import static java.time.LocalDate.now;
 
 import be.brigandze.entity.Event;
 import be.brigandze.entity.Teams;
+
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.function.Predicate;
 
@@ -24,5 +26,5 @@ public class EventPredicates {
         now().atStartOfDay().isBefore(event.getStart_at());
 
     public static Predicate<? super Event> eventNotEnded = event ->
-        !event.getIs_past();
+            LocalDateTime.now().isBefore(event.getEnd_at());
 }
