@@ -23,8 +23,11 @@ public class EventPredicates {
             .anyMatch(id -> id == event.getOpponent_left().getId());
 
     public static Predicate<? super Event> eventIsToday = event ->
-        now().atStartOfDay().isBefore(event.getStart_at());
+        now().atStartOfDay().toLocalDate().equals(event.getStart_at().toLocalDate());
+
+    public static Predicate<? super Event> eventDoesntHaveEndTime = event ->
+        event.getEnd_at() == null;
 
     public static Predicate<? super Event> eventNotEnded = event ->
-            LocalDateTime.now().isBefore(event.getEnd_at());
+        LocalDateTime.now().isBefore(event.getEnd_at());
 }

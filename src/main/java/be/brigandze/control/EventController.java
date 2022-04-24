@@ -10,6 +10,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import static be.brigandze.control.EventPredicates.eventDoesntHaveEndTime;
 import static be.brigandze.control.EventPredicates.eventHasOpponents;
 import static be.brigandze.control.EventPredicates.eventIsToday;
 import static be.brigandze.control.EventPredicates.eventNotEnded;
@@ -37,16 +38,6 @@ public class EventController {
     }
 
     void updateCurrentMatch() {
-        //        Optional<Event> event = stream(Teams.values())
-        //            .map(Teams::getId)
-        //            .map(getSportEasyInstance()::getEvents)
-        //            .filter(Objects::nonNull)
-        //            .map(TeamEventList::getResults)
-        //            .flatMap(List::stream)
-        //            .filter(eventHasOpponents)
-        //            .filter(isHomeMatch)
-        //            .filter(eventIsToday)
-        //            .min(comparing(Event::getStart_at));
         List<Event> eventsNextMatchDay = stream(Teams.values())
                 .map(Teams::getId)
                 .map(getSportEasyInstance()::getEvents)
@@ -81,6 +72,9 @@ public class EventController {
         } else if (eventsNextMatchDay.size() == 1) {
             return Optional.of(eventsNextMatchDay.get(0));
         }
+        eventsNextMatchDay.stream()
+            .filter(eventDoesntHaveEndTime)
+            .forEach(event -> event.setEnd_at(event.getStart_at().plusHours(2)));
         return eventsNextMatchDay.stream()
                 .filter(eventNotEnded)
                 .findFirst();
