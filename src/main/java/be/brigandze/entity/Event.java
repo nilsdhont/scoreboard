@@ -32,19 +32,11 @@ public class Event {
         if (end_at != null && isNotNullString(end_at)) {
             this.end_at = LocalDateTime.parse((String) end_at,
                 DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss[XXX][X]"));
-//            this.end_at = (LocalDateTime) end_at;
         }
     }
 
-//    public void setOpponent_left(Object opponent_left) {
-//        if (opponent_left != null && isNotNullString(opponent_left)) {
-//            this.opponent_left = (Opponent) opponent_left;
-//        }
-//    }
-//
-//    public void setOpponent_right(Object opponent_right) {
-//        if (opponent_right != null && isNotNullString(opponent_right)) {
-//            this.opponent_right = (Opponent) opponent_right;
-//        }
-//    }
+    public void setEnd_atFromLocalDateTime(LocalDateTime end_at){
+        this.end_at = end_at;
+    }
+
 }

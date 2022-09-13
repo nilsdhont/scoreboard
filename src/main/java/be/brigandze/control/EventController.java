@@ -38,18 +38,18 @@ public class EventController {
     }
 
     void updateCurrentMatch() {
-        List<Event> eventsNextMatchDay = stream(Teams.values())
+        List<Event> eventsNextMatchDay = stream(Teams.values()) // Get all the relevant teams
                 .map(Teams::getId)
-                .map(getSportEasyInstance()::getEvents)
+                .map(getSportEasyInstance()::getEvents) // Call to sportEasy to get all the events of the teams selected
                 .filter(Objects::nonNull)
                 .map(TeamEventList::getResults)
                 .flatMap(List::stream)
-                .filter(eventHasOpponents)
-                .filter(isHomeMatch)
-                .filter(eventIsToday)
-                .sorted(comparing(Event::getStart_at))
+                .filter(eventHasOpponents) // Only events with 2 teams playing each other
+                .filter(isHomeMatch) // Only home events
+                .filter(eventIsToday) // Only the events of the day
+                .sorted(comparing(Event::getStart_at)) // Sort them on start time
                 .collect(Collectors.toList());
-        Optional<Event> event = getCorrectEvent(eventsNextMatchDay);
+        Optional<Event> event = getCorrectEvent(eventsNextMatchDay); // Selects the first event that has not yet finished
         if (event.isPresent()) {
             Match newMatch = Match.builder()
                     .id(event.get().getId())
@@ -74,7 +74,7 @@ public class EventController {
         }
         eventsNextMatchDay.stream()
             .filter(eventDoesntHaveEndTime)
-            .forEach(event -> event.setEnd_at(event.getStart_at().plusHours(2)));
+            .forEach(event -> event.setEnd_atFromLocalDateTime(event.getStart_at().plusHours(2)));
         return eventsNextMatchDay.stream()
                 .filter(eventNotEnded)
                 .findFirst();
