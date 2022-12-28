@@ -2,25 +2,24 @@ package be.brigandze.sporteasy;
 
 import be.brigandze.entity.Event;
 import be.brigandze.entity.TeamEventList;
+import jakarta.json.bind.JsonbBuilder;
+import jakarta.ws.rs.client.Client;
+import jakarta.ws.rs.client.Entity;
+import jakarta.ws.rs.client.Invocation;
+import jakarta.ws.rs.client.WebTarget;
+import jakarta.ws.rs.core.Response;
 import org.apache.commons.io.IOUtils;
 import org.jboss.logging.Logger;
 
-import javax.json.bind.JsonbBuilder;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.Invocation;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status.Family;
 import java.io.IOException;
 import java.io.InputStream;
 import java.time.LocalDate;
 import java.util.List;
 
+import static jakarta.ws.rs.client.ClientBuilder.newClient;
+import static jakarta.ws.rs.core.MediaType.APPLICATION_JSON_TYPE;
+import static jakarta.ws.rs.core.Response.Status.ACCEPTED;
 import static java.nio.charset.Charset.defaultCharset;
-import static javax.ws.rs.client.ClientBuilder.newClient;
-import static javax.ws.rs.core.MediaType.APPLICATION_JSON_TYPE;
-import static javax.ws.rs.core.Response.Status.ACCEPTED;
 
 public class SportEasyResource {
 
@@ -102,7 +101,7 @@ public class SportEasyResource {
         Invocation.Builder request = matchTarget.request(APPLICATION_JSON_TYPE);
         addLoginToHeader(request);
         Response response = request.get();
-        if (response.getStatusInfo().getFamily().equals(Family.SUCCESSFUL)) {
+        if (response.getStatusInfo().getFamily().equals(Response.Status.Family.SUCCESSFUL)) {
             String data = null;
             try {
                 data = IOUtils

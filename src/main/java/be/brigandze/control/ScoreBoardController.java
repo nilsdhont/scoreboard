@@ -3,7 +3,7 @@ package be.brigandze.control;
 import static be.brigandze.control.EventController.getInstance;
 
 import io.quarkus.scheduler.Scheduled;
-import javax.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.ApplicationScoped;
 import lombok.Getter;
 import lombok.Setter;
 

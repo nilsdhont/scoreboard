@@ -4,7 +4,8 @@ import static be.brigandze.util.Utils.isNotNullString;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import javax.json.bind.annotation.JsonbDateFormat;
+
+import jakarta.json.bind.annotation.JsonbDateFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

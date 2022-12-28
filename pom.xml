@@ -14,17 +14,16 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-    <quarkus-plugin.version>2.6.2.Final</quarkus-plugin.version>
     <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
     <quarkus.platform.artifact-id>quarkus-universe-bom</quarkus.platform.artifact-id>
-    <quarkus.platform.version>2.6.2.Final</quarkus.platform.version>
-    <compiler-plugin.version>3.8.1</compiler-plugin.version>
-    <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
+    <quarkus.platform.version>3.0.0.Alpha2</quarkus.platform.version>
+    <compiler-plugin.version>3.10.1</compiler-plugin.version>
+    <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
 
     <!-- Versions for added plugins -->
-    <version.frontend-maven-plugin>1.12.0</version.frontend-maven-plugin>
+    <version.frontend-maven-plugin>1.12.1</version.frontend-maven-plugin>
     <version.resources-plugin>3.2.0</version.resources-plugin>
-    <lombok.version>1.18.22</lombok.version>
+    <lombok.version>1.18.24</lombok.version>
 
     <!-- frontend versions -->
     <node.version>v14.15.2</node.version>
@@ -47,14 +46,14 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy</artifactId>
     </dependency>
-    <dependency>
-      <groupId>io.rest-assured</groupId>
-      <artifactId>rest-assured</artifactId>
+<!--    <dependency>-->
+<!--      <groupId>io.rest-assured</groupId>-->
+<!--      <artifactId>rest-assured</artifactId>-->
       <!--  <scope>test</scope>  -->
       <!--  If in test scope then in the latest versions of quarkus a required module is only in test scope while it is also needed in sourceforge  -->
       <!--  The module: org.apache.httpcomponents:httpmime:jar:4.5.13:test -> test should be compile -->
       <!--  Test this again in later versions of quarkus  -->
-    </dependency>
+<!--    </dependency>-->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-junit5</artifactId>
@@ -72,10 +71,10 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-rest-client</artifactId>
     </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-undertow</artifactId>
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>io.quarkus</groupId>-->
+<!--      <artifactId>quarkus-undertow</artifactId>-->
+<!--    </dependency>-->
 
     <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
     <dependency>
@@ -84,14 +83,14 @@
       <version>${lombok.version}</version>
       <scope>provided</scope>
     </dependency>
-
   </dependencies>
+
   <build>
     <plugins>
       <plugin>
         <groupId>io.quarkus</groupId>
         <artifactId>quarkus-maven-plugin</artifactId>
-        <version>${quarkus-plugin.version}</version>
+        <version>${quarkus.platform.version}</version>
         <executions>
           <execution>
             <goals>
