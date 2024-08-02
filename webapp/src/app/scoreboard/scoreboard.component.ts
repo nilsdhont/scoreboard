@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ScoreService} from "../score.service";
 import {interval} from 'rxjs'
-import {HttpErrorResponse} from "@angular/common/http";
+import { HttpErrorResponse } from "@angular/common/http";
 
 export class MatchData {
   nameBrigandZe: string = "BrigandZe";
