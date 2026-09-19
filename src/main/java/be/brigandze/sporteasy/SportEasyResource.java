@@ -134,29 +134,6 @@ public class SportEasyResource {
         return null;
     }
 
-    public String getLiveStats(Event event) {
-        if (notLoggedIn()) {
-            return null;
-        }
-
-        Invocation.Builder request = client.target(event.get_links().getRead_live_stats().getUrl())
-                .request(APPLICATION_JSON_TYPE);
-        addLoginToHeader(request);
-        Response response = request.get();
-        if (response.getStatus() != ACCEPTED.getStatusCode()) {
-            try {
-                //TODO To object
-                return response.readEntity(String.class);
-
-            } catch (Exception e) {
-                LOG.error("Error getting live stats", e);
-            }
-        } else {
-            LOG.error("Error getting live info from SportEasy: " + response.getStatusInfo());
-        }
-        return "";
-    }
-
     private boolean notLoggedIn() {
         if (!loggedIn) {
             if (login()) {

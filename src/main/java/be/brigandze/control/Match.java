@@ -81,11 +81,6 @@ public class Match {
         LOG.info(score);
     }
 
-    public void printLiveStats(Event event) {
-        String liveStats = getSportEasyInstance().getLiveStats(event);
-        LOG.info(liveStats);
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {

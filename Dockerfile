@@ -1,11 +1,11 @@
-# Build stage: backend + Angular webapp (frontend-maven-plugin installs node/yarn via -Dui.deps)
+# Build stage
 FROM maven:3.9-eclipse-temurin-25 AS build
 WORKDIR /build
 COPY pom.xml .
 # best-effort dependency cache layer; the package run fetches whatever this misses
 RUN mvn -B -q dependency:go-offline || true
 COPY . .
-RUN mvn -B package -DskipTests -Dui.deps -Dui
+RUN mvn -B package -DskipTests
 
 # Run stage: single uber-jar serves the webapp and the REST backend on 8080
 FROM eclipse-temurin:25-jre

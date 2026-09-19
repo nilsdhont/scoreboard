@@ -1,8 +1,5 @@
 .git
 .idea
 target
-webapp/node
-webapp/node_modules
-webapp/dist
 quarkus.log*
 .env

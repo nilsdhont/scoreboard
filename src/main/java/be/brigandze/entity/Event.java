@@ -20,8 +20,6 @@ public class Event {
     private Opponent opponent_left;
     private Opponent opponent_right;
 
-    private Links _links;
-
     public int getId() {
         return id;
     }
@@ -67,14 +65,6 @@ public class Event {
 
     public void setOpponent_right(Opponent opponent_right) {
         this.opponent_right = opponent_right;
-    }
-
-    public Links get_links() {
-        return _links;
-    }
-
-    public void set_links(Links _links) {
-        this._links = _links;
     }
 
 }

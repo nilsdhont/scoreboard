@@ -3,11 +3,88 @@
 <head>
   <meta charset="utf-8">
   <title>Scoreboard</title>
-  <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="stylesheet" href="styles.8f6173057fc83935e89b.css"></head>
+  <style>
+    html, body {
+      padding: 0;
+      margin: 0;
+      background: white;
+    }
+
+    .scoreboard {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      width: 192px;
+      height: 64px;
+      color: lawngreen;
+      background-color: black;
+      font-family: "Lucida Console", monospace;
+    }
+
+    .teamName {
+      height: 25%;
+      width: 50%;
+      text-align: center;
+      font-size: 15px;
+    }
+
+    .stand {
+      height: 75%;
+      text-align: center;
+      align-content: center;
+      font-size: 58px;
+    }
+
+    /* smaller digits once a score hits 100 */
+    .scoreboard.bigScore .stand {
+      font-size: 46px;
+    }
+
+    .score {
+      width: 42%;
+    }
+
+    .separator {
+      width: 16%;
+    }
+  </style>
+</head>
 <body>
-  <app-root></app-root>
-<script src="runtime-es2015.a1ac991fc00ebf39524f.js" type="module"></script><script src="runtime-es5.a1ac991fc00ebf39524f.js" nomodule defer></script><script src="polyfills-es5.ad4deb6f343bc91bbf0e.js" nomodule defer></script><script src="polyfills-es2015.817fefb838c2269531ba.js" type="module"></script><script src="main-es2015.0793d18c026ba43ddad9.js" type="module"></script><script src="main-es5.0793d18c026ba43ddad9.js" nomodule defer></script></body>
+<div class="scoreboard" id="scoreboard">
+  <div class="teamName" id="nameBrigandZe">BrigandZe</div>
+  <div class="teamName" id="nameVisitors">Visitors</div>
+  <div class="score stand" id="scoreBrigandZe">0</div>
+  <div class="stand separator">-</div>
+  <div class="score stand" id="scoreVisitors">0</div>
+</div>
+<script>
+  async function updateScoreBoard() {
+    try {
+      const response = await fetch('/matchData');
+      if (!response.ok) {
+        return;
+      }
+      const text = await response.text();
+      if (!text) {
+        return; // 204: no current match, keep what is shown
+      }
+      const match = JSON.parse(text);
+      document.getElementById('nameBrigandZe').textContent = match.nameBrigandZe;
+      document.getElementById('nameVisitors').textContent = match.nameVisitors.substring(0, 11);
+      document.getElementById('scoreBrigandZe').textContent = match.scoreBrigandZe;
+      document.getElementById('scoreVisitors').textContent = match.scoreVisitors;
+      document.getElementById('scoreboard').classList.toggle('bigScore',
+          match.scoreBrigandZe >= 100 || match.scoreVisitors >= 100);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  updateScoreBoard();
+  setInterval(updateScoreBoard, 5000);
+</script>
+</body>
 </html>
