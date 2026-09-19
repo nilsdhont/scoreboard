@@ -11,7 +11,7 @@ RUN mvn -B package -DskipTests
 FROM eclipse-temurin:25-jre
 ENV TZ=Europe/Brussels \
     QUARKUS_HTTP_HOST=0.0.0.0 \
-    QUARKUS_LOG_FILE_ENABLE=false
+    QUARKUS_LOG_FILE_ENABLED=false
 WORKDIR /app
 COPY --from=build /build/target/*-runner.jar app.jar
 EXPOSE 8080
