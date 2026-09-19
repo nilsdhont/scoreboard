@@ -12,9 +12,9 @@ repositories {
 
 dependencies {
     implementation(enforcedPlatform("io.quarkus.platform:quarkus-bom:3.39.4"))
-    implementation("io.quarkus:quarkus-resteasy")
-    implementation("io.quarkus:quarkus-resteasy-jsonb")
-    implementation("io.quarkus:quarkus-resteasy-client")
+    implementation("io.quarkus:quarkus-rest")
+    implementation("io.quarkus:quarkus-rest-jsonb")
+    implementation("io.quarkus:quarkus-rest-client-jsonb")
     implementation("io.quarkus:quarkus-scheduler")
     testImplementation("io.quarkus:quarkus-junit")
 }

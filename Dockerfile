@@ -7,13 +7,17 @@ RUN gradle --no-daemon -q dependencies || true
 COPY . .
 RUN gradle --no-daemon build -x test
 
-# Run stage: single uber-jar serves the webapp and the REST backend on 8080
-FROM eclipse-temurin:25-jre
+# Run stage: fast-jar layout, dependency layer copied separately so app-only
+# rebuilds push/pull just the few KB of classes instead of all the libs
+FROM eclipse-temurin:25-jre-alpine
 ENV TZ=Europe/Brussels \
-    QUARKUS_HTTP_HOST=0.0.0.0 \
-    QUARKUS_LOG_FILE_ENABLED=false
+    QUARKUS_HTTP_HOST=0.0.0.0
 WORKDIR /app
-COPY --from=build /build/build/*-runner.jar app.jar
+COPY --from=build /build/build/quarkus-app/lib/ lib/
+COPY --from=build /build/build/quarkus-app/*.jar ./
+COPY --from=build /build/build/quarkus-app/app/ app/
+COPY --from=build /build/build/quarkus-app/quarkus/ quarkus/
 EXPOSE 8080
 USER 1001
-CMD ["java", "-jar", "app.jar"]
+# app state is a single Match object; tiny fixed heap + SerialGC keep RSS low
+CMD ["java", "-Xms64m", "-Xmx64m", "-XX:+UseSerialGC", "-jar", "quarkus-run.jar"]
