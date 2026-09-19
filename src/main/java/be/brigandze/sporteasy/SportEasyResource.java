@@ -1,6 +1,7 @@
 package be.brigandze.sporteasy;
 
 import be.brigandze.entity.Event;
+import be.brigandze.entity.LoginData;
 import be.brigandze.entity.TeamEventList;
 import jakarta.json.bind.JsonbBuilder;
 import jakarta.ws.rs.client.Client;
@@ -9,6 +10,8 @@ import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.client.WebTarget;
 import jakarta.ws.rs.core.Response;
 import org.apache.commons.io.IOUtils;
+import org.eclipse.microprofile.config.Config;
+import org.eclipse.microprofile.config.ConfigProvider;
 import org.jboss.logging.Logger;
 
 import java.io.IOException;
@@ -51,13 +54,18 @@ public class SportEasyResource {
         }
         lastLoginAttempt = System.currentTimeMillis();
         try {
-            SportEasyConfig sportEasyConfig = new SportEasyConfig();
+            // sporteasy.username/password come from env vars (SPORTEASY_USERNAME/SPORTEASY_PASSWORD,
+            // e.g. docker --env-file) or a .env file in the working directory
+            Config config = ConfigProvider.getConfig();
+            LoginData loginData = new LoginData();
+            loginData.setUsername(config.getValue("sporteasy.username", String.class));
+            loginData.setPassword(config.getValue("sporteasy.password", String.class));
             WebTarget loginTarget = client
                     .target("https://api.sporteasy.net/v2.1/account/authenticate/");
             Response response = loginTarget
                     .request(APPLICATION_JSON_TYPE)
                     .accept(APPLICATION_JSON_TYPE)
-                    .buildPost(Entity.entity(sportEasyConfig.createLoginData(), APPLICATION_JSON_TYPE))
+                    .buildPost(Entity.entity(loginData, APPLICATION_JSON_TYPE))
                     .invoke();
             List<Object> cookiesMetadata = response.getMetadata().get("Set-Cookie");
             if (!response.getStatusInfo().getFamily().equals(Response.Status.Family.SUCCESSFUL)

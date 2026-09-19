@@ -28,6 +28,10 @@ nb-configuration.xml
 *.orig
 *.rej
 
+# Credentials & logs
+.env
+quarkus.log*
+
 # Maven
 target/
 pom.xml.tag
