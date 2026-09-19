@@ -2,6 +2,10 @@ package be.brigandze.entity;
 
 import static be.brigandze.util.Utils.isNumeric;
 
+import io.quarkus.runtime.annotations.RegisterForReflection;
+
+// deserialized via hand-rolled JsonbBuilder (not an endpoint type), so native needs explicit registration
+@RegisterForReflection
 public class Opponent {
 
     private String full_name;

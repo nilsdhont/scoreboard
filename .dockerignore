@@ -2,5 +2,8 @@
 .idea
 build
 .gradle
+gradle
+gradlew
+gradlew.bat
 quarkus.log*
 .env

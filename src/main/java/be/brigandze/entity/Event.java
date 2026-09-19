@@ -7,6 +7,10 @@ import java.time.format.DateTimeFormatter;
 
 import jakarta.json.bind.annotation.JsonbDateFormat;
 
+import io.quarkus.runtime.annotations.RegisterForReflection;
+
+// deserialized via hand-rolled JsonbBuilder (not an endpoint type), so native needs explicit registration
+@RegisterForReflection
 public class Event {
 
     private int id;

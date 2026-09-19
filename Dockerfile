@@ -1,23 +1,23 @@
-# Build stage
-FROM gradle:9-jdk25 AS build
+# Build stage: Mandrel (GraalVM for Quarkus) AOT-compiles the app to a native Linux binary.
+# The builder image ships no Gradle and this repo deliberately has no wrapper, so borrow
+# the Gradle distribution from the official image; it runs on Mandrel's JDK.
+FROM quay.io/quarkus/ubi9-quarkus-mandrel-builder-image:jdk-25 AS build
+COPY --from=gradle:9-jdk25 /opt/gradle /opt/gradle
+COPY --chown=quarkus:quarkus settings.gradle.kts build.gradle.kts /build/
+USER quarkus
 WORKDIR /build
-COPY settings.gradle.kts build.gradle.kts ./
 # best-effort dependency cache layer; the build run fetches whatever this misses
-RUN gradle --no-daemon -q dependencies || true
-COPY . .
-RUN gradle --no-daemon build -x test
+RUN /opt/gradle/bin/gradle --no-daemon -q dependencies || true
+COPY --chown=quarkus:quarkus . .
+RUN /opt/gradle/bin/gradle --no-daemon build -x test -Dquarkus.native.enabled=true -Dquarkus.package.jar.enabled=false
 
-# Run stage: fast-jar layout, dependency layer copied separately so app-only
-# rebuilds push/pull just the few KB of classes instead of all the libs
-FROM eclipse-temurin:25-jre-alpine
+# Run stage: minimal glibc base + the native binary; no JVM
+FROM quay.io/quarkus/ubi9-quarkus-micro-image:2.0
 ENV TZ=Europe/Brussels \
     QUARKUS_HTTP_HOST=0.0.0.0
 WORKDIR /app
-COPY --from=build /build/build/quarkus-app/lib/ lib/
-COPY --from=build /build/build/quarkus-app/*.jar ./
-COPY --from=build /build/build/quarkus-app/app/ app/
-COPY --from=build /build/build/quarkus-app/quarkus/ quarkus/
+COPY --from=build /build/build/*-runner application
 EXPOSE 8080
 USER 1001
-# app state is a single Match object; tiny fixed heap + SerialGC keep RSS low
-CMD ["java", "-Xms64m", "-Xmx64m", "-XX:+UseSerialGC", "-jar", "quarkus-run.jar"]
+# native default max heap scales with host RAM; the app's state is one Match object
+CMD ["./application", "-Xmx32m"]

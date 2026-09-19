@@ -24,7 +24,9 @@ public class SportEasyResource {
 
     private static final Logger LOG = Logger.getLogger(SportEasyResource.class);
 
-    private static final SportEasyResource instance = new SportEasyResource();
+    // lazy: newClient() starts Vert.x event-loop threads, which must not run during
+    // native-image build-time class initialization
+    private static SportEasyResource instance;
     final Client client;
     private boolean loggedIn = false;
 
@@ -36,7 +38,10 @@ public class SportEasyResource {
         client = newClient();
     }
 
-    public static SportEasyResource getSportEasyInstance() {
+    public static synchronized SportEasyResource getSportEasyInstance() {
+        if (instance == null) {
+            instance = new SportEasyResource();
+        }
         return instance;
     }
 

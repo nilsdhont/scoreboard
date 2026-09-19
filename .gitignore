@@ -35,3 +35,9 @@ quarkus.log*
 # Gradle
 .gradle/
 build/
+
+# No wrapper in this repo (deliberate): the Docker build borrows Gradle from the
+# official image, and IntelliJ keeps regenerating these files on sync — ignore them.
+gradle/
+gradlew
+gradlew.bat
