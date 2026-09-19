@@ -8,22 +8,21 @@
   <artifactId>scoreboard</artifactId>
   <version>1.0-SNAPSHOT</version>
   <properties>
-    <java.version>11</java.version>
+    <java.version>25</java.version>
 
     <maven.compiler.parameters>true</maven.compiler.parameters>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-    <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
-    <quarkus.platform.artifact-id>quarkus-universe-bom</quarkus.platform.artifact-id>
-    <quarkus.platform.version>3.0.0.Alpha2</quarkus.platform.version>
-    <compiler-plugin.version>3.10.1</compiler-plugin.version>
-    <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
+    <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
+    <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
+    <quarkus.platform.version>3.39.4</quarkus.platform.version>
+    <compiler-plugin.version>3.16.0</compiler-plugin.version>
+    <surefire-plugin.version>3.6.0</surefire-plugin.version>
 
     <!-- Versions for added plugins -->
-    <version.frontend-maven-plugin>1.12.1</version.frontend-maven-plugin>
-    <version.resources-plugin>3.2.0</version.resources-plugin>
-    <lombok.version>1.18.24</lombok.version>
+    <version.frontend-maven-plugin>2.0.2</version.frontend-maven-plugin>
+    <version.resources-plugin>3.5.0</version.resources-plugin>
 
     <!-- frontend versions -->
     <node.version>v14.15.2</node.version>
@@ -56,7 +55,7 @@
 <!--    </dependency>-->
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-junit5</artifactId>
+      <artifactId>quarkus-junit</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -69,20 +68,13 @@
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-rest-client</artifactId>
+      <artifactId>quarkus-resteasy-client</artifactId>
     </dependency>
 <!--    <dependency>-->
 <!--      <groupId>io.quarkus</groupId>-->
 <!--      <artifactId>quarkus-undertow</artifactId>-->
 <!--    </dependency>-->
 
-    <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>${lombok.version}</version>
-      <scope>provided</scope>
-    </dependency>
   </dependencies>
 
   <build>
@@ -186,7 +178,7 @@
         </plugins>
       </build>
       <properties>
-        <quarkus.package.type>native</quarkus.package.type>
+        <quarkus.native.enabled>true</quarkus.native.enabled>
       </properties>
     </profile>
 

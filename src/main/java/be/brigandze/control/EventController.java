@@ -51,12 +51,11 @@ public class EventController {
                 .collect(Collectors.toList());
         Optional<Event> event = getCorrectEvent(eventsNextMatchDay); // Selects the first event that has not yet finished
         if (event.isPresent()) {
-            Match newMatch = Match.builder()
-                    .id(event.get().getId())
-                    .teamId(event.get().getOpponent_left().getId())
-                    .nameBrigandZe(event.get().getOpponent_left().getName())
-                    .nameVisitors(event.get().getOpponent_right().getName())
-                    .build();
+            Match newMatch = new Match(
+                    event.get().getOpponent_left().getId(),
+                    event.get().getId(),
+                    event.get().getOpponent_left().getName(),
+                    event.get().getOpponent_right().getName());
             if (currentMatch == null || !currentMatch.equals(newMatch)) {
                 this.currentMatch = newMatch;
                 currentMatch.printScore();

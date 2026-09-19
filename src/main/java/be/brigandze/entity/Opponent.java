@@ -2,13 +2,6 @@ package be.brigandze.entity;
 
 import static be.brigandze.util.Utils.isNumeric;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class Opponent {
 
     private String full_name;
@@ -16,12 +9,39 @@ public class Opponent {
     private int score;
     private int id;
 
+    public String getFull_name() {
+        return full_name;
+    }
+
+    public void setFull_name(String full_name) {
+        this.full_name = full_name;
+    }
+
+    public String getShort_name() {
+        return short_name;
+    }
+
+    public void setShort_name(String short_name) {
+        this.short_name = short_name;
+    }
+
+    public int getScore() {
+        return score;
+    }
 
     public void setScore(Object score) {
         if (score instanceof String) {
             String scoreString = (String) score;
             this.score = isNumeric(scoreString) ? Integer.parseInt(scoreString) : 0;
         }
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

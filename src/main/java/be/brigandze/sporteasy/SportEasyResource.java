@@ -9,20 +9,16 @@ import jakarta.ws.rs.client.Entity;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.client.WebTarget;
 import jakarta.ws.rs.core.Response;
-import org.apache.commons.io.IOUtils;
 import org.eclipse.microprofile.config.Config;
 import org.eclipse.microprofile.config.ConfigProvider;
 import org.jboss.logging.Logger;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.time.LocalDate;
 import java.util.List;
 
 import static jakarta.ws.rs.client.ClientBuilder.newClient;
 import static jakarta.ws.rs.core.MediaType.APPLICATION_JSON_TYPE;
 import static jakarta.ws.rs.core.Response.Status.ACCEPTED;
-import static java.nio.charset.Charset.defaultCharset;
 
 public class SportEasyResource {
 
@@ -97,11 +93,9 @@ public class SportEasyResource {
         Response response = request.get();
         if (response.getStatus() != ACCEPTED.getStatusCode()) {
             try {
-                String data = IOUtils
-                        .toString((InputStream) response.getEntity(), defaultCharset());
-                return JsonbBuilder.create().fromJson(data, TeamEventList.class);
+                return JsonbBuilder.create().fromJson(response.readEntity(String.class), TeamEventList.class);
 
-            } catch (IOException e) {
+            } catch (Exception e) {
                 LOG.error("Error getting events from today", e);
             }
         } else {
@@ -123,8 +117,7 @@ public class SportEasyResource {
         if (response.getStatusInfo().getFamily().equals(Response.Status.Family.SUCCESSFUL)) {
             String data = null;
             try {
-                data = IOUtils
-                        .toString((InputStream) response.getEntity(), defaultCharset());
+                data = response.readEntity(String.class);
 
                 return JsonbBuilder.create().fromJson(data, Event.class);
 
@@ -152,13 +145,11 @@ public class SportEasyResource {
         Response response = request.get();
         if (response.getStatus() != ACCEPTED.getStatusCode()) {
             try {
-                String data = IOUtils
-                        .toString((InputStream) response.getEntity(), defaultCharset());
                 //TODO To object
-                return data;
+                return response.readEntity(String.class);
 
-            } catch (IOException e) {
-                e.printStackTrace();
+            } catch (Exception e) {
+                LOG.error("Error getting live stats", e);
             }
         } else {
             LOG.error("Error getting live info from SportEasy: " + response.getStatusInfo());

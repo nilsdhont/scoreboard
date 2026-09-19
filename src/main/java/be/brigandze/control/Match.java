@@ -3,12 +3,8 @@ package be.brigandze.control;
 import static be.brigandze.sporteasy.SportEasyResource.getSportEasyInstance;
 
 import be.brigandze.entity.Event;
-import lombok.Builder;
-import lombok.Getter;
 import org.jboss.logging.Logger;
 
-@Getter
-@Builder
 public class Match {
 
     private static final Logger LOG = Logger.getLogger(Match.class);
@@ -21,6 +17,36 @@ public class Match {
     private int scoreVisitors;
     private String nameVisitors;
 
+    public Match(int teamId, int id, String nameBrigandZe, String nameVisitors) {
+        this.teamId = teamId;
+        this.id = id;
+        this.nameBrigandZe = nameBrigandZe;
+        this.nameVisitors = nameVisitors;
+    }
+
+    public int getTeamId() {
+        return teamId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getScoreBrigandZe() {
+        return scoreBrigandZe;
+    }
+
+    public String getNameBrigandZe() {
+        return nameBrigandZe;
+    }
+
+    public int getScoreVisitors() {
+        return scoreVisitors;
+    }
+
+    public String getNameVisitors() {
+        return nameVisitors;
+    }
 
     public void updateScore() {
         Event event = getSportEasyInstance().getMatchData(teamId, id);
