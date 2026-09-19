@@ -33,13 +33,13 @@ If you want to learn more about Quarkus, please visit its website: https://quark
 
 You can run your application in dev mode that enables live coding using:
 ```
-./mvnw quarkus:dev
+gradle quarkusDev
 ```
 The scoreboard page is a static `index.html` in `src/main/resources/META-INF/resources` — no frontend build needed.
 
 ## Packaging and running the application
 
-The application can be packaged using `./mvnw package`.
-It produces the `scoreboard-1.0-SNAPSHOT-runner.jar` file in the `/target` directory (an _über-jar_, see `quarkus.package.jar.type` in application.properties).
+The application can be packaged using `gradle build`.
+It produces the `scoreboard-1.0-SNAPSHOT-runner.jar` file in the `/build` directory (an _über-jar_, see `quarkus.package.jar.type` in application.properties).
 
-The application is now runnable using `java -jar target/scoreboard-1.0-SNAPSHOT-runner.jar`.
+The application is now runnable using `java -jar build/scoreboard-1.0-SNAPSHOT-runner.jar`.
