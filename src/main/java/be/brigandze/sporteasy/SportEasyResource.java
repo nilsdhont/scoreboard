@@ -25,7 +25,7 @@ public class SportEasyResource {
 
     private static final Logger LOG = Logger.getLogger(SportEasyResource.class);
 
-    private static SportEasyResource instance;
+    private static final SportEasyResource instance = new SportEasyResource();
     final Client client;
     private boolean loggedIn = false;
 
@@ -38,13 +38,18 @@ public class SportEasyResource {
     }
 
     public static SportEasyResource getSportEasyInstance() {
-        if (instance == null) {
-            instance = new SportEasyResource();
-        }
         return instance;
     }
 
-    private boolean login() {
+    private long lastLoginAttempt;
+
+    private synchronized boolean login() {
+        // SportEasy throttles authenticate (429): allow one attempt per 5s, covering both
+        // scheduler passes at startup; on failure the next 10s tick retries
+        if (System.currentTimeMillis() - lastLoginAttempt < 5000) {
+            return false;
+        }
+        lastLoginAttempt = System.currentTimeMillis();
         try {
             SportEasyConfig sportEasyConfig = new SportEasyConfig();
             WebTarget loginTarget = client
@@ -55,6 +60,12 @@ public class SportEasyResource {
                     .buildPost(Entity.entity(sportEasyConfig.createLoginData(), APPLICATION_JSON_TYPE))
                     .invoke();
             List<Object> cookiesMetadata = response.getMetadata().get("Set-Cookie");
+            if (!response.getStatusInfo().getFamily().equals(Response.Status.Family.SUCCESSFUL)
+                    || cookiesMetadata == null || cookiesMetadata.size() < 2) {
+                LOG.error("Login sporteasy failed. Status: " + response.getStatus()
+                        + ". Body: " + response.readEntity(String.class));
+                return false;
+            }
             xCsrfToken = String.valueOf(cookiesMetadata.get(0));
             cookie = String.valueOf(cookiesMetadata.get(1));
             expirationDate = LocalDate.now().plusDays(10);
