@@ -15,6 +15,8 @@ import org.jboss.logging.Logger;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static jakarta.ws.rs.client.ClientBuilder.newClient;
 import static jakarta.ws.rs.core.MediaType.APPLICATION_JSON_TYPE;
@@ -23,6 +25,7 @@ import static jakarta.ws.rs.core.Response.Status.ACCEPTED;
 public class SportEasyResource {
 
     private static final Logger LOG = Logger.getLogger(SportEasyResource.class);
+    private static final Pattern THROTTLE_SECONDS = Pattern.compile("available in (\\d+) second");
 
     // lazy: newClient() starts Vert.x event-loop threads, which must not run during
     // native-image build-time class initialization
@@ -45,15 +48,15 @@ public class SportEasyResource {
         return instance;
     }
 
-    private long lastLoginAttempt;
+    private long nextLoginAllowed;
 
     private synchronized boolean login() {
-        // SportEasy throttles authenticate (429): allow one attempt per 5s, covering both
-        // scheduler passes at startup; on failure the next 10s tick retries
-        if (System.currentTimeMillis() - lastLoginAttempt < 5000) {
+        // SportEasy throttles authenticate with escalating 429 windows: never attempt while a
+        // server-given wait is pending, and keep 5s between own attempts (startup fires 2 passes)
+        if (System.currentTimeMillis() < nextLoginAllowed) {
             return false;
         }
-        lastLoginAttempt = System.currentTimeMillis();
+        nextLoginAllowed = System.currentTimeMillis() + 5000;
         try {
             // sporteasy.username/password come from env vars (SPORTEASY_USERNAME/SPORTEASY_PASSWORD,
             // e.g. docker --env-file) or a .env file in the working directory
@@ -71,8 +74,11 @@ public class SportEasyResource {
             List<Object> cookiesMetadata = response.getMetadata().get("Set-Cookie");
             if (!response.getStatusInfo().getFamily().equals(Response.Status.Family.SUCCESSFUL)
                     || cookiesMetadata == null || cookiesMetadata.size() < 2) {
-                LOG.error("Login sporteasy failed. Status: " + response.getStatus()
-                        + ". Body: " + response.readEntity(String.class));
+                String body = response.readEntity(String.class);
+                long waitMillis = throttleMillis(response, body);
+                nextLoginAllowed = System.currentTimeMillis() + waitMillis;
+                LOG.error("Login sporteasy failed. Status: " + response.getStatus() + ". Body: " + body
+                        + ". Next attempt in " + waitMillis / 1000 + "s");
                 return false;
             }
             xCsrfToken = String.valueOf(cookiesMetadata.get(0));
@@ -137,6 +143,19 @@ public class SportEasyResource {
             LOG.error("Error getting event from SportEasy: " + response.getStatusInfo());
         }
         return null;
+    }
+
+    // "Retry-After" header, else SportEasy's "Expected available in N seconds" body, else 1 minute
+    private long throttleMillis(Response response, String body) {
+        String retryAfter = response.getHeaderString("Retry-After");
+        if (retryAfter != null && retryAfter.matches("\\d+")) {
+            return (Long.parseLong(retryAfter) + 2) * 1000;
+        }
+        Matcher matcher = THROTTLE_SECONDS.matcher(body == null ? "" : body);
+        if (matcher.find()) {
+            return (Long.parseLong(matcher.group(1)) + 2) * 1000;
+        }
+        return 60_000;
     }
 
     private boolean notLoggedIn() {
