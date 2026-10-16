@@ -50,6 +50,106 @@
     .separator {
       width: 16%;
     }
+
+    /* controls below the board, sized for thumbs on a phone */
+    .panel {
+      max-width: 480px;
+      padding: 12px;
+      font-family: sans-serif;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .panel button {
+      border: 1px solid #999;
+      border-radius: 8px;
+      background: #f2f2f2;
+      touch-action: manipulation;
+    }
+
+    .switch {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .switch input {
+      appearance: none;
+      width: 48px;
+      height: 28px;
+      margin: 0;
+      border-radius: 14px;
+      background: #ccc;
+      position: relative;
+    }
+
+    .switch input::before {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: white;
+      transition: left .15s;
+    }
+
+    .switch input:checked {
+      background: #2e7d32;
+    }
+
+    .switch input:checked::before {
+      left: 23px;
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      min-width: 0;
+    }
+
+    .controls:disabled {
+      opacity: .35;
+    }
+
+    .team, .gifs {
+      display: grid;
+      gap: 8px;
+    }
+
+    .panel h2 {
+      margin: 0;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    .team button, .gifs button {
+      padding: 14px 0;
+      font-size: 1.75rem;
+    }
+
+    .panel hr {
+      margin: 16px 0;
+      border: 0;
+      border-top: 1px solid #ccc;
+    }
+
+    .minus {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .minus button {
+      padding: 10px 0;
+      font-size: 1.1rem;
+    }
   </style>
 </head>
 <body>
@@ -60,49 +160,79 @@
   <div class="stand separator">-</div>
   <div class="score stand" id="scoreVisitors">0</div>
 </div>
-<img id="fireworks" width="192" height="64" alt="" style="display: none">
-<button onclick="showFireworks()" style="margin-top: 20px">Try!</button>
+<img id="gif" width="192" height="64" alt="" style="display: none">
+<div class="panel">
+  <label class="switch"><input type="checkbox" id="manual"> Manual mode</label>
+  <fieldset class="controls" id="controls" disabled>
+    <div class="team">
+      <h2>Home</h2>
+      <button onclick="post('/matchData/score?home=5&visitors=0')">+5</button>
+      <button onclick="post('/matchData/score?home=3&visitors=0')">+3</button>
+      <button onclick="post('/matchData/score?home=2&visitors=0')">+2</button>
+      <div class="minus">
+        <button onclick="post('/matchData/score?home=-5&visitors=0')">-5</button>
+        <button onclick="post('/matchData/score?home=-3&visitors=0')">-3</button>
+        <button onclick="post('/matchData/score?home=-2&visitors=0')">-2</button>
+      </div>
+    </div>
+    <div class="team">
+      <h2>Visitors</h2>
+      <button onclick="post('/matchData/score?home=0&visitors=5')">+5</button>
+      <button onclick="post('/matchData/score?home=0&visitors=3')">+3</button>
+      <button onclick="post('/matchData/score?home=0&visitors=2')">+2</button>
+      <div class="minus">
+        <button onclick="post('/matchData/score?home=0&visitors=-5')">-5</button>
+        <button onclick="post('/matchData/score?home=0&visitors=-3')">-3</button>
+        <button onclick="post('/matchData/score?home=0&visitors=-2')">-2</button>
+      </div>
+    </div>
+  </fieldset>
+  <hr>
+  <div class="gifs">
+    <h2>Gifs</h2>
+    <button onclick="post('/matchData/gif')">Try!</button>
+  </div>
+</div>
 <script>
-  let fireworksTimer;
+  const board = document.getElementById('scoreboard');
+  const img = document.getElementById('gif');
+  const manual = document.getElementById('manual');
+  const controls = document.getElementById('controls');
+  let seq = 0;
 
-  // swap the board for the gif for 30s; a new click restarts both
-  function showFireworks() {
-    const board = document.getElementById('scoreboard');
-    const img = document.getElementById('fireworks');
-    img.src = 'brigandze_try_fireworks_192x64.gif?' + Date.now(); // restart the animation
-    img.style.display = 'block';
-    board.style.display = 'none';
-    clearTimeout(fireworksTimer);
-    fireworksTimer = setTimeout(() => {
-      img.style.display = 'none';
-      board.style.display = '';
-    }, 30000);
-  }
-
-  async function updateScoreBoard() {
+  // every client polls, the phone also POSTs; only the newest request may render so a slow poll can't undo a tap
+  async function load(url, method) {
+    const mine = ++seq;
     try {
-      const response = await fetch('/matchData');
-      if (!response.ok) {
-        return;
+      const response = await fetch(url, {method});
+      if (response.ok && mine === seq) {
+        render(await response.json());
       }
-      const text = await response.text();
-      if (!text) {
-        return; // 204: no current match, keep what is shown
-      }
-      const match = JSON.parse(text);
-      document.getElementById('nameBrigandZe').textContent = match.nameBrigandZe;
-      document.getElementById('nameVisitors').textContent = match.nameVisitors.substring(0, 11);
-      document.getElementById('scoreBrigandZe').textContent = match.scoreBrigandZe;
-      document.getElementById('scoreVisitors').textContent = match.scoreVisitors;
-      document.getElementById('scoreboard').classList.toggle('bigScore',
-          match.scoreBrigandZe >= 100 || match.scoreVisitors >= 100);
     } catch (e) {
       console.log(e);
     }
   }
 
-  updateScoreBoard();
-  setInterval(updateScoreBoard, 5000);
+  const post = url => load(url, 'POST');
+
+  function render(state) {
+    document.getElementById('nameBrigandZe').textContent = state.nameBrigandZe;
+    document.getElementById('nameVisitors').textContent = state.nameVisitors.substring(0, 11);
+    document.getElementById('scoreBrigandZe').textContent = state.scoreBrigandZe;
+    document.getElementById('scoreVisitors').textContent = state.scoreVisitors;
+    board.classList.toggle('bigScore', state.scoreBrigandZe >= 100 || state.scoreVisitors >= 100);
+    manual.checked = state.manual;
+    controls.disabled = !state.manual;
+    if (state.gif && img.style.display === 'none') {
+      img.src = 'brigandze_try_fireworks_192x64.gif?' + Date.now(); // restart the animation
+    }
+    img.style.display = state.gif ? 'block' : 'none';
+    board.style.display = state.gif ? 'none' : '';
+  }
+
+  manual.onchange = () => post('/matchData/manual?on=' + manual.checked);
+  load('/matchData');
+  setInterval(() => load('/matchData'), 2000);
 </script>
 </body>
 </html>
