@@ -60,7 +60,25 @@
   <div class="stand separator">-</div>
   <div class="score stand" id="scoreVisitors">0</div>
 </div>
+<img id="fireworks" width="192" height="64" alt="" style="display: none">
+<button onclick="showFireworks()" style="margin-top: 20px">Try!</button>
 <script>
+  let fireworksTimer;
+
+  // swap the board for the gif for 30s; a new click restarts both
+  function showFireworks() {
+    const board = document.getElementById('scoreboard');
+    const img = document.getElementById('fireworks');
+    img.src = 'brigandze_try_fireworks_192x64.gif?' + Date.now(); // restart the animation
+    img.style.display = 'block';
+    board.style.display = 'none';
+    clearTimeout(fireworksTimer);
+    fireworksTimer = setTimeout(() => {
+      img.style.display = 'none';
+      board.style.display = '';
+    }, 30000);
+  }
+
   async function updateScoreBoard() {
     try {
       const response = await fetch('/matchData');
