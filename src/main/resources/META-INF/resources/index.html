@@ -5,7 +5,22 @@
   <title>Scoreboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preload" href="fonts/DSEG7Classic-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/ShareTechMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <style>
+    /* bundled fonts so every device renders the board the same, with a plain zero */
+    @font-face {
+      font-family: "Scoreboard Digits";
+      src: url("fonts/DSEG7Classic-Bold.woff2") format("woff2");
+      font-display: block;
+    }
+
+    @font-face {
+      font-family: "Scoreboard Text";
+      src: url("fonts/ShareTechMono-Regular.woff2") format("woff2");
+      font-display: block;
+    }
+
     html, body {
       padding: 0;
       margin: 0;
@@ -21,7 +36,7 @@
       height: 64px;
       color: lawngreen;
       background-color: black;
-      font-family: "Lucida Console", monospace;
+      font-family: "Scoreboard Text", "Lucida Console", monospace;
     }
 
     .teamName {
@@ -31,16 +46,19 @@
       font-size: 15px;
     }
 
+    /* flex centering keeps a glyph centered even when it is wider than its cell */
     .stand {
       height: 75%;
-      text-align: center;
-      align-content: center;
-      font-size: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Scoreboard Digits", "Lucida Console", monospace;
+      font-size: 44px;
     }
 
     /* smaller digits once a score hits 100 */
     .scoreboard.bigScore .stand {
-      font-size: 46px;
+      font-size: 32px;
     }
 
     .score {

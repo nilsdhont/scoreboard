@@ -36,6 +36,7 @@ You can run your application in dev mode that enables live coding using:
 gradle quarkusDev
 ```
 The scoreboard page is a static `index.html` in `src/main/resources/META-INF/resources` — no frontend build needed.
+It bundles its own fonts in `fonts/` (DSEG7 Classic for the scores, Share Tech Mono for the team names, both SIL OFL with the license next to the file), so every device renders the board the same regardless of installed fonts.
 
 ## Packaging and running the application
 
