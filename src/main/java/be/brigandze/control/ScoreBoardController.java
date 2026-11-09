@@ -18,10 +18,13 @@ public class ScoreBoardController {
     private boolean manual;
     private int manualHome;
     private int manualVisitors;
-    private Gif gif;
+    private String gifFile;
     private long gifUntil;
+    // last uploaded test gif, kept in memory only
+    private byte[] uploadedGif;
+    private int uploadVersion;
 
-    // gif is the file to show, null while the score is on the board
+    // gif is the url of the image to show, null while the score is on the board
     public record Board(String nameBrigandZe, String nameVisitors, int scoreBrigandZe, int scoreVisitors,
                         boolean manual, String gif) {
     }
@@ -34,7 +37,7 @@ public class ScoreBoardController {
             manual ? manualHome : liveHome(),
             manual ? manualVisitors : liveVisitors(),
             manual,
-            System.currentTimeMillis() < gifUntil ? gif.getFile() : null);
+            System.currentTimeMillis() < gifUntil ? gifFile : null);
     }
 
     // manual scores start from the live score so the phone only has to correct from there
@@ -56,7 +59,22 @@ public class ScoreBoardController {
     }
 
     public synchronized Board gif(Gif pGif) {
-        gif = pGif;
+        return showGif(pGif.getFile());
+    }
+
+    // the version in the url makes every upload a new address, so clients restart and never use a cached one
+    public synchronized Board uploadGif(byte[] pGif) {
+        uploadedGif = pGif;
+        uploadVersion++;
+        return showGif("matchData/gif/uploaded/" + uploadVersion);
+    }
+
+    public synchronized byte[] getUploadedGif() {
+        return uploadedGif;
+    }
+
+    private Board showGif(String pFile) {
+        gifFile = pFile;
         gifUntil = System.currentTimeMillis() + GIF_MS;
         return getBoard();
     }

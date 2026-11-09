@@ -162,6 +162,10 @@
       font-size: 1.25rem;
     }
 
+    .gifGrid .upload {
+      grid-column: span 2;
+    }
+
     .panel hr {
       margin: 16px 0;
       border: 0;
@@ -223,7 +227,9 @@
       <button onclick="post('/matchData/gif?name=conversion')">Conversion</button>
       <button onclick="post('/matchData/gif?name=penalty')">Penalty</button>
       <button onclick="post('/matchData/gif?name=basics')">De Basics</button>
+      <button class="upload" onclick="upload.click()">Test a gif…</button>
     </div>
+    <input type="file" id="upload" accept="image/gif" hidden>
   </div>
 </div>
 <script>
@@ -235,10 +241,14 @@
   let shownGif = null;
 
   // every client polls, the phone also POSTs; only the newest request may render so a slow poll can't undo a tap
-  async function load(url, method) {
+  async function load(url, method, body) {
     const mine = ++seq;
     try {
-      const response = await fetch(url, {method});
+      const headers = body ? {'Content-Type': 'image/gif'} : undefined;
+      const response = await fetch(url, {method, body, headers});
+      if (!response.ok && body) {
+        alert('Upload failed: ' + response.status);
+      }
       if (response.ok && mine === seq) {
         render(await response.json());
       }
@@ -264,6 +274,14 @@
     img.style.display = state.gif ? 'block' : 'none';
     board.style.display = state.gif ? 'none' : '';
   }
+
+  const upload = document.getElementById('upload');
+  upload.onchange = () => {
+    if (upload.files.length) {
+      load('/matchData/gif/upload', 'POST', upload.files[0]);
+    }
+    upload.value = ''; // picking the same file again should upload again
+  };
 
   manual.onchange = () => post('/matchData/manual?on=' + manual.checked);
   load('/matchData');

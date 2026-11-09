@@ -6,6 +6,9 @@ import be.brigandze.control.ScoreBoardController.Board;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.BadRequestException;
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.NotFoundException;
+import java.nio.charset.StandardCharsets;
 import jakarta.ws.rs.DefaultValue;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
@@ -51,5 +54,26 @@ public class MatchResource {
         } catch (IllegalArgumentException e) {
             throw new BadRequestException("Unknown gif: " + name);
         }
+    }
+
+    @POST
+    @Path("/gif/upload")
+    @Consumes("image/gif")
+    public Board uploadGif(byte[] body) {
+        if (body == null || body.length < 6 || !new String(body, 0, 4, StandardCharsets.US_ASCII).equals("GIF8")) {
+            throw new BadRequestException("Not a gif");
+        }
+        return scoreBoardController.uploadGif(body);
+    }
+
+    @GET
+    @Path("/gif/uploaded/{version}")
+    @Produces("image/gif")
+    public byte[] uploadedGif() {
+        byte[] gif = scoreBoardController.getUploadedGif();
+        if (gif == null) {
+            throw new NotFoundException();
+        }
+        return gif;
     }
 }
