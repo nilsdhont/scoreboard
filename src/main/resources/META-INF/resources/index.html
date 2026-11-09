@@ -276,11 +276,21 @@
   }
 
   const upload = document.getElementById('upload');
-  upload.onchange = () => {
-    if (upload.files.length) {
-      load('/matchData/gif/upload', 'POST', upload.files[0]);
-    }
+  upload.onchange = async () => {
+    const file = upload.files[0];
     upload.value = ''; // picking the same file again should upload again
+    if (!file) {
+      return;
+    }
+    // width and height sit at bytes 6-9 of the gif header, little-endian
+    const header = new DataView(await file.slice(0, 10).arrayBuffer());
+    const width = header.byteLength === 10 ? header.getUint16(6, true) : 0;
+    const height = header.byteLength === 10 ? header.getUint16(8, true) : 0;
+    if ((width !== 192 || height !== 64)
+        && !confirm(`This gif is ${width}x${height}, the board is 192x64 so it will be stretched. Show it anyway?`)) {
+      return;
+    }
+    load('/matchData/gif/upload', 'POST', file);
   };
 
   manual.onchange = () => post('/matchData/manual?on=' + manual.checked);
