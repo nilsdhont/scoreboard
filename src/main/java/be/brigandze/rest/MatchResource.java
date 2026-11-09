@@ -1,9 +1,11 @@
 package be.brigandze.rest;
 
+import be.brigandze.control.Gif;
 import be.brigandze.control.ScoreBoardController;
 import be.brigandze.control.ScoreBoardController.Board;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.ws.rs.BadRequestException;
 import jakarta.ws.rs.DefaultValue;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
@@ -43,7 +45,11 @@ public class MatchResource {
 
     @POST
     @Path("/gif")
-    public Board gif() {
-        return scoreBoardController.gif();
+    public Board gif(@QueryParam("name") @DefaultValue("try") String name) {
+        try {
+            return scoreBoardController.gif(Gif.valueOf(name.toUpperCase()));
+        } catch (IllegalArgumentException e) {
+            throw new BadRequestException("Unknown gif: " + name);
+        }
     }
 }

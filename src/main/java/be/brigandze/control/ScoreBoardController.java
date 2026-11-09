@@ -8,7 +8,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 @ApplicationScoped
 public class ScoreBoardController {
 
-    private static final long GIF_MS = 30_000;
+    private static final long GIF_MS = 15_000;
 
     private final EventController eventController = getInstance();
 
@@ -18,10 +18,12 @@ public class ScoreBoardController {
     private boolean manual;
     private int manualHome;
     private int manualVisitors;
+    private Gif gif;
     private long gifUntil;
 
+    // gif is the file to show, null while the score is on the board
     public record Board(String nameBrigandZe, String nameVisitors, int scoreBrigandZe, int scoreVisitors,
-                        boolean manual, boolean gif) {
+                        boolean manual, String gif) {
     }
 
     public synchronized Board getBoard() {
@@ -32,7 +34,7 @@ public class ScoreBoardController {
             manual ? manualHome : liveHome(),
             manual ? manualVisitors : liveVisitors(),
             manual,
-            System.currentTimeMillis() < gifUntil);
+            System.currentTimeMillis() < gifUntil ? gif.getFile() : null);
     }
 
     // manual scores start from the live score so the phone only has to correct from there
@@ -53,7 +55,8 @@ public class ScoreBoardController {
         return getBoard();
     }
 
-    public synchronized Board gif() {
+    public synchronized Board gif(Gif pGif) {
+        gif = pGif;
         gifUntil = System.currentTimeMillis() + GIF_MS;
         return getBoard();
     }

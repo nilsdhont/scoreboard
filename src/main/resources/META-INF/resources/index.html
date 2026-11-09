@@ -152,6 +152,16 @@
       font-size: 1.75rem;
     }
 
+    .gifGrid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .gifGrid button {
+      font-size: 1.25rem;
+    }
+
     .panel hr {
       margin: 16px 0;
       border: 0;
@@ -208,7 +218,12 @@
   <hr>
   <div class="gifs">
     <h2>Gifs</h2>
-    <button onclick="post('/matchData/gif')">Try!</button>
+    <div class="gifGrid">
+      <button onclick="post('/matchData/gif?name=try')">Try!</button>
+      <button onclick="post('/matchData/gif?name=conversion')">Conversion</button>
+      <button onclick="post('/matchData/gif?name=penalty')">Penalty</button>
+      <button onclick="post('/matchData/gif?name=basics')">De Basics</button>
+    </div>
   </div>
 </div>
 <script>
@@ -217,6 +232,7 @@
   const manual = document.getElementById('manual');
   const controls = document.getElementById('controls');
   let seq = 0;
+  let shownGif = null;
 
   // every client polls, the phone also POSTs; only the newest request may render so a slow poll can't undo a tap
   async function load(url, method) {
@@ -241,9 +257,10 @@
     board.classList.toggle('bigScore', state.scoreBrigandZe >= 100 || state.scoreVisitors >= 100);
     manual.checked = state.manual;
     controls.disabled = !state.manual;
-    if (state.gif && img.style.display === 'none') {
-      img.src = 'brigandze_try_fireworks_192x64.gif?' + Date.now(); // restart the animation
+    if (state.gif && state.gif !== shownGif) {
+      img.src = state.gif + '?' + Date.now(); // restart the animation
     }
+    shownGif = state.gif;
     img.style.display = state.gif ? 'block' : 'none';
     board.style.display = state.gif ? 'none' : '';
   }
