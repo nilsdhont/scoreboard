@@ -22,6 +22,8 @@ GREEN = (39, 189, 62)
 LIGHT_GREEN = (75, 229, 80)
 DARK_GREEN = (21, 109, 44)
 WHITE = (255, 255, 255)
+BALL = (150, 85, 35)
+BALL_EDGE = (90, 45, 15)
 
 # widest first: a long word falls back to a narrower cut so it stays tall on a 192px wide board
 FONTS = [HERE / "fonts" / name for name in
@@ -45,6 +47,7 @@ TEXT_MAX_H = 40
 DEPTH = 3          # extrusion of the headline, down and to the right
 BAR_TOP = 60
 BAR_SPEED = 20
+KICK_LEAD = 6      # extra frames up front that give the ball time to fly
 GAP = 6            # between the mascot and the headline
 
 
@@ -86,8 +89,9 @@ def paste_centered(img, sprite, cx, cy):
     img.paste(sprite, (round(cx - sprite.width / 2), round(cy - sprite.height / 2)), sprite)
 
 
-def stripes(draw, i):
-    """Green stripes from the left and white ones from the right, closing in on the middle and skewing as they go."""
+def stripes(draw, i, gap=0):
+    """Green stripes from the left and white ones from the right, closing in on the middle and skewing as they go.
+    gap keeps that many pixels free on both sides of the middle."""
     if i >= IMPACT:
         return
     shift = max(0, (i - SLIDE_START) * STRIPE_SPEED + 1)
@@ -95,14 +99,33 @@ def stripes(draw, i):
         y = STRIPE_TOP + k * STRIPE_PITCH
         # lower stripes run ahead of the upper ones the further they get
         lead = shift + round(k * 1.4 * shift / 42)
-        g0, g1 = lead, min(lead + STRIPE_LEN - 1, W // 2 - 1)
-        w0, w1 = max(W - STRIPE_LEN - lead, W // 2), W - 1 - lead
+        g0, g1 = lead, min(lead + STRIPE_LEN - 1, W // 2 - 1 - gap)
+        w0, w1 = max(W - STRIPE_LEN - lead, W // 2 + gap), W - 1 - lead
         if g1 - g0 >= 8:
             draw.rectangle((g0, y, g1, y + 1), fill=GREEN)
             draw.point((g1 - 7, y - 1), fill=GREEN)
         if w1 - w0 >= 8:
             draw.rectangle((w0, y, w1, y + 1), fill=WHITE)
             draw.point((w0 + 7, y - 1), fill=WHITE)
+
+
+def posts(draw, flash=False):
+    """Rugby H-posts in the middle of the board, crossbar at y=38."""
+    cx, c = W // 2, LIGHT_GREEN if flash else WHITE
+    draw.rectangle((cx - 11, 6, cx - 10, H - 1), fill=c)
+    draw.rectangle((cx + 10, 6, cx + 11, H - 1), fill=c)
+    draw.rectangle((cx - 10, 38, cx + 10, 39), fill=c)
+
+
+def ball(draw, t, spin):
+    """Ball kicked from the bottom left over the crossbar, shrinking as it flies away; t runs from 0 to 1."""
+    x = lerp(30, W / 2, t)
+    y = lerp(60, 22, t) - 18 * math.sin(math.pi * t)
+    w = max(2, round(lerp(10, 5, t)))
+    h = max(2, round(w * (0.55 + 0.25 * abs(math.sin(spin)))))
+    draw.ellipse((round(x - w / 2), round(y - h / 2), round(x + w / 2), round(y + h / 2)), fill=BALL, outline=BALL_EDGE)
+    if w >= 5:
+        draw.line((round(x - w / 4), round(y), round(x + w / 4), round(y)), fill=WHITE)
 
 
 def ring(draw, i, mascot_cx, text_x):
@@ -144,9 +167,11 @@ class Sparks:
             draw.rectangle((x, y, x + size - 1, y + size - 1), fill=color)
 
 
-def celebration(text, mascot, seed, breathe=True):
+def celebration(text, mascot, seed, breathe=True, kick=False):
     """The TRY choreography: stripes close in while the mascot flies to the middle, then it jumps aside and the
-    headline pops out of it, an underline sweeps in and sparks fly."""
+    headline pops out of it, an underline sweeps in and sparks fly.
+    With kick the ball is kicked over the posts instead of the mascot flying in, and the mascot pops up afterwards."""
+    lead = KICK_LEAD if kick else 0
     rest_w = mascot.width
     rest_cx, rest_cy = 1 + rest_w / 2, 31
     text_x = round(1 + rest_w + GAP)
@@ -154,20 +179,27 @@ def celebration(text, mascot, seed, breathe=True):
     text_cx = text_x + sprite.width / 2
     sparks = Sparks(seed, text_x, text_x + sprite.width)
     frames = []
-    for i in range(FRAMES):
+    for n in range(FRAMES + lead):
+        i = n - lead
         img = Image.new("RGB", (W, H))
         d = ImageDraw.Draw(img)
-        stripes(d, i)
+        stripes(d, i, 15 if kick else 0)  # the posts stay clear
 
         if i >= BAR_START:
             d.rectangle((max(text_x - 2, W - (i - BAR_START + 1) * BAR_SPEED), BAR_TOP, W - 1, H - 1), fill=GREEN)
 
         # mascot: flies in from the left growing, hits the middle, then jumps to its resting place
-        if 1 <= i <= IMPACT:
+        if i < TEXT_START and kick:
+            scale = 0
+            # the posts flash once the ball is over
+            posts(d, flash=i >= IMPACT - 1 and i % 2 == 0)
+            if i < IMPACT:
+                ball(d, n / (lead + IMPACT - 1), n * 1.3)
+        elif 1 <= i <= IMPACT:
             t = (i - 1) / (IMPACT - 1)
             scale, cx, cy = lerp(0.25, 0.87, t ** 0.8), lerp(6, W / 2, t), lerp(25, 31, t)
         elif i == TEXT_START:
-            scale, cx, cy = 0.85, W / 2 - 12, 31
+            scale, cx, cy = (0.5, rest_cx, rest_cy) if kick else (0.85, W / 2 - 12, 31)
         elif i > TEXT_START:
             settle = min(1, (i - TEXT_START) / 2)
             cycle = math.sin((i - TEXT_START - 3) / 11 * 2 * math.pi)
@@ -224,7 +256,7 @@ def save(frames, name):
 if __name__ == "__main__":
     frog = load_frog()
     # the longer the word, the smaller the frog, so the headline keeps its height
-    save(celebration("CONVERSION!", scaled(frog, 0.7), 1), "brigandze_conversion_192x64.gif")
-    save(celebration("PENALTY!", scaled(frog, 0.85), 2), "brigandze_penalty_192x64.gif")
+    save(celebration("CONVERSION!", scaled(frog, 0.7), 1, kick=True), "brigandze_conversion_192x64.gif")
+    save(celebration("PENALTY!", scaled(frog, 0.85), 2, kick=True), "brigandze_penalty_192x64.gif")
     photo = load_photo(sys.argv[1] if len(sys.argv) > 1 else BASICS_IMAGE, 54)
     save(celebration("DE BASICS!", photo, 3, breathe=False), "brigandze_basics_192x64.gif")
