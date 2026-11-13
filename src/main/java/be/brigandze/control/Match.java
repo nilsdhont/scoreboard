@@ -16,6 +16,7 @@ public class Match {
     private String nameBrigandZe;
     private int scoreVisitors;
     private String nameVisitors;
+    private boolean scoreKnown;
 
     public Match(int teamId, int id, String nameBrigandZe, String nameVisitors) {
         this.teamId = teamId;
@@ -48,11 +49,18 @@ public class Match {
         return nameVisitors;
     }
 
-    public void updateScore() {
+    // returns the points BrigandZe gained since the previous poll; the first poll only sets the baseline,
+    // so picking up a match that is already under way doesn't count as scoring
+    public int updateScore() {
+        int gained = 0;
         Event event = getSportEasyInstance().getMatchData(teamId, id);
         if (event != null) {
             boolean scoreChanged = false;
             int newScoreBrigandZe = event.getOpponent_left().getScore();
+            if (scoreKnown) {
+                gained = newScoreBrigandZe - scoreBrigandZe;
+            }
+            scoreKnown = true;
             if (newScoreBrigandZe != scoreBrigandZe) {
                 scoreChanged = true;
                 scoreBrigandZe = newScoreBrigandZe;
@@ -67,7 +75,7 @@ public class Match {
                 printScore();
             }
         }
-
+        return gained;
     }
 
     void printScore() {

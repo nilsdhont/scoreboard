@@ -122,6 +122,14 @@
       left: 23px;
     }
 
+    .switch input:disabled {
+      opacity: .35;
+    }
+
+    .gifs .switch {
+      margin-bottom: 0;
+    }
+
     .controls {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -222,6 +230,7 @@
   <hr>
   <div class="gifs">
     <h2>Gifs</h2>
+    <label class="switch"><input type="checkbox" id="autoGifs"> Automatic gifs when we score</label>
     <div class="gifGrid">
       <button onclick="post('/matchData/gif?name=try')">Try!</button>
       <button onclick="post('/matchData/gif?name=conversion')">Conversion</button>
@@ -237,6 +246,7 @@
   const img = document.getElementById('gif');
   const manual = document.getElementById('manual');
   const controls = document.getElementById('controls');
+  const autoGifs = document.getElementById('autoGifs');
   let seq = 0;
   let shownGif = null;
 
@@ -267,6 +277,8 @@
     board.classList.toggle('bigScore', state.scoreBrigandZe >= 100 || state.scoreVisitors >= 100);
     manual.checked = state.manual;
     controls.disabled = !state.manual;
+    autoGifs.checked = state.autoGifs;
+    autoGifs.disabled = state.manual; // only SportEasy scores are celebrated
     if (state.gif && state.gif !== shownGif) {
       img.src = state.gif + '?' + Date.now(); // restart the animation
     }
@@ -294,6 +306,7 @@
   };
 
   manual.onchange = () => post('/matchData/manual?on=' + manual.checked);
+  autoGifs.onchange = () => post('/matchData/autoGifs?on=' + autoGifs.checked);
   load('/matchData');
   setInterval(() => load('/matchData'), 2000);
 </script>

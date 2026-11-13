@@ -47,6 +47,12 @@ public class MatchResource {
     }
 
     @POST
+    @Path("/autoGifs")
+    public Board autoGifs(@QueryParam("on") boolean on) {
+        return scoreBoardController.setAutoGifs(on);
+    }
+
+    @POST
     @Path("/gif")
     public Board gif(@QueryParam("name") @DefaultValue("try") String name) {
         try {
